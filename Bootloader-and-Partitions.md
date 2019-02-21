@@ -5,4 +5,9 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ### Table of Contents
 
 - **[Bootloader](#bootloader)**
-- **[Disk Partitions](#disk-partitions)**
+  * [Protect bootloader with password](#protect-bootloader-with-password)
+  * [Protect bootloader config files](#protect-bootloader-config-files)
+
+- **[Disk Partitioning](#disk-partitioning)**
+  * [Separate disk partitions](#separate-disk-partitions)
+  * [Restrict mount options](#restrict-mount-options)
