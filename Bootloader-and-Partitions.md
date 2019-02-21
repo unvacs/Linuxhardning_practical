@@ -3,3 +3,6 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ---
 
 ### Table of Contents
+
+- **[Bootloader](#bootloader)**
+- **[Disk Partitions](#disk-partitions)**
