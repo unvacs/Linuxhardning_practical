@@ -4,6 +4,16 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ---
 
+### Table of Contents
+- [Bootloader configuration (grub)](#bootloader-configuration--grub-)
+  * [Introduction](#introduction)
+  * [Protect bootloader with password](#protect-bootloader-with-password)
+    + [Generate password hash](#generate-password-hash)
+    + [Updated grub configuration](#updated-grub-configuration)
+  * [Useful resources](#useful-resources)
+  * [Protect bootloader config files](#protect-bootloader-config-files)
+  * [Summary checklist](#summary-checklist)
+
 ### Bootloader configuration (grub)
 
 #### Introduction
