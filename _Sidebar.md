@@ -28,6 +28,13 @@
 - **[Devices](#)**
 - **[Notifications](#)**
 
+### `Services Layer`
+
+- **[OpenSSH](#)**
+- **[NTP](#)**
+- **[Cron](#)**
+- **[GnuPG 2](#)**
+
 ### `Logging & Auditing`
 
 - **[Syslog](#)**
