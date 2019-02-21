@@ -5,7 +5,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ---
 
 ### Table of Contents
-- [Bootloader configuration (grub)](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#bootloader-configuration-grub)
+- **[Bootloader configuration (grub)](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#bootloader-configuration-grub)**
   * [Introduction](#introduction)
   * [Protect bootloader with password](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#protect-bootloader-with-password)
     + [Generate password hash](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#generate-password-hash)
