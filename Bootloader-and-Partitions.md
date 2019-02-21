@@ -6,9 +6,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 - **[Bootloader configuration](#bootloader-configuration)**
   * [Introduction](#introduction)
   * [Protect bootloader with password](#protect-bootloader-with-password)
-    + [Generate password hash](#generate-password-hash)
-    + [Updated grub configuration](#updated-grub-configuration)
-  * [Protect bootloader config files]#protect-bootloader-config-files)
+  * [Protect bootloader config files](#protect-bootloader-config-files)
   * [Summary checklist](#summary-checklist)
 - **[Disk Partitions](#partitions)**
   * [Introduction](#introduction-1)
