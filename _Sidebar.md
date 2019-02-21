@@ -1,5 +1,3 @@
-## **[Wiki Page](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki)**
-
 ## Basic information
 
   * [GH Repository](https://github.com/trimstray/the-practical-linux-hardening-guide)
