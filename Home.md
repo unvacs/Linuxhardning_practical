@@ -9,3 +9,10 @@ This guide is compliant with [OpenSCAP](https://www.open-scap.org/) configuratio
 ---
 
 - **Core Layer** - describes the most important elements of the operating system.
+- **Kernel Layer** - 
+- **Extended Layer**
+
+- **Logging & Auditing**
+- **System Services**
+- **Other Services**
+- **Containers**
