@@ -8,7 +8,7 @@
 
 ### `Core Layer`
 
-- **[Bootloader and Partitions](/Bootloader-and-Partitions)**
+- **[Bootloader and Partitions](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions)**
 - **[Maintaining Software](#)**
 - **[Users and Groups](#)**
 - **[Permissions and Limits](#)**
