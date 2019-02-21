@@ -4,17 +4,15 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ---
 
-## Post install tasks
-
 ### Bootloader configuration (grub)
 
-#### :information_source: Introduction
+#### Introduction
 
 Protection for the boot loader can prevent unauthorized users who have physical access to systems, e.g. attaining root privileges through single user mode.
 
 Basically when you want to prohibit unauthorized reconfiguring of your system, otherwise anybody could load anything on it.
 
-#### :eight_pointed_black_star: Protect bootloader with password
+#### Protect bootloader with password
 
 You can set password for the bootloader for prevents users from entering single user mode, changing settings at boot time, access to the bootloader console, reset the root password, if there is no password for GRUB-menu or access to non-secure operating systems.
 
@@ -52,7 +50,7 @@ grub2-mkconfig > /boot/grub2/grub.cfg
 
 - [How To Password Protect GRUB Bootloader In Linux](https://www.ostechnix.com/password-protect-grub-bootloader-linux/)
 
-#### :eight_pointed_black_star: Protect bootloader config files
+#### Protect bootloader config files
 
 Set the owner and group of `/etc/grub.conf` to the root user:
 
@@ -78,7 +76,7 @@ or
 chmod -R og-rwx /etc/grub.d
 ```
 
-#### :ballot_box_with_check: Summary checklist
+#### Summary checklist
 
 | <b>Item</b> | <b>True</b> | <b>False</b> |
 | :---        | :---:       | :---:        |
