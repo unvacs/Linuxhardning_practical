@@ -10,6 +10,31 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
     + [Updated grub configuration](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#updated-grub-configuration)
   * [Protect bootloader config files](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#protect-bootloader-config-files)
   * [Summary checklist](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#summary-checklist)
+- [Partitions](#partitions)
+  * [Introduction](#introduction)
+  * [Separate disk partitions](#separate-disk-partitions)
+      - [Policies](#policies)
+      - [Useful resources](#useful-resources)
+  * [Mount options: nodev, nosuid and noexec](#mount-options--nodev--nosuid-and-noexec)
+      - [Policies](#policies-1)
+      - [Useful resources](#useful-resources-1)
+  * [Secure /boot directory](#secure--boot-directory)
+  * [Secure /tmp and /var/tmp](#secure--tmp-and--var-tmp)
+      - [Policies](#policies-2)
+      - [Useful resources](#useful-resources-2)
+  * [Secure /dev/shm](#secure--dev-shm)
+      - [Policies](#policies-3)
+      - [Useful resources](#useful-resources-3)
+  * [:eight_pointed_black_star: Secure /proc filesystem](#-eight-pointed-black-star--secure--proc-filesystem)
+      - [Policies](#policies-4)
+      - [Useful resources](#useful-resources-4)
+  * [Swap partition](#swap-partition)
+      - [Policies](#policies-5)
+      - [Useful resources](#useful-resources-5)
+  * [Disk quotas](#disk-quotas)
+      - [Policies](#policies-6)
+      - [Useful resources](#useful-resources-6)
+  * [Summary checklist](#summary-checklist)
 
 ### Bootloader configuration (grub)
 
@@ -261,7 +286,7 @@ tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1770,uid=root,gid
 
 - [Securing /dev/shm partition](https://www.gnutoolbox.com/securing-devshm-partition/)
 
-#### :eight_pointed_black_star: Secure /proc filesystem
+#### Secure /proc filesystem
 
 The proc pseudo-filesystem `/proc` should be mounted with `hidepid`. When setting `hidepid` to **2**, directories entries in `/proc` will hidden.
 
