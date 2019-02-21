@@ -17,8 +17,8 @@
 
 ### `Kernel Layer`
 
-- **[System parameters](#)**
-- **[Network parameters](#)**
+- **[System](#)**
+- **[Network](#)**
 
 ### `Extended Layer`
 
