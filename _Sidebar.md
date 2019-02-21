@@ -6,7 +6,7 @@
 
 ***
 
-### `Core System hardening`
+### `System hardening`
 
 - **[Bootloader and Partitions](#)**
 - **[Maintaining Software](#)**
