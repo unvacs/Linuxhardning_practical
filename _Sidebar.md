@@ -8,7 +8,7 @@
 
 ### `Core Layer`
 
-- **[Bootloader and Partitions](#wiki/Bootloader-and-Partitions)**
+- **[Bootloader and Partitions](#Bootloader-and-Partitions)**
 - **[Maintaining Software](#)**
 - **[Users and Groups](#)**
 - **[Permissions and Limits](#)**
