@@ -12,8 +12,8 @@
 - **[Maintaining Software](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Maintaining-Software)**
 - **[Users and Groups](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Users-and-Groups)**
 - **[Permissions and Limits](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Permissions-and-Limits)**
-- **[PAM Module](#)**
-- **[SELinux](#)**
+- **[PAM Module](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/PAM-Module)**
+- **[SELinux](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/SELinux)**
 
 ### `Kernel Layer`
 
