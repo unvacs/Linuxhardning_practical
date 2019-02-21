@@ -19,7 +19,6 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Secure /dev/shm](#secure--dev-shm)
   * [Secure /proc filesystem](#secure--proc-filesystem)
   * [Swap partition](#swap-partition)
-  * [Disk quotas](#disk-quotas)
   * [Summary checklist](#summary-checklist)
 
 ### Bootloader configuration (grub)
@@ -330,19 +329,6 @@ swapon -a
 
 - [dm-crypt/Swap encryption](https://wiki.archlinux.org/index.php/Dm-crypt/Swap_encryption)
 - [Encrypted swap partition on Debian/Ubuntu](https://feeding.cloud.geek.nz/posts/encrypted-swap-partition-on/)
-
-#### Disk quotas
-
-###### Policies
-
-- STIG:
-
-- CIS:
-
-###### Useful resources
-
-- [The Lost Art of Disk Quota Management](https://linuxacademy.com/blog/linux/the-lost-art-of-disk-quota-management/)
-- [Disk quota](https://wiki.archlinux.org/index.php/disk_quota)
 
 #### Summary checklist
 
