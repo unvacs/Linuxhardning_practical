@@ -10,7 +10,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
     + [Updated grub configuration](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#updated-grub-configuration)
   * [Protect bootloader config files](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#protect-bootloader-config-files)
   * [Summary checklist](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#summary-checklist)
-- [Partitions](#partitions)
+- **[Disk Partitions](#partitions)**
   * [Introduction](#introduction)
   * [Separate disk partitions](#separate-disk-partitions)
       - [Policies](#policies)
