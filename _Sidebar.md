@@ -1,10 +1,16 @@
 ## **[Wiki Page](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki)**
 
-* ### Info
+## Basic information
+
   * [GH Repository](https://github.com/trimstray/the-practical-linux-hardening-guide)
 
-* ### Baseline
-  - **[System configuration](#system-settings)**
-  - **[Network configuration](#network-settings)**
-  - **[Services configuration](#system-services)**
-  - **[External tools](#external-tools)**
+***
+
+### `Core System hardening`
+
+- **[Bootloader and Partitions](#)**
+- **[Maintaining Software](#)**
+- **[Users and Groups](#)**
+- **[Permissions and Limits](#)**
+- **[PAM Module](#)**
+- **[SELinux](#)**
