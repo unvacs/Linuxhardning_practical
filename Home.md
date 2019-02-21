@@ -7,5 +7,3 @@ This guide is compliant with [OpenSCAP](https://www.open-scap.org/) configuratio
 - [U.S. Government Commercial Cloud Services (C2S) baseline inspired by CIS v2.1.1](https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html)
 
 ---
-
-**The Practical Linux Hardening Guide** provides a high-level overview of the hardening GNU/Linux systems. It is not an official standard or handbook but it _touches_ and _use_ industry standards.
