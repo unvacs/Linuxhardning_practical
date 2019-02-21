@@ -10,7 +10,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Protect bootloader with password](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#protect-bootloader-with-password)
     + [Generate password hash](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#generate-password-hash)
     + [Updated grub configuration](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#updated-grub-configuration)
-  * [Useful resources](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#useful-resources)
+    + [Useful resources](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#useful-resources)
   * [Protect bootloader config files](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#protect-bootloader-config-files)
   * [Summary checklist](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#summary-checklist)
 
@@ -56,7 +56,7 @@ grub-mkconfig > /boot/grub/grub.cfg
 grub2-mkconfig > /boot/grub2/grub.cfg
 ```
 
-#### Useful resources
+##### Useful resources
 
 - [How To Password Protect GRUB Bootloader In Linux](https://www.ostechnix.com/password-protect-grub-bootloader-linux/)
 
