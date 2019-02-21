@@ -28,7 +28,7 @@
 - **[Devices](#)**
 - **[Notifications](#)**
 
-### `Logging and Auditing`
+### `Logging & Auditing`
 
 - **[Syslog](#)**
 - **[Auditd](#)**
