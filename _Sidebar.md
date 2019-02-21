@@ -1,6 +1,10 @@
 ## **[Wiki Page](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki)**
 
-* ### Base
+* ### Info
   * [GH Repository](https://github.com/trimstray/the-practical-linux-hardening-guide)
 
-* ### TOC
+* ### Baseline
+  - **[System configuration](#system-settings)**
+  - **[Network configuration](#network-settings)**
+  - **[Services configuration](#system-services)**
+  - **[External tools](#external-tools)**
