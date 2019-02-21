@@ -11,7 +11,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 - **[Disk Partitions](#partitions)**
   * [Introduction](#introduction-1)
   * [Separate disk partitions](#separate-disk-partitions)
-  * [Mount options: nodev, nosuid and noexec](#mount-options--nodev--nosuid-and-noexec)
+  * [Mount options: nodev, nosuid and noexec](#mount-options-nodev-nosuid-and-noexec)
   * [Secure /boot directory](#secure--boot-directory)
   * [Secure /tmp and /var/tmp](#secure--tmp-and--var-tmp)
   * [Secure /dev/shm](#secure--dev-shm)
