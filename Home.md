@@ -7,12 +7,3 @@ This guide is compliant with [OpenSCAP](https://www.open-scap.org/) configuratio
 - [U.S. Government Commercial Cloud Services (C2S) baseline inspired by CIS v2.1.1](https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html)
 
 ---
-
-- **Core Layer** - describes the most important elements of the operating system.
-- **Kernel Layer** - describes the Linux Kernel.
-- **Extended Layer** - describes extended elements of the operating system.
-
-- **Logging & Auditing**
-- **System Services**
-- **Other Services**
-- **Containers**
