@@ -89,13 +89,13 @@ chmod -R og-rwx /etc/grub.d
 | :---        | :---:       | :---:        |
 | Set password for the bootloader | :black_square_button: | :black_square_button: |
 
-### Disk partitions
+### Partitions
 
-#### :information_source: Introduction
+#### Introduction
 
 Critical file systems should be separated into different partitions in ways that make your system a better and more secure.
 
-#### :eight_pointed_black_star: Separate disk partitions
+#### Separate disk partitions
 
 Make sure the following filesystems are mounted on separate partitions:
 
@@ -126,7 +126,7 @@ You should also consider separating these partitions:
 - [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86)
 - [Most secure way to partition linux?](https://security.stackexchange.com/questions/38793/most-secure-way-to-partition-linux)
 
-#### :eight_pointed_black_star: Mount options: nodev, nosuid and noexec
+#### Mount options: nodev, nosuid and noexec
 
 For more security-focused situations is as follows:
 
@@ -145,7 +145,7 @@ For more security-focused situations is as follows:
 - [Linux Security: Mount /tmp With nodev, nosuid, and noexec Options](https://www.cyberciti.biz/faq/linux-add-nodev-nosuid-noexec-options-to-temporary-storage-partitions/)
 - [Security Handbook/Mounting partitions](https://wiki.gentoo.org/wiki/Security_Handbook/Mounting_partitions)
 
-#### :eight_pointed_black_star: Secure /boot directory
+#### Secure /boot directory
 
 The boot directory contains important files related to the Linux kernel, so you need to make sure that this directory is locked down to read-only permissions.
 
@@ -160,7 +160,7 @@ LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
   > mount -o remount,defaults,rw /boot
   > ```
 
-#### :eight_pointed_black_star: Secure /tmp and /var/tmp
+#### Secure /tmp and /var/tmp
 
 On Linux systems, the **/tmp** and **/var/tmp** locations are world-writable.
 
@@ -235,7 +235,7 @@ And set `nodev`, `nosuid` and `noexec` mount options in `/etc/fstab`.
 - [Increasing Linux server security with nodev, nosuid and no exec options](https://kb.iweb.com/hc/en-us/articles/230267488--Increasing-Linux-server-security-with-nodev-nosuid-and-no-exec-options)
 - [Why it is important to Securing /dev/shm and /tmp](https://askubuntu.com/questions/389408/why-it-is-important-to-securing-dev-shm-and-tmp)
 
-#### :eight_pointed_black_star: Secure /dev/shm
+#### Secure /dev/shm
 
 `/dev/shm` is a temporary file storage filesystem, i.e. **tmpfs**, that uses RAM for the backing store. One of the major security issue with the `/dev/shm` is anyone can upload and execute files inside the `/dev/shm` similar to the `/tmp` partition. Further the size should be limited to avoid an attacker filling up this mountpoint to the point where applications could be affected. (normally it allows 20% or more of RAM to be used). The sticky bit should be set like for any world writeable directory.
 
@@ -281,7 +281,7 @@ proc  /proc  proc  defaults,hidepid=2  0 0
 
 - [Linux system hardening: adding hidepid to /proc mount point](https://linux-audit.com/linux-system-hardening-adding-hidepid-to-proc/)
 
-#### :eight_pointed_black_star: Swap partition
+#### Swap partition
 
 Encryption of swap space is used to protect sensitive information. It improves the availability of the system, which is also an important part of information security.
 
@@ -320,7 +320,7 @@ swapon -a
 - [dm-crypt/Swap encryption](https://wiki.archlinux.org/index.php/Dm-crypt/Swap_encryption)
 - [Encrypted swap partition on Debian/Ubuntu](https://feeding.cloud.geek.nz/posts/encrypted-swap-partition-on/)
 
-#### :eight_pointed_black_star: Disk quotas
+#### Disk quotas
 
 ###### Policies
 
@@ -333,7 +333,7 @@ swapon -a
 - [The Lost Art of Disk Quota Management](https://linuxacademy.com/blog/linux/the-lost-art-of-disk-quota-management/)
 - [Disk quota](https://wiki.archlinux.org/index.php/disk_quota)
 
-#### :ballot_box_with_check: Summary checklist
+#### Summary checklist
 
 | <b>Item</b> | <b>True</b> | <b>False</b> |
 | :---        | :---:       | :---:        |
