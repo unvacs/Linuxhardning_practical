@@ -15,3 +15,10 @@
 - **[PAM Module](#)**
 - **[SELinux](#)**
 
+### `Extended Layer`
+
+- **[Backup](#)**
+- **[Entropy](#)**
+- **[Compilers](#)**
+- **[Devices](#)**
+- **[Notifications](#)**
