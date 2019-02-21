@@ -27,3 +27,12 @@
 - **[Compilers](#)**
 - **[Devices](#)**
 - **[Notifications](#)**
+
+### `Logging and Auditing`
+
+- **[Syslog](#)**
+- **[Auditd](#)**
+- **[OSSEC](#)**
+- **[Tiger](#)**
+- **[Aide](#)**
+- **[Logwatch](#)**
