@@ -3,15 +3,15 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ---
 
 ### Table of Contents
-- **[Bootloader configuration](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#bootloader-configuration)**
+- **[Bootloader configuration](#bootloader-configuration)**
   * [Introduction](#introduction)
-  * [Protect bootloader with password](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#protect-bootloader-with-password)
-    + [Generate password hash](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#generate-password-hash)
-    + [Updated grub configuration](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#updated-grub-configuration)
-  * [Protect bootloader config files](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#protect-bootloader-config-files)
-  * [Summary checklist](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#summary-checklist)
+  * [Protect bootloader with password](#protect-bootloader-with-password)
+    + [Generate password hash](#generate-password-hash)
+    + [Updated grub configuration](#updated-grub-configuration)
+  * [Protect bootloader config files]#protect-bootloader-config-files)
+  * [Summary checklist](#summary-checklist)
 - **[Disk Partitions](#partitions)**
-  * [Introduction](#introduction)
+  * [Introduction](#introduction-1)
   * [Separate disk partitions](#separate-disk-partitions)
   * [Mount options: nodev, nosuid and noexec](#mount-options--nodev--nosuid-and-noexec)
   * [Secure /boot directory](#secure--boot-directory)
