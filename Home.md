@@ -9,8 +9,8 @@ This guide is compliant with [OpenSCAP](https://www.open-scap.org/) configuratio
 ---
 
 - **Core Layer** - describes the most important elements of the operating system.
-- **Kernel Layer** - 
-- **Extended Layer**
+- **Kernel Layer** - describes the Linux Kernel.
+- **Extended Layer** - describes extended elements of the operating system.
 
 - **Logging & Auditing**
 - **System Services**
