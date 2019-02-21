@@ -1,4 +1,4 @@
-### Welcome to The Practical Linux Hardening Guide wiki! 
+## Welcome to The Practical Linux Hardening Guide wiki! 
 
 You can [file an issue](https://github.com/trimstray/the-practical-linux-hardening-guide/issues) about it and ask that it be added.
 
@@ -6,7 +6,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 **The Practical Linux Hardening Guide** provides a high-level overview of the hardening GNU/Linux systems. It is not an official standard or handbook but it _touches_ and _use_ industry standards.
 
-### Table of Contents
+## Table of Contents
 
 - **[External resources](#external-resources)**
   * [Other official hardening guides](lib/external_resources/other_official_hardening_guides.md#other-official-hardening-guides)
