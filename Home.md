@@ -12,3 +12,10 @@ This guide is compliant with [OpenSCAP](https://www.open-scap.org/) configuratio
 
 ## Table of Contents
 
+- **[System configuration](#system-settings)**
+
+- **[Network configuration](#network-settings)**
+
+- **[Services configuration](#system-services)**
+
+- **[External tools](#external-tools)**
