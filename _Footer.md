@@ -1,0 +1,1 @@
+**The Practical Linux Hardening Guide** provides a high-level overview of the hardening GNU/Linux systems. It is not an official standard or handbook but it _touches_ and _use_ industry standards.
