@@ -15,9 +15,14 @@
 - **[PAM Module](#)**
 - **[SELinux](#)**
 
+### `Kernel Layer`
+
+- **[System parameters](#)**
+- **[Network parameters](#)**
+
 ### `Extended Layer`
 
-- **[Backup](#)**
+- **[Backups](#)**
 - **[Entropy](#)**
 - **[Compilers](#)**
 - **[Devices](#)**
