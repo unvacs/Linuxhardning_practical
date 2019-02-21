@@ -5,14 +5,14 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ---
 
 ### Table of Contents
-- [Bootloader configuration (grub)](#bootloader-configuration--grub-)
+- [Bootloader configuration (grub)](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#bootloader-configuration-grub)
   * [Introduction](#introduction)
-  * [Protect bootloader with password](#protect-bootloader-with-password)
-    + [Generate password hash](#generate-password-hash)
-    + [Updated grub configuration](#updated-grub-configuration)
-  * [Useful resources](#useful-resources)
-  * [Protect bootloader config files](#protect-bootloader-config-files)
-  * [Summary checklist](#summary-checklist)
+  * [Protect bootloader with password](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#protect-bootloader-with-password)
+    + [Generate password hash](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#generate-password-hash)
+    + [Updated grub configuration](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#updated-grub-configuration)
+  * [Useful resources](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#useful-resources)
+  * [Protect bootloader config files](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#protect-bootloader-config-files)
+  * [Summary checklist](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions#summary-checklist)
 
 ### Bootloader configuration (grub)
 
