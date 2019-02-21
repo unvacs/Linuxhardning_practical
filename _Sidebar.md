@@ -44,28 +44,16 @@
 - **[Cron](#)**
 - **[GnuPG 2](#)**
 
-### `DNS Services`
+### `Other Services`
 
 - **[Bind9](#)**
 - **[Unbound](#)**
-
-### `Mail Services`
-
 - **[Postfix](#)**
-
-### `Web Services`
-
 - **[Nginx](#)**
 - **[Apache](#)**
-
-### `DB Services`
-
 - **[PostgreSQL](#)**
 - **[MySQL](#)**
 - **[Redis](#)**
-
-### `Other Services`
-
 - **[AMQP](#)**
 
 ### `Containers`
