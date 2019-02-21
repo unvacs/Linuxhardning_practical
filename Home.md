@@ -9,13 +9,3 @@ This guide is compliant with [OpenSCAP](https://www.open-scap.org/) configuratio
 ---
 
 **The Practical Linux Hardening Guide** provides a high-level overview of the hardening GNU/Linux systems. It is not an official standard or handbook but it _touches_ and _use_ industry standards.
-
-## Table of Contents
-
-- **[System configuration](#system-settings)**
-
-- **[Network configuration](#network-settings)**
-
-- **[Services configuration](#system-services)**
-
-- **[External tools](#external-tools)**
