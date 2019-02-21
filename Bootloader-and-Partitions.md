@@ -12,10 +12,10 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Introduction](#introduction-1)
   * [Separate disk partitions](#separate-disk-partitions)
   * [Mount options: nodev, nosuid and noexec](#mount-options-nodev-nosuid-and-noexec)
-  * [Secure /boot directory](#secure--boot-directory)
-  * [Secure /tmp and /var/tmp](#secure--tmp-and--var-tmp)
+  * [Secure /boot directory](#secure-boot-directory)
+  * [Secure /tmp and /var/tmp](#secure-tmp-and-var-tmp)
   * [Secure /dev/shm](#secure--dev-shm)
-  * [Secure /proc filesystem](#secure--proc-filesystem)
+  * [Secure /proc filesystem](#secure-proc-filesystem)
   * [Swap partition](#swap-partition)
   * [Summary checklist](#summary-checklist)
 
