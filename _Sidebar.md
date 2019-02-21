@@ -6,7 +6,7 @@
 
 ***
 
-### `System hardening`
+### `Core Layer`
 
 - **[Bootloader and Partitions](#)**
 - **[Maintaining Software](#)**
@@ -14,3 +14,4 @@
 - **[Permissions and Limits](#)**
 - **[PAM Module](#)**
 - **[SELinux](#)**
+
