@@ -46,7 +46,7 @@ grub-mkconfig > /boot/grub/grub.cfg
 grub2-mkconfig > /boot/grub2/grub.cfg
 ```
 
-###### Useful resources
+#### Useful resources
 
 - [How To Password Protect GRUB Bootloader In Linux](https://www.ostechnix.com/password-protect-grub-bootloader-linux/)
 
