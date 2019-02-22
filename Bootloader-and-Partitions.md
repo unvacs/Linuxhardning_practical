@@ -16,7 +16,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 Protection for the bootloader can prevent unauthorized users who have physical access to the system, e.g. attaining root privileges through single user mode.
 
-Basically when you want to prohibit unauthorized reconfiguring of your system, otherwise anybody could load anything on it.
+Basically when you want to prohibit unauthorized reconfiguring of your system, otherwise anybody could load and edit anything on it.
 
 #### Protect bootloader with password
 
@@ -61,3 +61,66 @@ grub-mkconfig > /boot/grub/grub.cfg
 
 - [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>Official RHEL Documentation</sup>
 - [How To Password Protect GRUB Bootloader In Linux](https://www.ostechnix.com/password-protect-grub-bootloader-linux/)
+
+#### Protect bootloader config files
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">PCI-DSS (Medium)</a> + <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg">PCI-DSS (Medium)</a> | <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg">C2S/CIS (Medium)</a>, ID: CCE-27054-6 + <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">C2S/CIS (Medium)</a>, ID: CCE-26860-7</sup>
+
+##### Rationale
+
+To prevent local users from modifying the boot parameters  and ensure its configuration file's permissions are set properly.
+
+Set the owner and group of `/etc/grub.conf` to the root user:
+
+```bash
+chown root:root /etc/grub.conf
+```
+
+or
+
+```bash
+chown -R root:root /etc/grub.d
+```
+
+Set permission on the `/etc/grub.conf` or `/etc/grub.d` file to read and write for root only:
+
+```bash
+chmod og-rwx /etc/grub.conf
+```
+
+or
+
+```bash
+chmod -R og-rwx /etc/grub.d
+```
+
+### Partitions
+
+Critical file systems should be separated into different partitions in ways that make your system a better and more secure.
+
+#### Separate disk partitions
+
+<sup>PCI-DSS | <a href="">C2S/CIS (High)</a>, ID: </sup>
+
+Make sure the following filesystems are mounted on separate partitions:
+
+- `/boot`
+- `/tmp`
+- `/var`
+- `/var/log`
+
+Additionally, depending on the purpose of the server, you should consider separating the following partitions:
+
+- `/usr`
+- `/home`
+- `/var/www`
+
+You should also consider separating these partitions:
+
+- `/var/tmp`
+- `/var/log/audit`
+
+###### Useful resources
+
+- [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86)
+- [Most secure way to partition linux?](https://security.stackexchange.com/questions/38793/most-secure-way-to-partition-linux)
