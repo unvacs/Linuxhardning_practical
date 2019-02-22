@@ -60,6 +60,10 @@ grub-mkconfig > /boot/grub/grub.cfg
 <sup>PCI-DSS: <b>doesn't exist</b></sup><br>
 <sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (H)</b></a></sup>
 
+##### My comment
+
+In my opinion, you should think about setting the password for bootloader because it can be problematic for production servers.
+
 ##### Useful resources
 
 - [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>[Official]</sup>
