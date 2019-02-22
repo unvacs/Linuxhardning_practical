@@ -26,9 +26,6 @@ You can set password for the bootloader for prevents users from entering single 
 
 ##### Solution
 
-<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (H)</b></a></sup>
-
 ###### Generate password hash
 
 ```bash
@@ -60,6 +57,9 @@ grub2-mkconfig > /boot/grub2/grub.cfg
 grub-mkconfig > /boot/grub/grub.cfg
 ```
 
+<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (H)</b></a></sup>
+
 ##### Useful resources
 
 - [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>[Official]</sup>
@@ -73,9 +73,6 @@ To prevent local users from modifying the boot parameters  and ensure its config
 
 ##### Solution
 
-<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>Unknown (M)</b></a></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg"><b>CCE-27054-6 (M)</b></a></sup>
-
 ###### Set the permissions on the bootloader config files
 
   > Bare-metal/VM task, not applicable for containers.
@@ -86,10 +83,10 @@ chmod og-rwx /etc/grub.conf
 chmod -R og-rwx /etc/grub.d
 ```
 
-<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Unknown (M)</b></a></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>CCE-26860-7 (M)</b></a></sup>
+<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>Unknown (M)</b></a></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg"><b>CCE-27054-6 (M)</b></a></sup>
 
-###### Set the owner and group of bootloader config files
+###### Set the owner and group on the bootloader config files
 
   > Bare-metal/VM task, not applicable for containers.
 
@@ -100,6 +97,9 @@ chown root:root /etc/grub.conf
 chown root:root /boot/grub2/grub.cfg
 chown -R root:root /etc/grub.d
 ```
+
+<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Unknown (M)</b></a></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>CCE-26860-7 (M)</b></a></sup>
 
 ### Disk Partitioning
 
