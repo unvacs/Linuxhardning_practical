@@ -158,22 +158,58 @@ I think you should also consider separating the following partitions (of course 
 
 ### Restrict mount options
 
-By default mount options are not focused on security.
-
 #### Rationale
+
+By default mount options are not focused on security. These options can be used to make certain types of malicious behavior more difficult.
 
 #### Solution
 
-<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (High)</b></a></sup>
+###### /dev/shm
 
-###### Set the permissions on the bootloader config files
+```bash
+# PCI-DSS: doesn't exist
+# C2S/CIS: CCE-27309-4 (High)
 
-<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
-<sup>C2S/CIS: <a href=""><b>CCE-27309-4 (High)</b></a></sup>
 
-###### Set the owner and group of bootloader config files
+```
+
+###### /tmp
+
+```bash
+# PCI-DSS: doesn't exist
+# C2S/CIS: CCE-27309-4 (High)
+
+
+```
+
+###### /var/tmp
+
+```bash
+# PCI-DSS: doesn't exist
+# C2S/CIS: CCE-27309-4 (High)
+
+
+```
+
+###### /home
+
+```bash
+# PCI-DSS: doesn't exist
+# C2S/CIS: CCE-27309-4 (High)
+
+
+```
+
+#### Policies
+
+<code>PCI-DSS: <a href="">CCE-27309-4 (High)</a></code><br>
+<code>C2S/CIS: <a href="">CCE-27309-4 (High)</a></code>
 
 #### My comment
 
+
+
 #### Useful resources
+
+- []()
+- []()
