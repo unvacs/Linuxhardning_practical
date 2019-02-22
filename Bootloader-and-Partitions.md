@@ -62,7 +62,7 @@ grub-mkconfig > /boot/grub/grub.cfg
 
 ##### Useful resources
 
-- [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>Official</sup>
+- [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>[Official]</sup>
 - [How To Password Protect GRUB Bootloader In Linux](https://www.ostechnix.com/password-protect-grub-bootloader-linux/)
 
 #### Protect bootloader config files
@@ -139,7 +139,7 @@ I think you should consider separating the following partitions (depending on th
 
 ##### Useful resources
 
-- [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86) <sup>Official</sup>
+- [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86) <sup>[Official]</sup>
 - [Most secure way to partition linux?](https://security.stackexchange.com/questions/38793/most-secure-way-to-partition-linux)
 
 #### Restrict mount options
