@@ -62,7 +62,7 @@ grub-mkconfig > /boot/grub/grub.cfg
 
 ##### My comment
 
-In my opinion, you should think about setting the password for bootloader because it can be problematic for production servers.
+You should think about setting the password for bootloader because it can be problematic for production servers.
 
 ##### Useful resources
 
