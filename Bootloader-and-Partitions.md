@@ -138,3 +138,17 @@ I think you should consider separating the following partitions (depending on th
 
 - [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86) <sup>Official</sup>
 - [Most secure way to partition linux?](https://security.stackexchange.com/questions/38793/most-secure-way-to-partition-linux)
+
+#### Restrict mount options
+
+By default mount options are not focused on security.
+
+##### Policies
+
+##### Rationale
+
+##### null
+
+##### null
+
+##### Useful resources
