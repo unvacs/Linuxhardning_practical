@@ -18,7 +18,7 @@ Protection for the bootloader can prevent unauthorized users who have physical a
 
 Basically when you want to prohibit unauthorized reconfiguring of your system, otherwise anybody could load and edit anything on it.
 
-### :small_red_triangle: Protect bootloader with password
+### Protect bootloader with password
 
 #### Rationale
 
@@ -69,7 +69,7 @@ You should think about setting the password for bootloader because it can be pro
 - [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>[Official]</sup>
 - [How To Password Protect GRUB Bootloader In Linux](https://www.ostechnix.com/password-protect-grub-bootloader-linux/)
 
-### :small_red_triangle: Protect bootloader config files
+### Protect bootloader config files
 
 #### Rationale
 
@@ -107,7 +107,7 @@ chown -R root:root /etc/grub.d
 
 Critical file systems should be separated into different partitions in ways that make your system a better and more secure.
 
-### :small_red_triangle: Separate disk partitions
+### Separate disk partitions
 
 #### Rationale
 
@@ -144,7 +144,7 @@ I think you should also consider separating the following partitions (of course 
 - [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86) <sup>[Official]</sup>
 - [Most secure way to partition linux?](https://security.stackexchange.com/questions/38793/most-secure-way-to-partition-linux)
 
-### :small_red_triangle: Restrict mount options
+### Restrict mount options
 
 By default mount options are not focused on security.
 
