@@ -36,7 +36,7 @@ grub-mkpasswd-pbkdf2
 grub2-mkpasswd-pbkdf2
 ```
 
-##### Updated grub configuration
+##### Update grub configuration
 
 ```bash
 cat > /etc/grub.d/01_hash << __EOF__
