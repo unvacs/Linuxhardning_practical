@@ -148,8 +148,6 @@ I think you should also consider separating the following partitions (of course 
 
 By default mount options are not focused on security.
 
-#### Protect bootloader config files
-
 ##### Rationale
 
 ##### Solution
