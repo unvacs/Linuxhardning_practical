@@ -70,31 +70,29 @@ grub-mkconfig > /boot/grub/grub.cfg
 
 To prevent local users from modifying the boot parameters  and ensure its configuration file's permissions are set properly.
 
-Set the owner and group of `/etc/grub.conf` to the root user:
+##### Set the permissions on the bootloader config files
+
+  > Bare-metal/VM task, not applicable for containers.
 
 ```bash
-chown root:root /etc/grub.conf
-```
-
-or
-
-```bash
-chown -R root:root /etc/grub.d
-```
-
-Set permission on the `/etc/grub.conf` or `/etc/grub.d` file to read and write for root only:
-
-```bash
+chmod 600 /boot/grub2/grub.cfg
 chmod og-rwx /etc/grub.conf
-```
-
-or
-
-```bash
 chmod -R og-rwx /etc/grub.d
 ```
 
-### Partitions
+##### Set the owner and group of bootloader config files
+
+  > Bare-metal/VM task, not applicable for containers.
+
+Files/directories to **read** and **write** for root only:
+
+```bash
+chown root:root /etc/grub.conf
+chown root:root /boot/grub2/grub.cfg
+chown -R root:root /etc/grub.d
+```
+
+### Disk Partitioning
 
 Critical file systems should be separated into different partitions in ways that make your system a better and more secure.
 
