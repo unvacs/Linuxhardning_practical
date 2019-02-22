@@ -2,7 +2,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ---
 
-### Table of Contents
+## Table of Contents
 
 - **[Bootloader](#bootloader)**
   * [Protect bootloader with password](#protect-bootloader-with-password)
@@ -12,19 +12,19 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Separate disk partitions](#separate-disk-partitions)
   * [Restrict mount options](#restrict-mount-options)
 
-### Bootloader
+## Bootloader
 
 Protection for the bootloader can prevent unauthorized users who have physical access to the system, e.g. attaining root privileges through single user mode.
 
 Basically when you want to prohibit unauthorized reconfiguring of your system, otherwise anybody could load and edit anything on it.
 
-#### Protect bootloader with password
+### Protect bootloader with password
 
-##### Rationale
+#### Rationale
 
 You can set password for the bootloader for prevents users from entering single user mode, changing settings at boot time, access to the bootloader console, reset the root password, access to non-secure operating systems and the ability to disable SELinux.
 
-##### Solution
+#### Solution
 
 ###### Generate password hash
 
@@ -60,22 +60,22 @@ grub-mkconfig > /boot/grub/grub.cfg
 <sup>PCI-DSS: <b>doesn't exist</b></sup><br>
 <sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (High)</b></a></sup>
 
-##### My comment
+#### My comment
 
 You should think about setting the password for bootloader because it can be problematic for production servers.
 
-##### Useful resources
+#### Useful resources
 
 - [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>[Official]</sup>
 - [How To Password Protect GRUB Bootloader In Linux](https://www.ostechnix.com/password-protect-grub-bootloader-linux/)
 
-#### Protect bootloader config files
+### Protect bootloader config files
 
-##### Rationale
+#### Rationale
 
 To prevent local users from modifying the boot parameters and ensure its configuration file's permissions are set properly.
 
-##### Solution
+#### Solution
 
 ###### Set the permissions on the bootloader config files
 
@@ -103,13 +103,13 @@ chown -R root:root /etc/grub.d
 <sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Unknown (Medium)</b></a></sup><br>
 <sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>CCE-26860-7 (Medium)</b></a></sup>
 
-### Disk Partitioning
+## Disk Partitioning
 
 Critical file systems should be separated into different partitions in ways that make your system a better and more secure.
 
-#### Separate disk partitions
+### Separate disk partitions
 
-##### Rationale
+#### Rationale
 
 There are several advantages of having partitions on your hard drive:
 
@@ -131,7 +131,7 @@ C2S/CIS recommends that should be the following filesystems are mounted on a sep
 <sup>PCI-DSS: <b>doesn't exist</b></sup><br>
 <sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_home"><b>CCE-80144-9 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_tmp"><b>Unknown (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var"><b>CCE-26404-4 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_tmp"><b>CCE-27173-4 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log_audit"><b>CCE-26971-2 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log"><b>CCE-26967-0 (L)</b></a></sup>
 
-##### My comment
+#### My comment
 
 I think you should also consider separating the following partitions (of course depending on the purpose of the server):
 
@@ -139,18 +139,18 @@ I think you should also consider separating the following partitions (of course 
 - `/var/www`
 - `/var/lib/pgsql` + `pg_log`
 
-##### Useful resources
+#### Useful resources
 
 - [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86) <sup>[Official]</sup>
 - [Most secure way to partition linux?](https://security.stackexchange.com/questions/38793/most-secure-way-to-partition-linux)
 
-#### Restrict mount options
+### Restrict mount options
 
 By default mount options are not focused on security.
 
-##### Rationale
+#### Rationale
 
-##### Solution
+#### Solution
 
 <sup>PCI-DSS: <b>doesn't exist</b></sup><br>
 <sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (High)</b></a></sup>
@@ -162,6 +162,6 @@ By default mount options are not focused on security.
 
 ###### Set the owner and group of bootloader config files
 
-##### My comment
+#### My comment
 
-##### Useful resources
+#### Useful resources
