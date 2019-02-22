@@ -94,8 +94,6 @@ chmod -R og-rwx /etc/grub.d
 
   > Bare-metal/VM task, not applicable for containers.
 
-Files/directories to **read** and **write** for root only to prevent destruction or modification:
-
 ```bash
 chown root:root /etc/grub.conf
 chown root:root /boot/grub2/grub.cfg
