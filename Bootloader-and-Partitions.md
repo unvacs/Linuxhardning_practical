@@ -148,21 +148,22 @@ I think you should also consider separating the following partitions (of course 
 
 By default mount options are not focused on security.
 
+#### Protect bootloader config files
+
 ##### Rationale
 
 ##### Solution
 
-PCI-DSS:
-C2S/CIS:
+<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (High)</b></a></sup>
 
 ###### Set the permissions on the bootloader config files
 
-PCI-DSS:
-C2S/CIS:
+<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
+<sup>C2S/CIS: <a href=""><b>CCE-27309-4 (High)</b></a></sup>
 
 ###### Set the owner and group of bootloader config files
 
 ##### My comment
 
 ##### Useful resources
-
