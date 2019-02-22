@@ -59,4 +59,5 @@ grub-mkconfig > /boot/grub/grub.cfg
 
 ##### Useful resources
 
+- [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>Official RHEL Documentation</sup>
 - [How To Password Protect GRUB Bootloader In Linux](https://www.ostechnix.com/password-protect-grub-bootloader-linux/)
