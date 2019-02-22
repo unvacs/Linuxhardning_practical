@@ -82,29 +82,34 @@ To prevent local users from modifying the boot parameters and ensure its configu
 
 ###### Set the permissions on the bootloader config files
 
-  > Bare-metal/VM task, not applicable for containers.
-
 ```bash
+# PCI-DSS: Unknown (Medium)
+# C2S/CIS: CCE-27054-6 (Medium)
+
 chmod 600 /boot/grub2/grub.cfg
 chmod og-rwx /etc/grub.conf
 chmod -R og-rwx /etc/grub.d
 ```
 
-<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>Unknown (Medium)</b></a></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg"><b>CCE-27054-6 (Medium)</b></a></sup>
-
 ###### Set the owner and group on the bootloader config files
 
-  > Bare-metal/VM task, not applicable for containers.
-
 ```bash
+# PCI-DSS: Unknown (Medium)
+# C2S/CIS: CCE-26860-7 (Medium)
+
 chown root:root /etc/grub.conf
 chown root:root /boot/grub2/grub.cfg
 chown -R root:root /etc/grub.d
 ```
 
-<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Unknown (Medium)</b></a></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>CCE-26860-7 (Medium)</b></a></sup>
+#### Policies
+
+<code>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">Unknown (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg">Unknown (Medium)</a></code><br>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg">CCE-27054-6 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">CCE-26860-7 (Medium)</a></code>
+
+#### My comment
+
+These rules are intended for Bare-metal/VM, not applicable for containers.
 
 ## Disk Partitioning
 
