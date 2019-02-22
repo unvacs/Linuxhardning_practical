@@ -29,11 +29,11 @@ You can set password for the bootloader for prevents users from entering single 
 ##### Generate password hash
 
 ```bash
-# Debian like distributions
-grub-mkpasswd-pbkdf2
-
 # RedHat like distributions
 grub2-mkpasswd-pbkdf2
+
+# Debian like distributions
+grub-mkpasswd-pbkdf2
 ```
 
 ##### Update grub configuration
@@ -49,11 +49,11 @@ __EOF__
 And regenerate grub configuration:
 
 ```bash
-# Debian like distributions
-grub-mkconfig > /boot/grub/grub.cfg
-
 # RedHat like distributions
 grub2-mkconfig > /boot/grub2/grub.cfg
+
+# Debian like distributions
+grub-mkconfig > /boot/grub/grub.cfg
 ```
 
 ##### Useful resources
