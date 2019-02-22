@@ -46,7 +46,7 @@ grub.pbkdf2.sha512.<hash> # rest of your password hash
 __EOF__
 ```
 
-And regenerate grub configuration:
+##### Regenerate grub configuration
 
 ```bash
 # RedHat like distributions
