@@ -24,7 +24,7 @@ Basically when you want to prohibit unauthorized reconfiguring of your system, o
 
 ##### Rationale
 
-You can set password for the bootloader for prevents users from entering single user mode, changing settings at boot time, access to the bootloader console, reset the root password, if there is no password for GRUB-menu or access to non-secure operating systems.
+You can set password for the bootloader for prevents users from entering single user mode, changing settings at boot time, access to the bootloader console, reset the root password, if there is no password for GRUB-menu, access to non-secure operating systems and the ability to disable SELinux.
 
 ##### Generate password hash
 
