@@ -14,7 +14,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ### Bootloader
 
-Protection for the boot loader can prevent unauthorized users who have physical access to the system, e.g. attaining root privileges through single user mode.
+Protection for the bootloader can prevent unauthorized users who have physical access to the system, e.g. attaining root privileges through single user mode.
 
 Basically when you want to prohibit unauthorized reconfiguring of your system, otherwise anybody could load anything on it.
 
