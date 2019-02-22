@@ -20,7 +20,7 @@ Basically when you want to prohibit unauthorized reconfiguring of your system, o
 
 #### Protect bootloader with password
 
-<sup>PCI-DSS:</sup><br>
+<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
 <sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (High)</b></a></sup>
 
 ##### Rationale
@@ -65,7 +65,7 @@ grub-mkconfig > /boot/grub/grub.cfg
 
 #### Protect bootloader config files
 
-<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>Medium</b></a> + <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Medium</b></a></sup><br>
+<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>Unknown (Medium)</b></a> + <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Unknown (Medium)</b></a></sup><br>
 <sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg"><b>CCE-27054-6 (Medium)</b></a> + <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>CCE-26860-7 (Medium)</b></a></sup>
 
 ##### Rationale
