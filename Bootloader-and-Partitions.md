@@ -109,11 +109,6 @@ Critical file systems should be separated into different partitions in ways that
 
 #### Separate disk partitions
 
-##### Policies
-
-<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_home"><b>CCE-80144-9 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_tmp"><b>Unknown (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var"><b>CCE-26404-4 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_tmp"><b>CCE-27173-4 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log_audit"><b>CCE-26971-2 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log"><b>CCE-26967-0 (L)</b></a></sup>
-
 ##### Rationale
 
 There are several advantages of having partitions on your hard drive:
@@ -133,7 +128,12 @@ C2S/CIS recommends that should be the following filesystems are mounted on a sep
 - `/var/log/audit`
 - `/var/log`
 
-I think you should consider separating the following partitions (depending on the purpose of the server):
+<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_home"><b>CCE-80144-9 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_tmp"><b>Unknown (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var"><b>CCE-26404-4 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_tmp"><b>CCE-27173-4 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log_audit"><b>CCE-26971-2 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log"><b>CCE-26967-0 (L)</b></a></sup>
+
+##### My comment
+
+I think you should also consider separating the following partitions (of course depending on the purpose of the server):
 
 - `/usr`
 - `/var/www`
@@ -162,4 +162,7 @@ C2S/CIS:
 
 ###### Set the owner and group of bootloader config files
 
+##### My comment
+
 ##### Useful resources
+
