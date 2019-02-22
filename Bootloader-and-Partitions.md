@@ -31,9 +31,7 @@ You can set password for the bootloader for prevents users from entering single 
 ```bash
 # RedHat like distributions
 grub2-mkpasswd-pbkdf2
-
-# or set it automatically
-grub2-setpassword
+grub2-setpassword # set it automatically
 
 # Debian like distributions
 grub-mkpasswd-pbkdf2
