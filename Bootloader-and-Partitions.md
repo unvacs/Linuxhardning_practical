@@ -146,12 +146,18 @@ I think you should consider separating the following partitions (depending on th
 
 By default mount options are not focused on security.
 
-##### Policies
-
 ##### Rationale
 
-##### null
+##### Solution
 
-##### null
+PCI-DSS:
+C2S/CIS:
+
+###### Set the permissions on the bootloader config files
+
+PCI-DSS:
+C2S/CIS:
+
+###### Set the owner and group of bootloader config files
 
 ##### Useful resources
