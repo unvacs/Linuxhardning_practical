@@ -132,6 +132,7 @@ I think you should consider separating the following partitions (depending on th
 
 - `/usr`
 - `/var/www`
+- `/var/lib/pgsql` + `pg_log` directory
 
 ###### Useful resources
 
