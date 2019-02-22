@@ -20,16 +20,16 @@ Basically when you want to prohibit unauthorized reconfiguring of your system, o
 
 #### Protect bootloader with password
 
-##### Policies
-
-<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (H)</b></a></sup>
-
 ##### Rationale
 
 You can set password for the bootloader for prevents users from entering single user mode, changing settings at boot time, access to the bootloader console, reset the root password, if there is no password for GRUB-menu, access to non-secure operating systems and the ability to disable SELinux.
 
-##### Generate password hash
+##### Solution
+
+<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (H)</b></a></sup>
+
+###### Generate password hash
 
 ```bash
 # RedHat like distributions
@@ -40,7 +40,7 @@ grub2-setpassword # set it automatically
 grub-mkpasswd-pbkdf2
 ```
 
-##### Update grub configuration
+###### Update grub configuration
 
 ```bash
 cat > /etc/grub.d/01_hash << __EOF__
@@ -50,7 +50,7 @@ grub.pbkdf2.sha512.<hash> # rest of your password hash
 __EOF__
 ```
 
-##### Regenerate grub configuration
+###### Regenerate grub configuration
 
 ```bash
 # RedHat like distributions
@@ -67,16 +67,16 @@ grub-mkconfig > /boot/grub/grub.cfg
 
 #### Protect bootloader config files
 
-##### Policies
-
-<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>Unknown (M)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Unknown (M)</b></a></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg"><b>CCE-27054-6 (M)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>CCE-26860-7 (M)</b></a></sup>
-
 ##### Rationale
 
 To prevent local users from modifying the boot parameters  and ensure its configuration file's permissions are set properly.
 
-##### Set the permissions on the bootloader config files
+##### Solution
+
+<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>Unknown (M)</b></a></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg"><b>CCE-27054-6 (M)</b></a></sup>
+
+###### Set the permissions on the bootloader config files
 
   > Bare-metal/VM task, not applicable for containers.
 
@@ -86,7 +86,10 @@ chmod og-rwx /etc/grub.conf
 chmod -R og-rwx /etc/grub.d
 ```
 
-##### Set the owner and group of bootloader config files
+<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Unknown (M)</b></a></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>CCE-26860-7 (M)</b></a></sup>
+
+###### Set the owner and group of bootloader config files
 
   > Bare-metal/VM task, not applicable for containers.
 
