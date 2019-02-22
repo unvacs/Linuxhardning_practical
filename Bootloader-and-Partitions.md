@@ -134,7 +134,7 @@ I think you should consider separating the following partitions (depending on th
 - `/var/www`
 - `/var/lib/pgsql` + `pg_log` directory
 
-###### Useful resources
+##### Useful resources
 
 - [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86) <sup>Official</sup>
 - [Most secure way to partition linux?](https://security.stackexchange.com/questions/38793/most-secure-way-to-partition-linux)
