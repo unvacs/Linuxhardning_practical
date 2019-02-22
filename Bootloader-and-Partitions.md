@@ -29,17 +29,19 @@ You can set password for the bootloader for prevents users from entering single 
 ###### Generate password hash
 
 ```bash
-# RedHat like distributions
-grub2-mkpasswd-pbkdf2
-grub2-setpassword # set it automatically
+# PCI-DSS: doesn't exist
+# C2S/CIS: CCE-27309-4 (High)
 
-# Debian like distributions
-grub-mkpasswd-pbkdf2
+grub2-mkpasswd-pbkdf2
+grub2-setpassword # or set it automatically
 ```
 
 ###### Update grub configuration
 
 ```bash
+# PCI-DSS: doesn't exist
+# C2S/CIS: CCE-27309-4 (High)
+
 cat > /etc/grub.d/01_hash << __EOF__
 set superusers="user"
 password_pbkdf2 user
@@ -50,15 +52,16 @@ __EOF__
 ###### Regenerate grub configuration
 
 ```bash
-# RedHat like distributions
-grub2-mkconfig > /boot/grub2/grub.cfg
+# PCI-DSS: doesn't exist
+# C2S/CIS: CCE-27309-4 (High)
 
-# Debian like distributions
-grub-mkconfig > /boot/grub/grub.cfg
+grub2-mkconfig > /boot/grub2/grub.cfg
 ```
 
-<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (High)</b></a></sup>
+#### Policies
+
+<code>PCI-DSS: doesn't exist</code><br>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></code>
 
 #### My comment
 
