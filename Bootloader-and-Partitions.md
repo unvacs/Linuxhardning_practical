@@ -22,6 +22,8 @@ Basically when you want to prohibit unauthorized reconfiguring of your system, o
 
 <sup>PCI-DSS | <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">C2S/CIS (High)</a></sup>
 
+##### Rationale
+
 You can set password for the bootloader for prevents users from entering single user mode, changing settings at boot time, access to the bootloader console, reset the root password, if there is no password for GRUB-menu or access to non-secure operating systems.
 
 ##### Generate password hash
