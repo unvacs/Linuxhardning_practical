@@ -20,7 +20,7 @@ Basically when you want to prohibit unauthorized reconfiguring of your system, o
 
 #### Protect bootloader with password
 
-<sup>PCI-DSS | <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">C2S/CIS (High)</a></sup>
+<sup>PCI-DSS | <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">C2S/CIS (High)</a>, ID: CCE-27309-4</sup>
 
 ##### Rationale
 
