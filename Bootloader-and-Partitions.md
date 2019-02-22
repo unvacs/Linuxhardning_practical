@@ -20,8 +20,10 @@ Basically when you want to prohibit unauthorized reconfiguring of your system, o
 
 #### Protect bootloader with password
 
+##### Policies
+
 <sup>PCI-DSS: <b>doesn't exist</b></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (High)</b></a></sup>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password"><b>CCE-27309-4 (H)</b></a></sup>
 
 ##### Rationale
 
@@ -60,13 +62,15 @@ grub-mkconfig > /boot/grub/grub.cfg
 
 ##### Useful resources
 
-- [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>Official RHEL Documentation</sup>
+- [Protecting Grub 2 With a Password](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-protecting_grub_2_with_a_password) <sup>Official</sup>
 - [How To Password Protect GRUB Bootloader In Linux](https://www.ostechnix.com/password-protect-grub-bootloader-linux/)
 
 #### Protect bootloader config files
 
-<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>Unknown (Medium)</b></a> + <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Unknown (Medium)</b></a></sup><br>
-<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg"><b>CCE-27054-6 (Medium)</b></a> + <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>CCE-26860-7 (Medium)</b></a></sup>
+##### Policies
+
+<sup>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>Unknown (M)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg"><b>Unknown (M)</b></a></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg"><b>CCE-27054-6 (M)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg"><b>CCE-26860-7 (M)</b></a></sup>
 
 ##### Rationale
 
@@ -86,7 +90,7 @@ chmod -R og-rwx /etc/grub.d
 
   > Bare-metal/VM task, not applicable for containers.
 
-Files/directories to **read** and **write** for root only:
+Files/directories to **read** and **write** for root only to prevent destruction or modification:
 
 ```bash
 chown root:root /etc/grub.conf
@@ -100,27 +104,36 @@ Critical file systems should be separated into different partitions in ways that
 
 #### Separate disk partitions
 
-<sup>PCI-DSS | <a href="">C2S/CIS (High)</a>, ID: </sup>
+##### Policies
 
-Make sure the following filesystems are mounted on separate partitions:
+<sup>PCI-DSS: <b>doesn't exist</b></sup><br>
+<sup>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_home"><b>CCE-80144-9 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_tmp"><b>Unknown (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var"><b>CCE-26404-4 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_tmp"><b>CCE-27173-4 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log_audit"><b>CCE-26971-2 (L)</b></a>, <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log"><b>CCE-26967-0 (L)</b></a></sup>
 
-- `/boot`
-- `/tmp`
+##### Rationale
+
+There are several advantages of having partitions on your hard drive:
+
+- prevents partitions overflow
+- isolating data corruption
+- logical separation of data
+- duration of `fsck`
+- using different file systems
+
+C2S/CIS recommends that should be the following filesystems are mounted on a separate partitions:
+
+- `/home`
+- `/var/tmp`
 - `/var`
+- `/tmp`
+- `/var/log/audit`
 - `/var/log`
 
-Additionally, depending on the purpose of the server, you should consider separating the following partitions:
+I think you should consider separating the following partitions (depending on the purpose of the server):
 
 - `/usr`
-- `/home`
 - `/var/www`
-
-You should also consider separating these partitions:
-
-- `/var/tmp`
-- `/var/log/audit`
 
 ###### Useful resources
 
-- [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86)
+- [Recommended partitioning scheme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86) <sup>Official</sup>
 - [Most secure way to partition linux?](https://security.stackexchange.com/questions/38793/most-secure-way-to-partition-linux)
