@@ -49,12 +49,13 @@ script -t 2>~/upgrade.time -a ~/upgrade.script
 
 Also these rules are important:
 
-##### Check for updates
+###### Check for updates
+
 ```bash
 yum check-update
 ```
 
-##### Install upgrades (with security updates)
+###### Install upgrades (with security updates)
 
 ```bash
 yum --security upgrade
