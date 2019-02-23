@@ -56,7 +56,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 #### Comments
 
-You should think about setting the password for bootloader because it can be problematic for the production clusters.
+  > You should think about setting the password for bootloader because it can be problematic for the production clusters.
 
 Also other solution is:
 
