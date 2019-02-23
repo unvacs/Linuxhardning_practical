@@ -161,7 +161,7 @@ By default mount options are not focused on security. These options can be used 
 ```bash
 # C2S/CIS: CCE-80153-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
 
-
+tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
 ```
 
 ###### /tmp
@@ -169,28 +169,28 @@ By default mount options are not focused on security. These options can be used 
 ```bash
 # C2S/CIS: CCE-80149-8 (unknown), CCE-80150-6 (unknown), CCE-80151-4 (unknown)
 
-
+UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 ```
 
 ###### /var/tmp
 
 ```bash
-# C2S/CIS: CCE-27309-4 (High)
+# C2S/CIS: (unknown), (unknown), (unknown)
 
-
+UUID=<...>  /var/tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 ```
 
 ###### /home
 
 ```bash
-# C2S/CIS: CCE-27309-4 (High)
+# C2S/CIS: (unknown)
 
-
+UUID=<...>  /home  ext4  defaults,nodev  1 2
 ```
 
 #### Policies
 
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_noexec">CCE-80153-0 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nosuid">CCE-80154-8 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nodev">CCE-80152-2 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nodev">CCE-80149-8 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_noexec">CCE-80150-6 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nosuid">CCE-80151-4 (unknown)</a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_noexec">CCE-80153-0 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nosuid">CCE-80154-8 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nodev">CCE-80152-2 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nodev">CCE-80149-8 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_noexec">CCE-80150-6 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nosuid">CCE-80151-4 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_nodev">(unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_noexec">(unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_nosuid">(unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_home_nodev">(unknown)</code>
 
 #### My comment
 
@@ -198,5 +198,11 @@ By default mount options are not focused on security. These options can be used 
 
 #### Useful resources
 
-- []()
-- []()
+- [Linux Security: Mount /tmp With nodev, nosuid, and noexec Options](https://www.cyberciti.biz/faq/linux-add-nodev-nosuid-noexec-options-to-temporary-storage-partitions/)
+- [Security Handbook/Mounting partitions](https://wiki.gentoo.org/wiki/Security_Handbook/Mounting_partitions)
+- [Increasing Linux server security with nodev, nosuid and no exec options](https://kb.iweb.com/hc/en-us/articles/230267488--Increasing-Linux-server-security-with-nodev-nosuid-and-no-exec-options)
+- [Why it is important to Securing /dev/shm and /tmp](https://askubuntu.com/questions/389408/why-it-is-important-to-securing-dev-shm-and-tmp)
+- [Securing /dev/shm partition](https://www.gnutoolbox.com/securing-devshm-partition/)
+- [Linux system hardening: adding hidepid to /proc mount point](https://linux-audit.com/linux-system-hardening-adding-hidepid-to-proc/)
+- [dm-crypt/Swap encryption](https://wiki.archlinux.org/index.php/Dm-crypt/Swap_encryption)
+- [Encrypted swap partition on Debian/Ubuntu](https://feeding.cloud.geek.nz/posts/encrypted-swap-partition-on/)
