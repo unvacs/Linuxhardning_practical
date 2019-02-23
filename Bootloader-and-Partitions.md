@@ -356,6 +356,22 @@ cryptdisks_start swap
 swapon -a
 ```
 
+#### All in one
+
+<details>
+<summary><b>Bootloader</b></summary><br>
+
+
+
+</details>
+
+<details>
+<summary><b>Disk Partitioning</b></summary><br>
+
+
+
+</details>
+
 #### Useful resources
 
 - [Linux Security: Mount /tmp With nodev, nosuid, and noexec Options](https://www.cyberciti.biz/faq/linux-add-nodev-nosuid-noexec-options-to-temporary-storage-partitions/)
