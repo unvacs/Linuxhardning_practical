@@ -29,7 +29,6 @@ You can set password for the bootloader for prevents users from entering single 
 ###### Generate password hash
 
 ```bash
-# PCI-DSS: doesn't exist
 # C2S/CIS: CCE-27309-4 (High)
 
 grub2-mkpasswd-pbkdf2
@@ -39,7 +38,6 @@ grub2-setpassword # or set it automatically
 ###### Update grub configuration
 
 ```bash
-# PCI-DSS: doesn't exist
 # C2S/CIS: CCE-27309-4 (High)
 
 cat > /etc/grub.d/01_hash << __EOF__
@@ -52,7 +50,6 @@ __EOF__
 ###### Regenerate grub configuration
 
 ```bash
-# PCI-DSS: doesn't exist
 # C2S/CIS: CCE-27309-4 (High)
 
 grub2-mkconfig > /boot/grub2/grub.cfg
@@ -60,7 +57,6 @@ grub2-mkconfig > /boot/grub2/grub.cfg
 
 #### Policies
 
-<code>PCI-DSS: doesn't exist</code><br>
 <code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></code>
 
 #### My comment
@@ -83,7 +79,6 @@ To prevent local users from modifying the boot parameters and ensure its configu
 ###### Set the permissions on the bootloader config files
 
 ```bash
-# PCI-DSS: Unknown (Medium)
 # C2S/CIS: CCE-27054-6 (Medium)
 
 chmod 600 /boot/grub2/grub.cfg
@@ -94,7 +89,6 @@ chmod -R og-rwx /etc/grub.d
 ###### Set the owner and group on the bootloader config files
 
 ```bash
-# PCI-DSS: Unknown (Medium)
 # C2S/CIS: CCE-26860-7 (Medium)
 
 chown root:root /boot/grub2/grub.cfg
@@ -104,7 +98,6 @@ chown -R root:root /etc/grub.d
 
 #### Policies
 
-<code>PCI-DSS: <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">Unknown (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-centos7-guide-pci-dss.html#xccdf_org.ssgproject.content_rule_file_groupowner_grub2_cfg">Unknown (Medium)</a></code><br>
 <code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg">CCE-27054-6 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">CCE-26860-7 (Medium)</a></code>
 
 #### My comment
@@ -140,7 +133,6 @@ C2S/CIS recommends that should be the following filesystems are mounted on a sep
 
 #### Policies
 
-<code>PCI-DSS: doesn't exist</code><br>
 <code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_home">CCE-80144-9 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_tmp">Unknown (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var">CCE-26404-4 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_tmp">CCE-27173-4 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log_audit">CCE-26971-2 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log">CCE-26967-0 (Low)</a></code>
 
 #### My comment
@@ -167,8 +159,7 @@ By default mount options are not focused on security. These options can be used 
 ###### /dev/shm
 
 ```bash
-# PCI-DSS: doesn't exist
-# C2S/CIS: CCE-27309-4 (High)
+# C2S/CIS: CCE-80153-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
 
 
 ```
@@ -176,8 +167,7 @@ By default mount options are not focused on security. These options can be used 
 ###### /tmp
 
 ```bash
-# PCI-DSS: doesn't exist
-# C2S/CIS: CCE-27309-4 (High)
+# C2S/CIS: CCE-80149-8 (unknown), CCE-80150-6 (unknown), CCE-80151-4 (unknown)
 
 
 ```
@@ -185,7 +175,6 @@ By default mount options are not focused on security. These options can be used 
 ###### /var/tmp
 
 ```bash
-# PCI-DSS: doesn't exist
 # C2S/CIS: CCE-27309-4 (High)
 
 
@@ -194,7 +183,6 @@ By default mount options are not focused on security. These options can be used 
 ###### /home
 
 ```bash
-# PCI-DSS: doesn't exist
 # C2S/CIS: CCE-27309-4 (High)
 
 
@@ -202,8 +190,7 @@ By default mount options are not focused on security. These options can be used 
 
 #### Policies
 
-<code>PCI-DSS: <a href="">CCE-27309-4 (High)</a></code><br>
-<code>C2S/CIS: <a href="">CCE-27309-4 (High)</a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_noexec">CCE-80153-0 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nosuid">CCE-80154-8 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nodev">CCE-80152-2 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nodev">CCE-80149-8 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_noexec">CCE-80150-6 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nosuid">CCE-80151-4 (unknown)</a></code>
 
 #### My comment
 
