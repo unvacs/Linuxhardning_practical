@@ -302,7 +302,7 @@ And set `nodev`, `nosuid` and `noexec` mount options in `/etc/fstab`.
 
 ##### Secure /dev/shm
 
-`/dev/shm` is a temporary file storage filesystem, i.e. **tmpfs**, that uses RAM for the backing store. One of the major security issue with the `/dev/shm` is anyone can upload and execute files inside the `/dev/shm` similar to the `/tmp` partition. Further the size should be limited to avoid an attacker filling up this mountpoint to the point where applications could be affected. (normally it allows 20% or more of RAM to be used). The sticky bit should be set like for any world writeable directory.
+`/dev/shm` is a temporary file storage filesystem, i.e. **tmpfs**, that uses RAM for the backing store. One of the major security issue with the `/dev/shm` is anyone can upload and execute files inside the `/dev/shm` similar to the `/tmp` partition. Further the size should be limited to avoid an attacker filling up this mountpoint to the point where applications could be affected (normally it allows 20% or more of RAM to be used). The sticky bit should be set like for any world writeable directory.
 
 For applies to shared memory `/dev/shm` mount params:
 
@@ -355,22 +355,6 @@ cryptdisks_start swap
 # Turn on the swap area
 swapon -a
 ```
-
-#### All in one
-
-<details>
-<summary><b>Bootloader</b></summary><br>
-
-
-
-</details>
-
-<details>
-<summary><b>Disk Partitioning</b></summary><br>
-
-
-
-</details>
 
 #### Useful resources
 
