@@ -11,6 +11,31 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Maintaining Software
 
+### Control packages' signatures
+
+#### Rationale
+
+#### Solution
+
+###### Enabled gpgcheck option
+
+```bash
+# C2S/CIS: CCE-26989-4 (High)
+
+gpgcheck=1
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_ensure_gpgcheck_globally_activated">CCE-26989-4 (High)</a></code>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+
 ### Keep system updated
 
 #### Rationale
