@@ -31,8 +31,7 @@ You can set password for the bootloader for prevents users from entering single 
 ```bash
 # C2S/CIS: CCE-27309-4 (High)
 
-grub2-mkpasswd-pbkdf2
-grub2-setpassword # or set it automatically
+grub2-setpassword
 ```
 
 ###### Update grub configuration
@@ -40,6 +39,36 @@ grub2-setpassword # or set it automatically
 ```bash
 # C2S/CIS: CCE-27309-4 (High)
 
+sed -i s/root/bootuser/g /etc/grub.d/01_users
+```
+
+###### Regenerate grub configuration
+
+```bash
+# C2S/CIS: CCE-27309-4 (High)
+
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></code>
+
+#### Comments
+
+You should think about setting the password for bootloader because it can be problematic for the production clusters.
+
+Also other solution is:
+
+###### Generate password hash
+
+```bash
+grub2-mkpasswd-pbkdf2
+```
+
+###### Update grub configuration
+
+```bash
 cat > /etc/grub.d/01_hash << __EOF__
 set superusers="user"
 password_pbkdf2 user
@@ -50,18 +79,8 @@ __EOF__
 ###### Regenerate grub configuration
 
 ```bash
-# C2S/CIS: CCE-27309-4 (High)
-
 grub2-mkconfig > /boot/grub2/grub.cfg
 ```
-
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></code>
-
-#### Comments
-
-You should think about setting the password for bootloader because it can be problematic for the production clusters.
 
 #### Useful resources
 
