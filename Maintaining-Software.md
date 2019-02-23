@@ -72,7 +72,7 @@ Before updating the system, I do it in the console:
 script -t 2>~/upgrade.time -a ~/upgrade.script
 ```
 
-Also these rules are important:
+Also these one-liners are important:
 
 ###### Check for updates
 
