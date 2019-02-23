@@ -297,6 +297,44 @@ tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1777 0 0
 tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1770,uid=root,gid=shm 0 0
 ```
 
+##### Secure /proc filesystem
+
+The proc pseudo-filesystem `/proc` should be mounted with `hidepid`. When setting `hidepid` to **2**, directories entries in `/proc` will hidden.
+
+```bash
+proc  /proc  proc  defaults,hidepid=2  0 0
+```
+
+  > Some of the services/programs operate incorrectly when the `hidepid` parameter is set, e.g. Nagios checks.
+
+##### Swap partition
+
+Encryption of swap space is used to protect sensitive information. It improves the availability of the system, which is also an important part of information security.
+
+```bash
+# Turn off the swap area
+swapoff -a
+
+# Wipe the swap area
+shred -vfz -n 10 /dev/sda2
+
+# Update /etc/fstab
+UUID=7e1e715e-7ac4-45ad-b029-18fed80f225f none swap defaults 0 0
+
+# Add the swap area to /etc/crypttab
+swap /dev/sda2 /dev/urandom swap
+
+# Activate the mapping
+cryptdisks_start swap
+/etc/init.d/cryptdisks restart
+
+# Add the encrypted swap area to /etc/fstab
+/dev/mapper/swap none swap defaults 0 0
+
+# Turn on the swap area
+swapon -a
+```
+
 #### Useful resources
 
 - [Linux Security: Mount /tmp With nodev, nosuid, and noexec Options](https://www.cyberciti.biz/faq/linux-add-nodev-nosuid-noexec-options-to-temporary-storage-partitions/)
