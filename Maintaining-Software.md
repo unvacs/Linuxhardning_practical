@@ -33,7 +33,7 @@ gpgcheck=1
 
 #### Useful resources
 
-- [Configuring Yum and Yum Repositories](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-configuring_yum_and_yum_repositories)<sup>Official</sup>
+- [Configuring Yum and Yum Repositories](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-configuring_yum_and_yum_repositories) <sup>[Official]</sup>
 
 ### Keep system updated
 
