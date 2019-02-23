@@ -4,7 +4,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Table of Contents
 
-- **[Maintaining Software](#keep-system-updated)**
+- **[Maintaining Software](#maintaining-software)**
   * [Keep system updated](#keep-system-updated)
   * [Package management](#package-management)
 
