@@ -16,6 +16,8 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 Software updates offer plenty of benefits. It’s all about revisions. These might include repairing security holes that have been discovered and fixing or removing bugs.
 
+  > U.S. Defense systems are required to be patched within 30 days or sooner as local policy dictates.
+
 Some benefits:
 
 - close up problems of security that has been discovered
