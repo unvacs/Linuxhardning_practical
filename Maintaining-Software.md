@@ -2,4 +2,12 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ---
 
-### Table of Contents
+## Table of Contents
+
+- **[Keep system updated](#bootloader)**
+  * [Protect bootloader with password](#protect-bootloader-with-password)
+  * [Protect bootloader config files](#protect-bootloader-config-files)
+
+- **[Package management](#disk-partitioning)**
+  * [Separate disk partitions](#separate-disk-partitions)
+  * [Restrict mount options](#restrict-mount-options)
