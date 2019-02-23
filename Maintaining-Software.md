@@ -24,7 +24,7 @@ Some benefits:
 
 #### Solution
 
-###### Update system with yum
+###### Updating all packages and dependencies
 
 ```bash
 # C2S/CIS: CCE-26895-3 (High)
