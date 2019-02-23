@@ -5,15 +5,17 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ## Table of Contents
 
 - **[Maintaining Software](#maintaining-software)**
-  * [Control packages' signatures](#control-packages-signatures)
+  * [Package signatures](#package-signatures)
   * [Keep system updated](#keep-system-updated)
   * [Package management](#package-management)
 
 ## Maintaining Software
 
-### Control packages' signatures
+### Package signatures
 
 #### Rationale
+
+Changes to any software components can have significant effects on the overall security of the operating system. This requirement ensures the software has not been tampered with and that it has been provided by a trusted vendor. 
 
 #### Solution
 
