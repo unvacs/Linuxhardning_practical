@@ -31,12 +31,9 @@ gpgcheck=1
 
 <code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_ensure_gpgcheck_globally_activated">CCE-26989-4 (High)</a></code>
 
-#### Comments
-
 #### Useful resources
 
-- []()
-
+- [Configuring Yum and Yum Repositories](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-configuring_yum_and_yum_repositories)<sup>Official</sup>
 
 ### Keep system updated
 
