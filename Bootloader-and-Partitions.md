@@ -309,6 +309,8 @@ proc  /proc  proc  defaults,hidepid=2  0 0
 
 ##### Swap partition
 
+This chapter does not talk about mounting options, but you should also mention the `swap` partition.
+
 Encryption of swap space is used to protect sensitive information. It improves the availability of the system, which is also an important part of information security.
 
 ```bash
