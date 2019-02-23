@@ -281,6 +281,22 @@ And set `nodev`, `nosuid` and `noexec` mount options in `/etc/fstab`.
 
   > Alternative for **polyinstantiated directories** is **PrivateTmp** feature available from **systemd**. For more information please see: [New Red Hat Enterprise Linux 7 Security Feature: PrivateTmp](https://access.redhat.com/blogs/766093/posts/1976243).
 
+##### Secure /dev/shm
+
+`/dev/shm` is a temporary file storage filesystem, i.e. **tmpfs**, that uses RAM for the backing store. One of the major security issue with the `/dev/shm` is anyone can upload and execute files inside the `/dev/shm` similar to the `/tmp` partition. Further the size should be limited to avoid an attacker filling up this mountpoint to the point where applications could be affected. (normally it allows 20% or more of RAM to be used). The sticky bit should be set like for any world writeable directory.
+
+For applies to shared memory `/dev/shm` mount params:
+
+```bash
+tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1777 0 0
+```
+
+  > You can also create a group named 'shm' and put application users for SHM-using applications in there. Then the access can be completely be restricted as such:
+
+```bash
+tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1770,uid=root,gid=shm 0 0
+```
+
 #### Useful resources
 
 - [Linux Security: Mount /tmp With nodev, nosuid, and noexec Options](https://www.cyberciti.biz/faq/linux-add-nodev-nosuid-noexec-options-to-temporary-storage-partitions/)
