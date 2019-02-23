@@ -111,7 +111,7 @@ chmod -R og-rwx /etc/grub.d
 # C2S/CIS: CCE-26860-7 (Medium)
 
 chown root:root /boot/grub2/grub.cfg
-chown root:root /etc/grub.
+chown root:root /etc/grub.conf
 chown -R root:root /etc/grub.d
 ```
 
