@@ -21,8 +21,8 @@
 
 ### `Kernel Layer`
 
-- **[System](#)**
-- **[Network](#)**
+- **[System stack](#)**
+- **[Network stack](#)**
 
 ### `Extended Layer`
 
