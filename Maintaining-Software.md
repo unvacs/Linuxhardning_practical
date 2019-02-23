@@ -5,6 +5,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ## Table of Contents
 
 - **[Maintaining Software](#maintaining-software)**
+  * [Control packages' signatures](#control-packages-signatures)
   * [Keep system updated](#keep-system-updated)
   * [Package management](#package-management)
 
