@@ -86,7 +86,14 @@ yum check-update
 yum --security upgrade
 ```
 
+###### Roll back an update
+
+```bash
+yum history undo <id>
+```
+
 #### Useful resources
 
 - [Yum](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-yum) <sup>[Official]</sup>
+- [How to use yum history to roll back an update in Red Hat Enterprise Linux 6 , 7?](https://access.redhat.com/solutions/64069) <sup>[Official]</sup>
 - [In CentOS, what is the difference between yum update and yum upgrade?](https://unix.stackexchange.com/questions/55777/in-centos-what-is-the-difference-between-yum-update-and-yum-upgrade)
