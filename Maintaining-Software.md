@@ -7,7 +7,6 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 - **[Maintaining Software](#maintaining-software)**
   * [Package signatures](#package-signatures)
   * [Keep system updated](#keep-system-updated)
-  * [Package management](#package-management)
 
 ## Maintaining Software
 
