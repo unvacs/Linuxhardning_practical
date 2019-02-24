@@ -20,7 +20,7 @@ Before start this chapter please see official Red Hat documentation - [Using Plu
 
 #### Rationale
 
-Currently more used are the SHA-256 and SHA-512 based hashes, `sha256crypt` and `sha512crypt`, which are similar in structure to `md5cryp`t but support variable amounts of iteration. They're marked with `$5$` and `$6$` respectively. `sha512crypt` (`$6$`) is what at least RedHat/CentOS and Debian (generally most modern distros)  currently use by default.
+Currently more used is SHA-512 based hash (`sha512crypt`), which is similar in structure to `md5crypt` and `sha256crypt` and but support variable amounts of iteration. It's marked with and `$6$` respectively. `sha512crypt` (`$6$`) is what at least RedHat/CentOS and Debian (generally most modern distros) currently use by default.
 
 #### Solution
 
@@ -29,7 +29,7 @@ Currently more used are the SHA-256 and SHA-512 based hashes, `sha256crypt` and 
 ```bash
 # C2S/CIS: CCE-27104-9 (Medium)
 
-password  sufficient  pam_unix.so sha512 shadow nullok try_first_pass use_authtok
+password sufficient pam_unix.so sha512 shadow nullok try_first_pass use_authtok
 ```
 
 #### Policies
@@ -105,7 +105,7 @@ Edit `pam_unix.so` or `pam_pwhistory.so` lines in `/etc/pam.d/system-auth`:
 # C2S/CIS: CCE-26923-3 (Medium)
 
 # For the pam_unix.so:
-password    sufficient    pam_unix.so sha512 shadow nullok try_first_pass use_authtok remember=5
+password sufficient pam_unix.so sha512 shadow nullok try_first_pass use_authtok remember=5
 
 # For the pam_pwhistory.so:
 password required pam_pwhistory.so debug use_authtok remember=5
@@ -162,7 +162,7 @@ Setting the password retry prompts that are permitted on a per-session basis to 
 # C2S/CIS: CCE-27160-1 (Unknown)
 
 # Edit /etc/pam.d/system-auth:
-password  requisite  pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type=
+password requisite pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type=
 ```
 
 ###### Set password minimum length
