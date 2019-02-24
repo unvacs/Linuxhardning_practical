@@ -202,20 +202,24 @@ maxrepeat = 3
 If you want to check password strengths, you should use `cracklib-check`:
 
 ```bash
-for i in aaa password $RANDOM ighu6zaivoomahPhah ; do
+cat > ~/passwd-test << __EOF__
+for i in aaa password \$RANDOM \$(pwgen 12) ighu6zaivoomahPhah ; do
 
-  echo -en "Check password: $i\\n"
-  echo "$i" | cracklib-check
+  echo -en "Check password: \$i\\n"
+  echo "\$i" | cracklib-check
 
 done
+__EOF__
 
-$ bash pass-check
+$ bash ~/passwd-test 
 Check password: aaa
 aaa: it is WAY too short
 Check password: password
 password: it is based on a dictionary word
-Check password: 9164
-9164: it is too short
+Check password: 29997
+29997: it is too short
+Check password: Ociechai2moh
+Ociechai2moh: OK
 Check password: ighu6zaivoomahPhah
 ighu6zaivoomahPhah: OK
 ```
@@ -224,3 +228,4 @@ ighu6zaivoomahPhah: OK
 
 - [How to configure password complexity for all users including root using pam_passwdqc.so](https://access.redhat.com/solutions/23481) <sup>[Official]</sup>
 - [Hardening Your System With Tools and Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/chap-hardening_your_system_with_tools_and_services) <sup>[Official]</sup>
+- [RHEL 7 and pam_pwhistory - old password can still be re-used](https://access.redhat.com/discussions/2484201) <sup>[Official]</sup>
