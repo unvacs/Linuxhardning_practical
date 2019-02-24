@@ -78,7 +78,7 @@ auth required pam_faillock.so preauth silent deny=3 unlock_time=1800 fail_interv
 auth [default=die] pam_faillock.so authfail deny=3 unlock_time=1800 fail_interval=900
 ```
 
-Other guides recommend setting the `FAILLOG_ENAB` and `FAIL_DELAY` params in `/etc/login.defs` configuration file. It's incorrect solution beacuse `login.defs` is no longer used by `login`, `su` and `passwd` (see manpage) unless you use `pam_pwcheck`.
+Other guides recommend setting the `FAILLOG_ENAB` and `FAIL_DELAY` params in `/etc/login.defs` configuration file. It's incorrect solution beacuse `login.defs` is no longer used by `login`, `su` and `passwd` (see man for `login.defs(5)`) unless you use `pam_pwcheck`.
 
 #### Useful resources
 
