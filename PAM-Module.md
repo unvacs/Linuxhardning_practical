@@ -105,10 +105,10 @@ Edit `pam_unix.so` or `pam_pwhistory.so` lines in `/etc/pam.d/system-auth`:
 # C2S/CIS: CCE-26923-3 (Medium)
 
 # For the pam_unix.so:
-password sufficient pam_unix.so ...existing_options... remember=5
+password    sufficient    pam_unix.so sha512 shadow nullok try_first_pass use_authtok remember=5
 
 # For the pam_pwhistory.so:
-password requisite pam_pwhistory.so ...existing_options... remember=5
+password required pam_pwhistory.so debug use_authtok remember=5
 ```
 
 #### Policies
