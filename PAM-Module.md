@@ -133,6 +133,7 @@ OWASP-OTG-AUTHN-007 provide great password policy solutions (sorry for copy-past
 
 #### Useful resources
 
+- [RHEL 7 and pam_pwhistory - old password can still be re-used](https://access.redhat.com/discussions/2484201) <sup>[Official]</sup>
 - [OWASP (OTG-AUTHN-007)](https://www.owasp.org/index.php/Testing_for_Weak_password_policy_(OTG-AUTHN-007))
 
 ### Password quality requirements
@@ -234,5 +235,4 @@ ighu6zaivoomahPhah: OK
 - [How to configure password complexity for all users including root using pam_passwdqc.so](https://access.redhat.com/solutions/23481) <sup>[Official]</sup>
 - [Hardening Your System With Tools and Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/chap-hardening_your_system_with_tools_and_services) <sup>[Official]</sup>
 - [Configuring Services: PAM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/configuration_options-pam_configuration_options) <sup>[Official]</sup>
-- [RHEL 7 and pam_pwhistory - old password can still be re-used](https://access.redhat.com/discussions/2484201) <sup>[Official]</sup>
 - [Security Handbook/PAM](https://wiki.gentoo.org/wiki/Security_Handbook/PAM)
