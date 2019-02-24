@@ -12,6 +12,8 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 Linux-PAM is a library that enables the local system administrator to choose how individual applications authenticate users. It offers multiple low-level authentication schemes into a high-level application programming interface (API).
 
+Before start this chapter please see official RHEL documentation - [Using Pluggable Authentication Modules (PAM)](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/pluggable_authentication_modules).
+
 ### Password hashing algorithm
 
 #### Rationale
@@ -34,7 +36,6 @@ password  sufficient  pam_unix.so sha512 shadow nullok try_first_pass use_authto
 
 #### Useful resources
 
-- [Using Pluggable Authentication Modules (PAM)](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/pluggable_authentication_modules) <sup>[Official]</sup>
 - [About Secure Password Hashing](https://security.blogoverflow.com/2013/09/about-secure-password-hashing/)
 
 ### Failed password attempts
