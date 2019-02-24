@@ -18,7 +18,6 @@
 - **[Permissions and Limits](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Permissions-and-Limits)**
 - **[PAM Module](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/PAM-Module)**
 - **[SELinux](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/SELinux)**
-- **[Auditd](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Auditd)**
 
 ### `Kernel Layer`
 
@@ -36,6 +35,7 @@
 ### `Logging & Auditing`
 
 - **[Syslog](#)**
+- **[Auditd](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Auditd)**
 - **[OSSEC](#)**
 - **[Tiger](#)**
 - **[Aide](#)**
