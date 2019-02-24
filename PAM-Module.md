@@ -49,7 +49,7 @@ This option provides the capability to lock out user accounts after a number of 
 
 ###### Set lockout time
 
-Edit AUTH and ACCOUNT (for the last parameter) section of both `/etc/pam.d/system-auth` and `/etc/pam.d/password-auth`:
+Edit `AUTH` and `ACCOUNT` (for the last parameter) section of both `/etc/pam.d/system-auth` and `/etc/pam.d/password-auth`:
 
 ```bash
 # C2S/CIS: CCE-26884-7 (Medium)
