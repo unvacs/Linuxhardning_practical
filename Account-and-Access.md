@@ -11,7 +11,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Banners](#)
   * [Passwords policy](#)
 
---
+## Account and Access
 
 ### Restrict mount options
 
