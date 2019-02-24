@@ -2,4 +2,42 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ---
 
-### Table of Contents
+## Table of Contents
+
+- **[PAM Module](#pam-module)**
+  * [Package signatures](#package-signatures)
+  * [Keep system updated](#keep-system-updated)
+
+## Maintaining Software
+
+### Package signatures
+
+#### Rationale
+
+
+
+#### Solution
+
+###### /dev/shm
+
+```bash
+# C2S/CIS: CCE-80153-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
+
+tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
+```
+
+
+
+#### Policies
+
+<code>C2S/CIS: <a href="">CCE-80153-0 (unknown)</a></code>
+
+#### Comments
+
+##### Mount options
+
+
+
+#### Useful resources
+
+- []()
