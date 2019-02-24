@@ -4,14 +4,14 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Table of Contents
 
-- **[Account and Access](#account-and-access)**
+- **[Accounts and Access](#accounts-and-access)**
   * [PAM Module](#pam-module)
   * [Physical console access](#)
   * [Session configuration files](#)
   * [Banners](#)
   * [Passwords policy](#)
 
-## Account and Access
+## Accounts and Access
 
 ### Restrict mount options
 
