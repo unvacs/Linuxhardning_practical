@@ -11,6 +11,12 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Maintaining Software
 
+Software maintenance is extremely important to maintaining a secure system. It is vital to patch software as soon as it becomes available in order to prevent attackers from using known holes to infiltrate your system.
+
+#### Useful resources
+
+- [Software Maintenance](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security_guide/chap-security_guide-software_maintenance)
+
 ### Package signatures
 
 #### Rationale
