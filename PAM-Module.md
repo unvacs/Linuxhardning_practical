@@ -5,39 +5,36 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ## Table of Contents
 
 - **[PAM Module](#pam-module)**
-  * [Package signatures](#package-signatures)
-  * [Keep system updated](#keep-system-updated)
+  * [Password hashing algorithm](#password-hashing-algorithm)
 
-## Maintaining Software
+## PAM Module
 
-### Package signatures
+Linux-PAM is a library that enables the local system administrator to choose how individual applications authenticate users. It offers multiple low-level authentication schemes into a high-level application programming interface (API).
+
+### Password hashing algorithm
 
 #### Rationale
 
-
+Currently more used are the SHA-256 and SHA-512 based hashes, `sha256crypt` and `sha512crypt`, which are similar in structure to `md5cryp`t but support variable amounts of iteration. They're marked with `$5$` and `$6$` respectively. `sha512crypt` (`$6$`) is what at least RedHat/CentOS and Debian (generally most modern distros)  currently use by default.
 
 #### Solution
 
-###### /dev/shm
+###### Set properly password hashes in /etc/shadow
 
 ```bash
-# C2S/CIS: CCE-80153-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
+# C2S/CIS: CCE-27104-9 (Medium)
 
-tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
+password  sufficient  pam_unix.so sha512 other arguments...
 ```
-
-
 
 #### Policies
 
-<code>C2S/CIS: <a href="">CCE-80153-0 (unknown)</a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_set_password_hashing_algorithm_systemauth">CCE-27104-9 (Medium)</a></code>
 
 #### Comments
-
-##### Mount options
 
 
 
 #### Useful resources
 
-- []()
+- [About Secure Password Hashing](https://security.blogoverflow.com/2013/09/about-secure-password-hashing/)
