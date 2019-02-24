@@ -15,7 +15,7 @@ Software maintenance is extremely important to maintaining a secure system. It i
 
 #### Useful resources
 
-- [Software Maintenance](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security_guide/chap-security_guide-software_maintenance)
+- [Software Maintenance](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security_guide/chap-security_guide-software_maintenance) <sup>[Official]</sup>
 
 ### Package signatures
 
