@@ -7,6 +7,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 - **[PAM Module](#pam-module)**
   * [Password hashing algorithm](#password-hashing-algorithm)
   * [Failed password attempts](#failed-password-attempts)
+  * [Limit password reuse](#limit-password-reuse)
 
 ## PAM Module
 
@@ -53,7 +54,7 @@ This option provides the capability to lock out user accounts after a number of 
 Edit `AUTH` and `ACCOUNT` (for the last parameter) section of both `/etc/pam.d/system-auth` and `/etc/pam.d/password-auth`:
 
 ```bash
-# C2S/CIS: CCE-26884-7 (Medium)
+# C2S/CIS: CCE-26884-7 (Medium), CCE-27350-8 (Medium)
 
 # Add the following line immediately before the pam_unix.so
 auth required pam_faillock.so preauth silent deny=5 unlock_time=900 fail_interval=900
@@ -67,7 +68,7 @@ account required pam_faillock.so
 
 #### Policies
 
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_unlock_time">CCE-26884-7 (Medium)</a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_unlock_time">CCE-26884-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_deny">CCE-27350-8 (Medium)</a></code>
 
 #### Comments
 
@@ -84,3 +85,44 @@ Other guides recommend setting the `FAILLOG_ENAB` and `FAIL_DELAY` params in `/e
 #### Useful resources
 
 - [How to Lock User Accounts After Failed Login Attempts](https://www.tecmint.com/lock-user-accounts-after-failed-login-attempts-in-linux/)
+
+### Limit password reuse
+
+#### Rationale
+
+Password policy will set how often an old password can be reused so do not allow users to reuse recent passwords.
+
+#### Solution
+
+###### Set
+
+Edit `pam_unix.so` or `pam_pwhistory.so` lines in `/etc/pam.d/system-auth`:
+
+```bash
+# C2S/CIS: CCE-26923-3 (Medium)
+
+# For the pam_unix.so:
+password sufficient pam_unix.so ...existing_options... remember=5
+
+# For the pam_pwhistory.so:
+password requisite pam_pwhistory.so ...existing_options... remember=5
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_unix_remember">CCE-26923-3 (Medium)</a></code>
+
+#### Comments
+
+[OWASP (OTG-AUTHN-007)](https://www.owasp.org/index.php/Testing_for_Weak_password_policy_(OTG-AUTHN-007)) provide great password policy solutions (sorry for copy-paste but it's really amazing):
+
+- What characters are permitted and forbidden for use within a password? Is the user required to use characters from different character sets such as lower and uppercase letters, digits and special symbols?
+- How often can a user change their password? How quickly can a user change their password after a previous change? Users may bypass password history requirements by changing their password 5 times in a row so that after the last password change they have configured their initial password again.
+- When must a user change their password? After 90 days? After account lockout due to excessive log on attempts?
+- How often can a user reuse a password? Does the application maintain a history of the user's previous used 8 passwords?
+- How different must the next password be from the last password?
+- Is the user prevented from using his username or other account information (such as first or last name) in the password?
+
+#### Useful resources
+
+- []()
