@@ -191,7 +191,7 @@ ucredit = -1
 
 #### Comments
 
-Official C2S/CIS standard it also talking about the following parameters. However, they do not set identifiers for them.
+Official C2S/CIS standard also explain the following parameters. However, it doesn't specify identifiers for them.
 
 - `difok` sets the minimum number of characters that must be different from the previous password. If you increase `minlen`, you may also want to increase this value as well.
 - `ocredit` sets the maximum credit for having other characters in the new password.
