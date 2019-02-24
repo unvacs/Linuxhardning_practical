@@ -4,7 +4,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Table of Contents
 
-- **[Users and Groups](#users-and-groups)**
+- **[Account and Access](#account-and-access)**
 
 --
 
