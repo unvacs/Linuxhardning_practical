@@ -14,6 +14,8 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 Linux-PAM is a library that enables the local system administrator to choose how individual applications authenticate users. It offers multiple low-level authentication schemes into a high-level application programming interface (API).
 
+  > Modifications of the PAM can have unexpected consequences. To re-write the PAM configuration files, destroying any manually made changes and replacing them with a series of system defaults please use  `authconfig` or `system-config-authentication`.
+
 Before start this chapter please read:
 
 - [Using Pluggable Authentication Modules (PAM)](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/pluggable_authentication_modules) <sup>[Official]</sup>
