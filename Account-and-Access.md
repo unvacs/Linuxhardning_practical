@@ -5,6 +5,8 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ## Table of Contents
 
 - **[Account and Access](#account-and-access)**
+  * [PAM Module](#pam-module)
+  * [Physical Console Access](#)
 
 --
 
