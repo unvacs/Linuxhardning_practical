@@ -20,7 +20,7 @@ Basically when you want to prohibit unauthorized reconfiguring of your system, o
 
 #### Useful resources
 
-
+- [Security Handbook/Bootloader security](https://wiki.gentoo.org/wiki/Security_Handbook/Bootloader_security)
 
 ### Protect bootloader with password
 
