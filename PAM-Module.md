@@ -143,6 +143,13 @@ The `pam_pwquality` PAM module can be configured to meet requirements for a vari
 
   > C2S/CIS allows modified these arguments to ensure compliance with your organization's security policy.
 
+Use of a complex or strength password helps to increase the time and resources required to compromise the password.
+
+- `minlen` parameter controls requirements for minimum characters required in a password. The shorter the password, the lower the number of possible combinations that need to be tested before the password is compromised.
+- `dcredit` parameter controls requirements for usage of digits in a password.
+- `lcredit` parameter controls requirements for usage of lowercase letters in a password.
+- `ucredit` parameter controls requirements for usage of uppercase letters in a password.
+
 #### Solution
 
 ###### Make sure that pam_pwquality exists and set password retry prompts
@@ -160,8 +167,6 @@ password  requisite  pam_pwquality.so try_first_pass local_users_only retry=3 au
 
 ###### Set password minimum length
 
-- `minlen` parameter controls requirements for minimum characters required in a password. The shorter the password, the lower the number of possible combinations that need to be tested before the password is compromised.
-
 ```bash
 # C2S/CIS: CCE-27293-0 (Medium)
 
@@ -170,12 +175,6 @@ minlen = 14
 ```
 
 ###### Set password strength
-
-Use of a complex or strength password helps to increase the time and resources required to compromise the password.
-
-- `dcredit` parameter controls requirements for usage of digits in a password.
-- `lcredit` parameter controls requirements for usage of lowercase letters in a password.
-- `ucredit` parameter controls requirements for usage of uppercase letters in a password.
 
 ```bash
 # C2S/CIS: CCE-27214-6 (Medium), CCE-27345-8 (Medium), CCE-27200-5 (Medium)
@@ -192,7 +191,36 @@ ucredit = -1
 
 #### Comments
 
+Official C2S/CIS standard it also talking about the following parameters. However, they do not set identifiers for them.
+
+```
+difok = 4
+ocredit = -1
+maxrepeat = 3
+```
+
+If you want to check password strengths, you should use `cracklib-check`:
+
+```bash
+for i in aaa password $RANDOM ighu6zaivoomahPhah ; do
+
+  echo -en "Check password: $i\\n"
+  echo "$i" | cracklib-check
+
+done
+
+$ bash pass-check
+Check password: aaa
+aaa: it is WAY too short
+Check password: password
+password: it is based on a dictionary word
+Check password: 9164
+9164: it is too short
+Check password: ighu6zaivoomahPhah
+ighu6zaivoomahPhah: OK
+```
 
 #### Useful resources
 
 - [How to configure password complexity for all users including root using pam_passwdqc.so](https://access.redhat.com/solutions/23481) <sup>[Official]</sup>
+- [Hardening Your System With Tools and Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/chap-hardening_your_system_with_tools_and_services) <sup>[Official]</sup>
