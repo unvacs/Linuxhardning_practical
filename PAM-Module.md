@@ -152,7 +152,7 @@ Use of a complex or strength password helps to increase the time and resources r
 
 #### Solution
 
-###### Make sure that pam_pwquality exists and set password retry prompts
+###### Check pam_pwquality and set password retry prompts
 
 Setting the password retry prompts that are permitted on a per-session basis to a low value requires some software, such as SSH, to re-connect.
 
