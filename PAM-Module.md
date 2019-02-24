@@ -193,7 +193,11 @@ ucredit = -1
 
 Official C2S/CIS standard it also talking about the following parameters. However, they do not set identifiers for them.
 
-```
+- `difok` sets the minimum number of characters that must be different from the previous password. If you increase `minlen`, you may also want to increase this value as well.
+- `ocredit` sets the maximum credit for having other characters in the new password.
+- `maxrepeat` reject passwords which contain more than N same consecutive characters.
+
+```bash
 difok = 4
 ocredit = -1
 maxrepeat = 3
@@ -226,7 +230,9 @@ ighu6zaivoomahPhah: OK
 
 #### Useful resources
 
+- [Set a password policy in Red Hat Enterprise Linux 7](https://access.redhat.com/solutions/2808101) <sup>[Official]</sup>
 - [How to configure password complexity for all users including root using pam_passwdqc.so](https://access.redhat.com/solutions/23481) <sup>[Official]</sup>
 - [Hardening Your System With Tools and Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/chap-hardening_your_system_with_tools_and_services) <sup>[Official]</sup>
 - [Configuring Services: PAM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/configuration_options-pam_configuration_options) <sup>[Official]</sup>
 - [RHEL 7 and pam_pwhistory - old password can still be re-used](https://access.redhat.com/discussions/2484201) <sup>[Official]</sup>
+- [Security Handbook/PAM](https://wiki.gentoo.org/wiki/Security_Handbook/PAM)
