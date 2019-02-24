@@ -5,7 +5,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ## Table of Contents
 
 - **[Accounts and Access](#accounts-and-access)**
-  * [Physical console access](#)
+  * [Physical console access](#physical-console-access)
   * [Session configuration files](#)
   * [Banners](#)
   * [Passwords policy](#)
