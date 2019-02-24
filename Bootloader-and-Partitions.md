@@ -18,6 +18,10 @@ Protection for the bootloader can prevent unauthorized users who have physical a
 
 Basically when you want to prohibit unauthorized reconfiguring of your system, otherwise anybody could load and edit anything on it.
 
+#### Useful resources
+
+
+
 ### Protect bootloader with password
 
 #### Rationale
