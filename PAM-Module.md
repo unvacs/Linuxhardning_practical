@@ -72,7 +72,7 @@ account required pam_faillock.so
 
 #### Comments
 
-If you want, you can use a more restrictive configuration (I personally prefer this way):
+You can use a more restrictive configuration (I personally prefer this way):
 
 ```bash
 auth required pam_faillock.so preauth silent deny=3 unlock_time=1800 fail_interval=900
@@ -90,11 +90,13 @@ Other guides recommend setting the `FAILLOG_ENAB` and `FAIL_DELAY` params in `/e
 
 #### Rationale
 
-Password policy will set how often an old password can be reused so do not allow users to reuse recent passwords.
+Password history policy will set how often an old password can be reused so do not allow users to reuse recent passwords. Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.
+
+  > The DoD STIG requirement is 5 passwords.
 
 #### Solution
 
-###### Set
+###### Set password reuse limit
 
 Edit `pam_unix.so` or `pam_pwhistory.so` lines in `/etc/pam.d/system-auth`:
 
@@ -114,15 +116,20 @@ password requisite pam_pwhistory.so ...existing_options... remember=5
 
 #### Comments
 
-[OWASP (OTG-AUTHN-007)](https://www.owasp.org/index.php/Testing_for_Weak_password_policy_(OTG-AUTHN-007)) provide great password policy solutions (sorry for copy-paste but it's really amazing):
+OWASP-OTG-AUTHN-007 provide great password policy solutions (sorry for copy-paste but it's really amazing):
 
 - What characters are permitted and forbidden for use within a password? Is the user required to use characters from different character sets such as lower and uppercase letters, digits and special symbols?
+
 - How often can a user change their password? How quickly can a user change their password after a previous change? Users may bypass password history requirements by changing their password 5 times in a row so that after the last password change they have configured their initial password again.
+
 - When must a user change their password? After 90 days? After account lockout due to excessive log on attempts?
+
 - How often can a user reuse a password? Does the application maintain a history of the user's previous used 8 passwords?
+
 - How different must the next password be from the last password?
+
 - Is the user prevented from using his username or other account information (such as first or last name) in the password?
 
 #### Useful resources
 
-- []()
+- [OWASP (OTG-AUTHN-007)](https://www.owasp.org/index.php/Testing_for_Weak_password_policy_(OTG-AUTHN-007))
