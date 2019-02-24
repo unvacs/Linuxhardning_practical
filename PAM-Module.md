@@ -37,4 +37,5 @@ password  sufficient  pam_unix.so sha512 other arguments...
 
 #### Useful resources
 
+- [Using Pluggable Authentication Modules (PAM)](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/pluggable_authentication_modules) <sup>[Official]</sup>
 - [About Secure Password Hashing](https://security.blogoverflow.com/2013/09/about-secure-password-hashing/)
