@@ -14,7 +14,7 @@
 
 - **[Bootloader and Partitions](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Bootloader-and-Partitions)**
 - **[Maintaining Software](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Maintaining-Software)**
-- **[Users and Groups](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Users-and-Groups)**
+- **[Accounts and Access](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Account-and-Access)**
 - **[Permissions and Limits](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Permissions-and-Limits)**
 - **[PAM Module](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/PAM-Module)**
 - **[SELinux](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/SELinux)**
