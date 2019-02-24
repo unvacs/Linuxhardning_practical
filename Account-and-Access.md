@@ -28,11 +28,13 @@ This is the easiest way to gain unauthorised access to a Linux system is to boot
 
 #### Solution
 
-###### Set authentication for single user mode
+###### Authentication for single user mode
 
 ```bash
 # C2S/CIS: CCE-27287-2 (Medium)
 
+# Edit /usr/lib/systemd/system/rescue.service:
+ExecStart=-/bin/sh -c "/usr/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"
 ```
 
 #### Policies
@@ -41,9 +43,7 @@ This is the easiest way to gain unauthorised access to a Linux system is to boot
 
 #### Comments
 
-##### asd
-
-
+I also recommend change or set the this params in /usr/lib/systemd/system/emergency.service. It is default target when an issue kicks in during the boot process.
 
 #### Useful resources
 
