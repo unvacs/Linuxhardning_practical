@@ -8,6 +8,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Password hashing algorithm](#password-hashing-algorithm)
   * [Failed password attempts](#failed-password-attempts)
   * [Limit password reuse](#limit-password-reuse)
+  * [Password quality requirements](#password-quality-requirements)
 
 ## PAM Module
 
@@ -133,3 +134,65 @@ OWASP-OTG-AUTHN-007 provide great password policy solutions (sorry for copy-past
 #### Useful resources
 
 - [OWASP (OTG-AUTHN-007)](https://www.owasp.org/index.php/Testing_for_Weak_password_policy_(OTG-AUTHN-007))
+
+### Password quality requirements
+
+#### Rationale
+
+The `pam_pwquality` PAM module can be configured to meet requirements for a variety of policies.
+
+  > C2S/CIS allows modified these arguments to ensure compliance with your organization's security policy.
+
+#### Solution
+
+###### Make sure that pam_pwquality exists and set password retry prompts
+
+Setting the password retry prompts that are permitted on a per-session basis to a low value requires some software, such as SSH, to re-connect.
+
+  > The DoD requirement is a maximum of 3 prompts per session.
+
+```bash
+# C2S/CIS: CCE-27160-1 (Unknown)
+
+# Edit /etc/pam.d/system-auth:
+password  requisite  pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type=
+```
+
+###### Set password minimum length
+
+- `minlen` parameter controls requirements for minimum characters required in a password. The shorter the password, the lower the number of possible combinations that need to be tested before the password is compromised.
+
+```bash
+# C2S/CIS: CCE-27293-0 (Medium)
+
+# Edit /etc/security/pwquality.conf:
+minlen = 14
+```
+
+###### Set password strength
+
+Use of a complex or strength password helps to increase the time and resources required to compromise the password.
+
+- `dcredit` parameter controls requirements for usage of digits in a password.
+- `lcredit` parameter controls requirements for usage of lowercase letters in a password.
+- `ucredit` parameter controls requirements for usage of uppercase letters in a password.
+
+```bash
+# C2S/CIS: CCE-27214-6 (Medium), CCE-27345-8 (Medium), CCE-27200-5 (Medium)
+
+# Edit /etc/security/pwquality.conf:
+dcredit = -1
+lcredit = -1
+ucredit = -1
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_minlen">CCE-27293-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_dcredit">CCE-27214-6 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_lcredit">CCE-27345-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_ucredit">CCE-27200-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_retry">CCE-27160-1 (Unknown)</a></code>
+
+#### Comments
+
+
+#### Useful resources
+
+- [How to configure password complexity for all users including root using pam_passwdqc.so](https://access.redhat.com/solutions/23481) <sup>[Official]</sup>
