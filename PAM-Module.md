@@ -16,6 +16,13 @@ Linux-PAM is a library that enables the local system administrator to choose how
 
 Before start this chapter please see official Red Hat documentation - [Using Pluggable Authentication Modules (PAM)](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/pluggable_authentication_modules).
 
+#### Useful resources
+
+- [Set a password policy in Red Hat Enterprise Linux 7](https://access.redhat.com/solutions/2808101) <sup>[Official]</sup>
+- [How to configure password complexity for all users including root using pam_passwdqc.so](https://access.redhat.com/solutions/23481) <sup>[Official]</sup>
+- [Hardening Your System With Tools and Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/chap-hardening_your_system_with_tools_and_services) <sup>[Official]</sup>
+- [Configuring Services: PAM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/configuration_options-pam_configuration_options) <sup>[Official]</sup>
+
 ### Password hashing algorithm
 
 #### Rationale
@@ -231,7 +238,4 @@ ighu6zaivoomahPhah: OK
 
 #### Useful resources
 
-- [Set a password policy in Red Hat Enterprise Linux 7](https://access.redhat.com/solutions/2808101) <sup>[Official]</sup>
-- [How to configure password complexity for all users including root using pam_passwdqc.so](https://access.redhat.com/solutions/23481) <sup>[Official]</sup>
-- [Hardening Your System With Tools and Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/chap-hardening_your_system_with_tools_and_services) <sup>[Official]</sup>
-- [Configuring Services: PAM](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/configuration_options-pam_configuration_options) <sup>[Official]</sup>
+- [How to set password complexity in redhat 7.5?](https://serverfault.com/questions/936760/how-to-set-password-complexity-in-redhat-7-5/936778)
