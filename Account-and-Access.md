@@ -6,7 +6,10 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 - **[Account and Access](#account-and-access)**
   * [PAM Module](#pam-module)
-  * [Physical Console Access](#)
+  * [Physical console access](#)
+  * [Session configuration files](#)
+  * [Banners](#)
+  * [Passwords policy](#)
 
 --
 
