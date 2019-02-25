@@ -181,13 +181,13 @@ fs.suid_dumpable = 0
 
 ExecShield describes kernel features that provide protection against exploitation of memory corruption errors such as buffer overflows.
 
-It's designed to limit against
+  > Exec Shield is enabled in CentOS-6 and 7 by default.
+
+It's designed to limit against:
 
 - stack
 - buffer
 - function pointer overflows
-
-  > Exec Shield is enabled in CentOS-6 and 7 by default.
 
 ```bash
 # C2S/CIS: CCE-27211-2 (Medium), CCE-27127-0 (Medium)
