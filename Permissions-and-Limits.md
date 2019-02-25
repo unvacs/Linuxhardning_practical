@@ -117,7 +117,7 @@ Linux includes a number of facilities for the automated addition and removal of 
 
 ```bash
 # C2S/CIS: CCE-80138-1 (Low), CCE-80143-1 (Low), CCE-80142-3 (Low), CCE-80141-5 (Low), CCE-80139-9 (Low)
-#          CCE-80140-7 (Low), CCE-80137-3 (Low)
+#          CCE-80140-7 (Low), CCE-80137-3 (Low), CCE-27498-5 (Medium)
 
 # Add to /etc/modprobe.d/fs-blacklist.conf:
 install freevxfs /bin/true
@@ -127,12 +127,15 @@ install hfsplus /bin/true
 install jffs2 /bin/true
 install hfs /bin/true
 install cramfs /bin/true
+
+# And disable automounter:
+systemctl disable autofs.service
 ```
 
 #### Policies
 
 <code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_freevxfs_disabled">CCE-80138-1 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_udf_disabled">CCE-80143-1 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_squashfs_disabled">CCE-80142-3 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_hfsplus_disabled">CCE-80141-5 (Low)</a>
-; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_jffs2_disabled">CCE-80139-9 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_hfs_disabled">CCE-80140-7 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_cramfs_disabled">CCE-80137-3 (Low)</a></code>
+; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_jffs2_disabled">CCE-80139-9 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_hfs_disabled">CCE-80140-7 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_cramfs_disabled">CCE-80137-3 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_autofs_disabled">CCE-27498-5 (Medium)</a></code>
 
 #### Comments
 
