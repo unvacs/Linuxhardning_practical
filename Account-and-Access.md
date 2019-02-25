@@ -74,8 +74,15 @@ umask 027
 
 #### Comments
 
-I have seen recommendations in some guides (and in real configurations!) to set the `umask 077` value. What a stupidity!
+I have seen recommendations in some guides (and in real configurations) to set the `umask 077` value. Many of Linux distributions are shipped by default with `umask 022`.
+
+`umask 027` is better from security perspective. `umask 077` is even better to use for root (`077` means that noone but the owner is able to read or execute newly-created files).
+
+I'm sure there's a perfectly rational explanation why it is used:
+
+- it avoids some common system administrator mistakes
+- it's harder for an attacker to run privilege escalation
 
 #### Useful resources
 
-- []()
+- [Best practices for umask in Red Hat Enterprise Linux](https://access.redhat.com/solutions/107683) <sup>[Official]</sup>
