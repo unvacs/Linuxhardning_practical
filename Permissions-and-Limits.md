@@ -6,7 +6,6 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 - **[Permissions and Limits](#permissions-and-limits)**
   * [Verify permissions](#verify-permissions)
-  * [Restrict partitions](#restrict-partitions)
   * [Restrict filesystems](#restrict-filesystems)
   * [Restrict programs](#restrict-programs)
 
@@ -106,51 +105,48 @@ df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -typ
 
 #### Useful resources
 
-- []()
-
-### Restrict partitions
-
-#### Rationale
-
-#### Solution
-
-###### /dev/shm
-
-```bash
-# C2S/CIS: CCE-80153-0 (unknown)
-
-
-```
-
-#### Policies
-
-<code>C2S/CIS: <a href=""></a></code>
-
-#### Comments
-
-#### Useful resources
-
-- []()
-
 ### Restrict filesystems
 
 #### Rationale
 
+Linux includes a number of facilities for the automated addition and removal of filesystems on a running system. These facilities may be necessary in many environments, but this capability also carries some risk.
+
 #### Solution
 
-###### /dev/shm
+###### Restrict dynamic mounting and unmounting
 
 ```bash
-# C2S/CIS: CCE-80153-0 (unknown)
+# C2S/CIS: CCE-80138-1 (Low), CCE-80143-1 (Low), CCE-80142-3 (Low), CCE-80141-5 (Low), CCE-80139-9 (Low)
+#          CCE-80140-7 (Low), CCE-80137-3 (Low)
 
-
+# Add to /etc/modprobe.d/modules.conf:
+install freevxfs /bin/true
+install udf /bin/true
+install squashfs /bin/true
+install hfsplus /bin/true
+install jffs2 /bin/true
+install hfs /bin/true
+install cramfs /bin/true
 ```
 
 #### Policies
 
-<code>C2S/CIS: <a href=""></a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_freevxfs_disabled">CCE-80138-1 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_udf_disabled">CCE-80143-1 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_squashfs_disabled">CCE-80142-3 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_hfsplus_disabled">CCE-80141-5 (Low)</a>
+; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_jffs2_disabled">CCE-80139-9 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_hfs_disabled">CCE-80140-7 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_cramfs_disabled">CCE-80137-3 (Low)</a></code>
 
 #### Comments
+
+It is sensible to leave only the modules you use. If you don't use nfs, cifs etc. you may also disable the following file systems:
+
+```bash
+install fat /bin/true
+install vfat /bin/true
+install cifs /bin/true
+install nfs /bin/true
+install nfsv3 /bin/true
+install nfsv4 /bin/true
+install gfs2 /bin/true
+```
 
 #### Useful resources
 
