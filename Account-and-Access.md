@@ -184,12 +184,48 @@ INACTIVE=30
 
 #### Comments
 
-You can also use following command to set passwords aging for specific user:
+You can also use following command to set password aging and account expiration for specific user:
 
 ```bash
-chage -M 180 -m 7 -W 7 <username>
+chage -M 90 -m 7 -W 7 -I 30 <username>
 ```
 
 #### Useful resources
 
 - [Password Aging](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s3-wstation-pass-org-age.html) <sup>[Official]</sup>
+
+### Restrict root logins
+
+#### Rationale
+
+Direct root logins should be allowed only for emergency use. In normal situations, the administrator should access the system via a unique unprivileged account, and then use `su` or `sudo` to execute privileged commands. 
+
+#### Solution
+
+###### Verify only root has UID 0
+
+```bash
+# C2S/CIS: CCE-27175-9 (High)
+
+awk -F: '$3 == 0 && $1 != "root" { print $1 }' /etc/passwd | xargs passwd -l
+```
+
+###### Protect direct root logins
+
+```bash
+# C2S/CIS: CCE-27294-8 (Medium)
+
+echo > /etc/securetty
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_no_uid_except_zero">CCE-27175-9 (High)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_direct_root_logins">CCE-27294-8 (Medium)</a></code>
+
+#### Comments
+
+
+
+#### Useful resources
+
+- []()
