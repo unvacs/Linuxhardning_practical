@@ -244,5 +244,4 @@ A blank `/etc/securetty` file does not prevent the root user from logging in rem
 
 #### Useful resources
 
-- [Restrict Root Logins [group]](https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_group_root_logins) <sup>[Official]</sup>
 - [Disallowing Root Access](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html) <sup>[Official]</sup>
