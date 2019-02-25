@@ -140,15 +140,15 @@ Conventionally, Unix shell accounts are accessed by providing a username and pas
 
 - setting the password warning age enables users to make the change at a practical time
 
-  > The DoD requirement is 7 for password warning age. The C2S/CIS profile requirement is 7.
+  > The DoD requirement is 7. The C2S/CIS profile requirement is 7.
 
 - enforcing a minimum password lifetime helps to prevent repeated password changes to defeat the password reuse
 
-  > The DoD requirement is 1 for password minimum age. The C2S/CIS profile requirement is 7.
+  > The DoD requirement is 1. The C2S/CIS profile requirement is 7.
 
 - setting the password maximum age ensures users are required to periodically change their passwords
 
-  > The DoD requirement is 60 for password maximum age. The C2S/CIS profile requirement is 90.
+  > The DoD requirement is 60. The C2S/CIS profile requirement is 90.
 
 Disabling inactive accounts ensures that accounts which may not have been responsibly removed are not available to attackers who may have compromised their credentials.
 
