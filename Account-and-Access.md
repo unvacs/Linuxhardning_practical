@@ -43,8 +43,8 @@ ExecStart=-/bin/sh -c "/usr/sbin/sulogin; /usr/bin/systemctl --fail --no-block d
 
 #### Comments
 
-I also recommend change or set the this params in /usr/lib/systemd/system/emergency.service. It is default target when an issue kicks in during the boot process.
+I also recommend change or set the this params in `/usr/lib/systemd/system/emergency.service`. It is default target when an issue kicks in during the boot process.
 
 #### Useful resources
 
-- []()
+- [Console Access](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-console-access) <sup>[Official]</sup>
