@@ -74,7 +74,7 @@ umask 027
 
 #### Comments
 
-I have seen recommendations in some guides (and in real configurations) to set the `umask 077` value. Many of Linux distributions are shipped by default with `umask 022`.
+I have seen recommendations in some guides (and in the real configurations) to set the `umask 077` value. Many of Linux distributions are shipped by default with `umask 022`.
 
 `umask 027` is better from security perspective. `umask 077` is even better to use for root (`077` means that noone but the owner is able to read or execute newly-created files).
 
