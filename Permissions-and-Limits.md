@@ -119,7 +119,7 @@ Linux includes a number of facilities for the automated addition and removal of 
 # C2S/CIS: CCE-80138-1 (Low), CCE-80143-1 (Low), CCE-80142-3 (Low), CCE-80141-5 (Low), CCE-80139-9 (Low)
 #          CCE-80140-7 (Low), CCE-80137-3 (Low)
 
-# Add to /etc/modprobe.d/modules.conf:
+# Add to /etc/modprobe.d/fs-blacklist.conf:
 install freevxfs /bin/true
 install udf /bin/true
 install squashfs /bin/true
