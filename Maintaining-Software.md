@@ -108,7 +108,7 @@ yum history undo <id>
 
 #### Rationale
 
-
+The best protection against vulnerable software is running less software.
 
 #### Solution
 
