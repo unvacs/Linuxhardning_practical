@@ -52,7 +52,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 #### Comments
 
-  > You should think about setting the password for bootloader because it can be problematic for the production clusters.
+  > You should think about sense of setting the password for bootloader because it can be problematic for the production clusters.
 
 Also other solution is:
 
@@ -130,6 +130,7 @@ There are several advantages of having partitions on your hard drive:
 - logical separation of data
 - duration of `fsck`
 - using different file systems
+- using specific SELinux contexts
 
 #### Solution
 
@@ -204,7 +205,9 @@ UUID=<...>  /home  ext4  defaults,nodev  1 2
 First of all look at these options to understand how they works:
 
 - `nodev` - specifies that the filesystem cannot contain special devices: This is a security precaution. You don't want a user world-accessible filesystem like this to have the potential for the creation of character devices or access to random device hardware
+
 - `nosuid` - specifies that the filesystem cannot contain set userid files. Preventing setuid binaries on a world-writable filesystem makes sense because there's a risk of root escalation or other awfulness there
+
 - `noexec` - this param might be useful for a partition that contains no binaries, like **/var**, or contains binaries you do not want to execute on your system (from partitions with `noexec`), or that cannot even be executed on your system
 
 ##### Secure /boot directory
