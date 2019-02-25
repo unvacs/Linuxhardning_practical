@@ -94,26 +94,22 @@ To prevent local users from modifying the boot parameters and ensure its configu
 ###### Set the permissions on the bootloader config files
 
 ```bash
-# C2S/CIS: CCE-27054-6 (Medium)
-
 chmod 600 /boot/grub2/grub.cfg
 chmod og-rwx /etc/grub.conf
 chmod -R og-rwx /etc/grub.d
 ```
 
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg">C2S/CIS: CCE-27054-6 (Medium)</a></sup>
+
 ###### Set the owner and group on the bootloader config files
 
 ```bash
-# C2S/CIS: CCE-26860-7 (Medium)
-
 chown root:root /boot/grub2/grub.cfg
 chown root:root /etc/grub.conf
 chown -R root:root /etc/grub.d
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg">CCE-27054-6 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">CCE-26860-7 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">C2S/CIS: CCE-26860-7 (Medium)</a></sup>
 
 #### Comments
 
