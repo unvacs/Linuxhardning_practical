@@ -95,6 +95,8 @@ The most obvious downside is when you start creating files/directories in a shar
 
 Login banners provide a definitive warning to any possible intruders that may want to access your system that certain types of activity are illegal, but at the same time, it also advises the authorized and legitimate users of their obligations relating to acceptable use of the computerized or networked environment(s).
 
+Pre-logon warning messages can deter unauthorized use, increase IT security awareness, and provide a legal basis for prosecuting unauthorized access.
+
 #### Solution
 
 The DoD required text is either:
@@ -114,8 +116,17 @@ You are accessing a U.S. Government (USG) Information System (IS) that is provid
 
 #### Comments
 
+Personally, I use shorter banners on my systems (from Cisco book):
 
+```
+UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED
+ You must have explicit, authorized permission to access or configure this device.
+ Unauthorized attempts and actions to access or use this system may result in civil and/or 
+criminal penalties.
+ All activities performed on this device are logged and monitored.
+```
 
 #### Useful resources
 
 - [The real purpose of login banners (on Linux)](https://linux-audit.com/the-real-purpose-of-login-banners-on-linux/)
+- [Protect SSH Logins with SSH & MOTD Banner Messages](https://www.tecmint.com/protect-ssh-logins-with-ssh-motd-banner-messages/)
