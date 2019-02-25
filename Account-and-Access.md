@@ -7,7 +7,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 - **[Accounts and Access](#accounts-and-access)**
   * [Physical console access](#physical-console-access)
   * [Session configuration files](#session-configuration-files)
-  * [Banners](#)
+  * [Banners](#banners)
   * [Passwords policy](#)
 
 ## Accounts and Access
@@ -86,3 +86,34 @@ I'm sure there's a perfectly rational explanation why it is used:
 #### Useful resources
 
 - [Best practices for umask in Red Hat Enterprise Linux](https://access.redhat.com/solutions/107683) <sup>[Official]</sup>
+
+### Banners
+
+#### Rationale
+
+Login banners provide a definitive warning to any possible intruders that may want to access your system that certain types of activity are illegal, but at the same time, it also advises the authorized and legitimate users of their obligations relating to acceptable use of the computerized or networked environment(s).
+
+#### Solution
+
+The DoD required text is either:
+
+```
+You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only. By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+-At any time, the USG may inspect and seize data stored on this IS.
+-Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+-This IS includes security measures (e.g., authentication and access controls) to protect USG interests -- not for your personal benefit or privacy.
+-Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_banner_etc_issue">CCE-27303-7 (Medium)</a></code>
+
+#### Comments
+
+
+
+#### Useful resources
+
+- [The real purpose of login banners (on Linux)](https://linux-audit.com/the-real-purpose-of-login-banners-on-linux/)
