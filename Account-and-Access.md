@@ -116,7 +116,7 @@ You are accessing a U.S. Government (USG) Information System (IS) that is provid
 
 #### Comments
 
-Personally, I use shorter banners on my systems (from Cisco book):
+Personally, I use shorter banners on my systems (from [Cisco](https://www.cisco.com/c/en/us/td/docs/solutions/Enterprise/Security/Baseline_Security/securebasebook/appendxA.html) security baseline):
 
 ```
 UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED
