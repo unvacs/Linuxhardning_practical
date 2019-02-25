@@ -203,6 +203,8 @@ kernel.randomize_va_space = 2
 
 #### Comments
 
+When you combine exec-shield, SELinux and proper patching and security best practices you can really limit the attack vectors that can be used to break into your systems.
+
 #### Useful resources
 
 - [Understand and configure core dumps on Linux](https://linux-audit.com/understand-and-configure-core-dumps-work-on-linux/)
