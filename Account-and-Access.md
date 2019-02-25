@@ -7,7 +7,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 - **[Accounts and Access](#accounts-and-access)**
   * [Physical console access](#physical-console-access)
   * [Session configuration files](#session-configuration-files)
-  * [Banners](#banners)
+  * [Login banners](#login-banners)
   * [Passwords policy](#passwords-policy)
   * [Restrict root logins](#restrict-root-logins)
 
@@ -90,7 +90,7 @@ The most obvious downside is when you start creating files/directories in a shar
 
 - [Best practices for umask in Red Hat Enterprise Linux](https://access.redhat.com/solutions/107683) <sup>[Official]</sup>
 
-### Banners
+### Login banners
 
 #### Rationale
 
