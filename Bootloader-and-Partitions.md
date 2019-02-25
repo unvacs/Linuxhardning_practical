@@ -29,26 +29,26 @@ You can set password for the bootloader for prevents users from entering single 
 ###### Generate password hash
 
 ```bash
-# C2S/CIS: CCE-27309-4 (High)
-
 grub2-setpassword
 ```
+
+<sup><a href="">C2S/CIS: CCE-27309-4 (High)</a></sup>
 
 ###### Update grub configuration
 
 ```bash
-# C2S/CIS: CCE-27309-4 (High)
-
 sed -i s/root/bootuser/g /etc/grub.d/01_users
 ```
+
+<sup><a href="">C2S/CIS: CCE-27309-4 (High)</a></sup>
 
 ###### Regenerate grub configuration
 
 ```bash
-# C2S/CIS: CCE-27309-4 (High)
-
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
+
+<sup><a href="">C2S/CIS: CCE-27309-4 (High)</a></sup>
 
 #### Policies
 
