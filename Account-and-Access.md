@@ -6,7 +6,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 - **[Accounts and Access](#accounts-and-access)**
   * [Physical console access](#physical-console-access)
-  * [Session configuration files](#)
+  * [Session configuration files](#session-configuration-files)
   * [Banners](#)
   * [Passwords policy](#)
 
@@ -43,8 +43,39 @@ ExecStart=-/bin/sh -c "/usr/sbin/sulogin; /usr/bin/systemctl --fail --no-block d
 
 #### Comments
 
-I also recommend change or set the this params in `emergency.service`. It is default target when an issue kicks in during the boot process.
+I also recommend change or set these options in `emergency.service`. It is default target when an issue kicks in during the boot process.
 
 #### Useful resources
 
 - [Console Access](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-console-access) <sup>[Official]</sup>
+
+### Session configuration files
+
+#### Rationale
+
+When a user logs into a Unix account, the system configures the user's session by reading a number of files. Many of these files are located in the user's home directory, and may have weak permissions as a result of user error or misconfiguration.
+
+#### Solution
+
+###### Set sensible umask values
+
+A misconfigured `umask` value could result in files with excessive permissions that can be read or written to by unauthorized users.
+
+```bash
+# C2S/CIS: CCE-80202-5 (unknown), CCE-80204-1 (unknown)
+
+# Edit /etc/profile and /etc/bashrc
+umask 027
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_bashrc">CCE-80202-5 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_profile">CCE-80204-1 (unknown)</a></code>
+
+#### Comments
+
+I have seen recommendations in some guides (and in real configurations!) to set the `umask 077` value. What a stupidity!
+
+#### Useful resources
+
+- []()
