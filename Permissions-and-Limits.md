@@ -159,22 +159,32 @@ install gfs2 /bin/true
 
 #### Rationale
 
+The recommendations in this section are designed to ensure that the system's features to protect against potentially dangerous program execution are activated.
+
 #### Solution
 
-###### /dev/shm
+###### Disable core dumps
+
+The core dump files may also contain sensitive information, or unnecessarily occupy large amounts of disk space.
+
+You can restrict access to core dumps to certain users or groups, as described in the limits.conf(5) manual page. 
 
 ```bash
-# C2S/CIS: CCE-80153-0 (unknown)
+# C2S/CIS: CCE-26900-1 (Unknown), CCE-80169-6 (Unknown)
 
+# Add to /etc/sysctl.d/hardening.conf
+fs.suid_dumpable = 0
 
+# Edit /etc/security/limits.conf:
+*     hard   core    0
 ```
 
 #### Policies
 
-<code>C2S/CIS: <a href=""></a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sysctl_fs_suid_dumpable">CCE-26900-1 (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_disable_users_coredumps">CCE-80169-6 (Unknown)</a></code>
 
 #### Comments
 
 #### Useful resources
 
-- []()
+- [Understand and configure core dumps on Linux](https://linux-audit.com/understand-and-configure-core-dumps-work-on-linux/)
