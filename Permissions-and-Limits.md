@@ -27,21 +27,28 @@ The default restrictive permissions for files which act as important security da
 ###### Verify permissions and owners
 
 ```bash
-# C2S/CIS: CCE-26949-8 (Medium) and CCE-26887-0 (Medium), CCE-27138-7 (Medium), CCE-26639-5 (Medium)
+# C2S/CIS: CCE-26949-8 (Medium) and CCE-26887-0 (Medium),
+#          CCE-27138-7 (Medium), CCE-26639-5 (Medium)
+
 chmod 0644 /etc/passwd
 chown root /etc/passwd
 chgrp root /etc/passwd
 
 # C2S/CIS: CCE-26933-2 (Medium), CCE-27037-1 (Medium)
+
 chown root /etc/group
 chgrp root /etc/group
 
-# C2S/CIS: CCE-27100-7 (Medium), CCE-26795-5 (Medium), CCE-27125-4 (Medium)
+# C2S/CIS: CCE-27100-7 (Medium), CCE-26795-5 (Medium),
+#          CCE-27125-4 (Medium)
+
 chmod 0640 /etc/shadow
 chown root /etc/shadow
 chgrp root /etc/shadow
 
-# C2S/CIS: CCE-27162-7 (Medium), CCE-27161-9 (Medium), CCE-26840-9 (Medium)
+# C2S/CIS: CCE-27162-7 (Medium), CCE-27161-9 (Medium),
+#          CCE-26840-9 (Medium)
+
 chmod 0000 /etc/gshadow
 chown root /etc/gshadow
 chgrp root /etc/gshadow
