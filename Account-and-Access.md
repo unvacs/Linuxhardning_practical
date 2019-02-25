@@ -204,6 +204,8 @@ Direct root logins should be allowed only for emergency use. In normal situation
 
 ###### Verify only root has UID 0
 
+Multiple accounts with a UID of 0 afford more opportunity for potential intruders to guess a password for a privileged account.
+
 ```bash
 # C2S/CIS: CCE-27175-9 (High)
 
@@ -212,20 +214,35 @@ awk -F: '$3 == 0 && $1 != "root" { print $1 }' /etc/passwd | xargs passwd -l
 
 ###### Protect direct root logins
 
+Disabling direct root logins ensures proper accountability and multifactor authentication to privileged accounts.
+
 ```bash
 # C2S/CIS: CCE-27294-8 (Medium)
 
 echo > /etc/securetty
 ```
 
+###### Protect direct root logins
+
+Ensuring shells are not given to system accounts upon login makes it more difficult for attackers to make use of system accounts.
+
+  > Do not perform the steps in this section on the root account.
+
+```bash
+# C2S/CIS: CCE-26448-1 (Medium)
+
+usermod -s /sbin/nologin SYSACCT
+```
+
 #### Policies
 
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_no_uid_except_zero">CCE-27175-9 (High)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_direct_root_logins">CCE-27294-8 (Medium)</a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_no_uid_except_zero">CCE-27175-9 (High)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_direct_root_logins">CCE-27294-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_shelllogin_for_systemaccounts">CCE-26448-1 (Medium)</a></code>
 
 #### Comments
 
-
+A blank `/etc/securetty` file does not prevent the root user from logging in remotely using the OpenSSH suite of tools because the console is not opened until after authentication.
 
 #### Useful resources
 
-- []()
+- [Restrict Root Logins [group](https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_group_root_logins) <sup>[Official]</sup>
+- [Disallowing Root Access](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html) <sup>[Official]</sup>
