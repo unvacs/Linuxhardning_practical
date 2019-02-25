@@ -153,8 +153,6 @@ install gfs2 /bin/true
 
 #### Useful resources
 
-- []()
-
 ### Restrict programs
 
 #### Rationale
@@ -179,6 +177,26 @@ fs.suid_dumpable = 0
 *     hard   core    0
 ```
 
+###### Enable ExecShield
+
+ExecShield describes kernel features that provide protection against exploitation of memory corruption errors such as buffer overflows.
+
+It's designed to limit against
+
+- stack
+- buffer
+- function pointer overflows
+
+  > Exec Shield is enabled in CentOS-6 and 7 by default.
+
+```bash
+# C2S/CIS: CCE-27211-2 (Medium), CCE-27127-0 (Medium)
+
+# Add to /etc/sysctl.d/hardening.conf
+# kernel.exec-shield = 1
+kernel.randomize_va_space = 2
+```
+
 #### Policies
 
 <code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sysctl_fs_suid_dumpable">CCE-26900-1 (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_disable_users_coredumps">CCE-80169-6 (Unknown)</a></code>
@@ -188,3 +206,4 @@ fs.suid_dumpable = 0
 #### Useful resources
 
 - [Understand and configure core dumps on Linux](https://linux-audit.com/understand-and-configure-core-dumps-work-on-linux/)
+- [Security Technologies: ExecShield](https://access.redhat.com/blogs/766093/posts/3534821)
