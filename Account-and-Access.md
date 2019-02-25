@@ -83,6 +83,8 @@ I'm sure there's a perfectly rational explanation why it is used:
 - it avoids some common system administrator mistakes
 - it's harder for an attacker to run privilege escalation
 
+The most obvious downside is when you start creating files/directories in a shared directory, expecting other users to access them.
+
 #### Useful resources
 
 - [Best practices for umask in Red Hat Enterprise Linux](https://access.redhat.com/solutions/107683) <sup>[Official]</sup>
