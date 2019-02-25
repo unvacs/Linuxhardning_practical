@@ -12,23 +12,45 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Permissions and Limits
 
+Traditional Unix security relies heavily on file and directory permissions to prevent unauthorized users from reading or modifying files to which they should not have access. 
+
 ### Verify permissions
 
 #### Rationale
 
+Permissions for many files on a system must be set restrictively to ensure sensitive information is properly protected. This section discusses important permission restrictions which can be verified to ensure that no harmful discrepancies have arisen.
+
+The default restrictive permissions for files which act as important security databases such as `passwd`, `shadow`, `group`, and `gshadow` files must be maintained.
+
 #### Solution
 
-###### /dev/shm
+###### Verify permissions and owners
 
 ```bash
-# C2S/CIS: CCE-80153-0 (unknown)
+# C2S/CIS: CCE-27100-7 (Medium), CCE-26795-5 (Medium), CCE-27161-9 (Medium)
+chmod 0640 /etc/shadow
+chown root /etc/shadow
+chgrp root /etc/shadow
 
+# C2S/CIS: CCE-26840-9 (Medium), CCE-27161-9 (Medium), CCE-27162-7 (Medium)
+chgrp root /etc/gshadow
+chown root /etc/gshadow
+chmod 0000 /etc/gshadow
 
+# C2S/CIS: CCE-26949-8 (Medium), CCE-27125-4 (Medium), CCE-27138-7 (Medium), CCE-26887-0 (Medium)
+chmod 0644 /etc/passwd
+chgrp root /etc/passwd
+chown root /etc/passwd
+chmod 0644 /etc/passwd
+
+# C2S/CIS: CCE-26933-2 (Medium), CCE-27037-1 (Medium)
+chown root /etc/group
+chgrp root /etc/group
 ```
 
 #### Policies
 
-<code>C2S/CIS: <a href=""></a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_shadow">CCE-27100-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_shadow">CCE-26795-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_group">CCE-26933-2</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_group">CCE-26949-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_gshadow">CCE-26840-9 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_passwd">CCE-26639-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_shadow">CCE-27125-4 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_gshadow">CCE-27161-9 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_group">CCE-27037-1 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_gshadow">CCE-27162-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_passwd">CCE-27138-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_passwd">CCE-26887-0 (Medium)</a></code>
 
 #### Comments
 
