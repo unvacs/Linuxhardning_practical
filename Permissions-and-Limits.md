@@ -56,9 +56,53 @@ chgrp root /etc/gshadow
 
 #### Policies
 
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_group">CCE-26949-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_passwd">CCE-26887-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_passwd">CCE-27138-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_passwd">CCE-26639-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_group">CCE-26933-2</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_group">CCE-27037-1 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_shadow">CCE-27100-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_shadow">CCE-26795-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_shadow">CCE-27125-4 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_gshadow">CCE-27162-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_gshadow">CCE-27161-9 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_gshadow">CCE-26840-9 (Medium)</a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_group">CCE-26949-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_passwd">CCE-26887-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_passwd">CCE-27138-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_passwd">CCE-26639-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_group">CCE-26933-2</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_group">CCE-27037-1 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_shadow">CCE-27100-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_shadow">CCE-26795-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_shadow">CCE-27125-4 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_gshadow">CCE-27162-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_gshadow">CCE-27161-9 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_gshadow">CCE-26840-9 (Medium)</a></a></code>
 
 #### Comments
+
+For the following recommendations C2S/CIS does not provide a solution, but there are methods to verify it.
+
+###### Ensure all files are owned by a user and group
+
+Unowned files may be caused by an intruder, by incorrect software installation or draft software removal, or by failure to remove all files belonging to a deleted account.
+
+```bash
+# C2S/CIS: CCE-80134-0 (Medium), CCE-80135-7 (Medium)
+
+# To find out all files that are not owned by any user:
+find / -nouser
+
+# To find out all files that are not owned by any group:
+find / -nogroup
+```
+
+###### Ensure no world-writable files exist
+
+Data in world-writable files can be modified by any user on the system. In almost all circumstances, files can be configured using a combination of user and group permissions to support whatever legitimate access is needed without the risk caused by world-writable files.
+
+  > Check with documentation for specific applications before making changes.
+
+```bash
+# C2S/CIS: CCE-80131-6 (Medium)
+
+# To find all files that are world writable, irrespective of what other permissions they have, you can do:
+find / -perm -o+w
+```
+
+###### Verify that all world-writable directories have sticky bits set
+
+Failing to set the sticky bit on public directories allows unauthorized users to delete files in the directory structure. 
+
+```bash
+# C2S/CIS: CCE-80130-8 (Unknown)
+
+# To verify no world writable directories exist without the sticky bit set:
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_files_unowned_by_user">CCE-80134-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_ungroupowned">CCE-80135-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_unauthorized_world_writable">CCE-80131-6 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_dir_perms_world_writable_sticky_bits">CCE-80130-8 (Unknown)</code>
 
 #### Useful resources
 
