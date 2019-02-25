@@ -9,6 +9,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Session configuration files](#session-configuration-files)
   * [Banners](#banners)
   * [Passwords policy](#passwords-policy)
+  * [Restrict root logins](#restrict-root-logins)
 
 ## Accounts and Access
 
@@ -149,6 +150,8 @@ Conventionally, Unix shell accounts are accessed by providing a username and pas
 
   > The DoD requirement is 60 for password maximum age. The C2S/CIS profile requirement is 90.
 
+Disabling inactive accounts ensures that accounts which may not have been responsibly removed are not available to attackers who may have compromised their credentials.
+
 #### Solution
 
 ###### Set password expiration
@@ -166,9 +169,18 @@ PASS_MIN_DAYS 7
 PASS_MAX_DAYS 90
 ```
 
+###### Set account expiration
+
+```bash
+# C2S/CIS: CCE-27355-7 (Medium)
+
+# Edit /etc/default/useradd
+INACTIVE=30
+```
+
 #### Policies
 
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-26486-1 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-27002-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-27051-2 (Medium)</a></code>
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-26486-1 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-27002-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-27051-2 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_account_disable_post_pw_expiration">CCE-27355-7 (Medium)</a></code>
 
 #### Comments
 
