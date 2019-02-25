@@ -138,29 +138,31 @@ criminal penalties.
 Conventionally, Unix shell accounts are accessed by providing a username and password to a login program, which tests these values for correctness using the `/etc/passwd` and `/etc/shadow` files. Password-based login is vulnerable to guessing of weak passwords, and to sniffing and man-in-the-middle attacks against passwords entered over a network or at an insecure console.
 
 - setting the password warning age enables users to make the change at a practical time
-- enforcing a minimum password lifetime helps to prevent repeated password changes to defeat the password reuse or history enforcement requirement
+
+  > The DoD requirement is 7 for password warning age. The C2S/CIS profile requirement is 7.
+
+- enforcing a minimum password lifetime helps to prevent repeated password changes to defeat the password reuse
+
+  > The DoD requirement is 1 for password minimum age. The C2S/CIS profile requirement is 7.
+
 - setting the password maximum age ensures users are required to periodically change their passwords
+
+  > The DoD requirement is 60 for password maximum age. The C2S/CIS profile requirement is 90.
 
 #### Solution
 
 ###### Set password expiration
 
-  > The DoD requirement is 7 for password warning age. The C2S/CIS profile requirement is 7.
-
-  > The DoD requirement is 1 for password minimum age. The C2S/CIS profile requirement is 7.
-
-  > The DoD requirement is 60 for password maximum age. The C2S/CIS profile requirement is 90.
-
 ```bash
 # C2S/CIS: CCE-26486-1 (unknown), CCE-27002-5 (Medium), CCE-27051-2 (Medium)
 
-# Edit `/etc/login.defs` and set password warning age:
+# Edit /etc/login.defs and set password warning age:
 PASS_WARN_AGE 7
 
-# Edit `/etc/login.defs` and set password minimum age:
+# Edit /etc/login.defs and set password minimum age:
 PASS_MIN_DAYS 7
 
-# Edit `/etc/login.defs` and set password maximum age:
+# Edit /etc/login.defs and set password maximum age:
 PASS_MAX_DAYS 90
 ```
 
