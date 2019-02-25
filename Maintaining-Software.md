@@ -112,17 +112,20 @@ The best protection against vulnerable software is running less software.
 
 #### Solution
 
-###### /dev/shm
+###### Remove or disable unnecessary services
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_group_r_services">CCE-27274-0 (unknown)</a></code>
 
 ```bash
-# C2S/CIS: CCE-80153-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
+# C2S/CIS: CCE-27274-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
+yum remove -y rsh
 
-tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
+systemctl disable rlogin.socket
 ```
 
 #### Policies
 
-<code>C2S/CIS: <a href="">CCE-80153-0 (unknown)</a></code>
+<code>C2S/CIS: <a href="">CCE-27274-0 (unknown)</a></code>
 
 #### Comments
 
