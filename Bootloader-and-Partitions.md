@@ -173,6 +173,8 @@ By default mount options are not focused on security. These options can be used 
 tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
 ```
 
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_noexec">C2S/CIS: CCE-80153-0 (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nosuid">C2S/CIS: CCE-80153-0 (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nodev">C2S/CIS: CCE-80153-0 (Unknown)</a></sup>
+
 ###### /tmp
 
 ```bash
