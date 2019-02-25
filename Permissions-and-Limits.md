@@ -181,7 +181,7 @@ fs.suid_dumpable = 0
 
 ExecShield describes kernel features that provide protection against exploitation of memory corruption errors such as buffer overflows.
 
-  > Exec Shield is enabled in CentOS-6 and 7 by default.
+  > Exec Shield is enabled in CentOS-6 and 7 by default. To view the list of running processes that have exec-shield enabled, you can run `[lsexec](https://people.redhat.com/sgrubb/files/lsexec)` tool.
 
 It's designed to limit against:
 
