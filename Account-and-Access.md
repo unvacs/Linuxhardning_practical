@@ -8,7 +8,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Physical console access](#physical-console-access)
   * [Session configuration files](#session-configuration-files)
   * [Banners](#banners)
-  * [Passwords policy](#)
+  * [Passwords policy](#passwords-policy)
 
 ## Accounts and Access
 
@@ -130,3 +130,52 @@ criminal penalties.
 
 - [The real purpose of login banners (on Linux)](https://linux-audit.com/the-real-purpose-of-login-banners-on-linux/)
 - [Protect SSH Logins with SSH & MOTD Banner Messages](https://www.tecmint.com/protect-ssh-logins-with-ssh-motd-banner-messages/)
+
+### Passwords policy
+
+#### Rationale
+
+Conventionally, Unix shell accounts are accessed by providing a username and password to a login program, which tests these values for correctness using the `/etc/passwd` and `/etc/shadow` files. Password-based login is vulnerable to guessing of weak passwords, and to sniffing and man-in-the-middle attacks against passwords entered over a network or at an insecure console.
+
+- setting the password warning age enables users to make the change at a practical time
+- enforcing a minimum password lifetime helps to prevent repeated password changes to defeat the password reuse or history enforcement requirement
+- setting the password maximum age ensures users are required to periodically change their passwords
+
+#### Solution
+
+###### Set password expiration
+
+  > The DoD requirement is 7 for password warning age. The C2S/CIS profile requirement is 7.
+
+  > The DoD requirement is 1 for password minimum age. The C2S/CIS profile requirement is 7.
+
+  > The DoD requirement is 60 for password maximum age. The C2S/CIS profile requirement is 90.
+
+```bash
+# C2S/CIS: CCE-26486-1 (unknown), CCE-27002-5 (Medium), CCE-27051-2 (Medium)
+
+# Edit `/etc/login.defs` and set password warning age:
+PASS_WARN_AGE 7
+
+# Edit `/etc/login.defs` and set password minimum age:
+PASS_MIN_DAYS 7
+
+# Edit `/etc/login.defs` and set password maximum age:
+PASS_MAX_DAYS 90
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-26486-1 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-27002-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-27051-2 (Medium)</a></code>
+
+#### Comments
+
+You can also use following command to set passwords aging for specific user:
+
+```bash
+chage -M 180 -m 7 -W 7 <username>
+```
+
+#### Useful resources
+
+- [Password Aging](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s3-wstation-pass-org-age.html) <sup>[Official]</sup>
