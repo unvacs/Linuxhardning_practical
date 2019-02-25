@@ -5,11 +5,14 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ## Table of Contents
 
 - **[Permissions and Limits](#permissions-and-limits)**
-  * [Package signatures](#package-signatures)
+  * [Verify permissions](#verify-permissions)
+  * [Restrict partitions](#restrict-partitions)
+  * [Restrict filesystems](#restrict-filesystems)
+  * [Restrict programs](#restrict-programs)
 
 ## Permissions and Limits
 
-### Package signatures
+### Verify permissions
 
 #### Rationale
 
@@ -18,14 +21,86 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 ###### /dev/shm
 
 ```bash
-# C2S/CIS: CCE-80153-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
+# C2S/CIS: CCE-80153-0 (unknown)
 
-tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
+
 ```
 
 #### Policies
 
-<code>C2S/CIS: <a href="">CCE-80153-0 (unknown)</a></code>
+<code>C2S/CIS: <a href=""></a></code>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Restrict partitions
+
+#### Rationale
+
+#### Solution
+
+###### /dev/shm
+
+```bash
+# C2S/CIS: CCE-80153-0 (unknown)
+
+
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href=""></a></code>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Restrict filesystems
+
+#### Rationale
+
+#### Solution
+
+###### /dev/shm
+
+```bash
+# C2S/CIS: CCE-80153-0 (unknown)
+
+
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href=""></a></code>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Restrict programs
+
+#### Rationale
+
+#### Solution
+
+###### /dev/shm
+
+```bash
+# C2S/CIS: CCE-80153-0 (unknown)
+
+
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href=""></a></code>
 
 #### Comments
 
