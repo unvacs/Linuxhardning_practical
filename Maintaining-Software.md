@@ -7,7 +7,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 - **[Maintaining Software](#maintaining-software)**
   * [Package signatures](#package-signatures)
   * [Keep system updated](#keep-system-updated)
-  * [Remove unused packages](#remove-unused-packages)
+  * [Remove vulnerable software](#remove-vulnerable-software)
 
 ## Maintaining Software
 
@@ -103,3 +103,29 @@ yum history undo <id>
 - [Yum](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-yum) <sup>[Official]</sup>
 - [How to use yum history to roll back an update in Red Hat Enterprise Linux 6 , 7?](https://access.redhat.com/solutions/64069) <sup>[Official]</sup>
 - [In CentOS, what is the difference between yum update and yum upgrade?](https://unix.stackexchange.com/questions/55777/in-centos-what-is-the-difference-between-yum-update-and-yum-upgrade)
+
+### Remove vulnerable software
+
+#### Rationale
+
+
+
+#### Solution
+
+###### /dev/shm
+
+```bash
+# C2S/CIS: CCE-80153-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
+
+tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
+```
+
+#### Policies
+
+<code>C2S/CIS: <a href="">CCE-80153-0 (unknown)</a></code>
+
+#### Comments
+
+#### Useful resources
+
+- []()
