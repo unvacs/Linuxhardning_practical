@@ -32,7 +32,7 @@ You can set password for the bootloader for prevents users from entering single 
 grub2-setpassword
 ```
 
-<sup><a href="">C2S/CIS: CCE-27309-4 (High)</a></sup>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">C2S/CIS: CCE-27309-4 (High)</a></sup>
 
 ###### Update grub configuration
 
@@ -40,7 +40,7 @@ grub2-setpassword
 sed -i s/root/bootuser/g /etc/grub.d/01_users
 ```
 
-<sup><a href="">C2S/CIS: CCE-27309-4 (High)</a></sup>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">C2S/CIS: CCE-27309-4 (High)</a></sup>
 
 ###### Regenerate grub configuration
 
@@ -48,11 +48,7 @@ sed -i s/root/bootuser/g /etc/grub.d/01_users
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-<sup><a href="">C2S/CIS: CCE-27309-4 (High)</a></sup>
-
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">C2S/CIS: CCE-27309-4 (High)</a></sup>
 
 #### Comments
 
