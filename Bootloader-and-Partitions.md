@@ -14,13 +14,11 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Bootloader
 
-Protection for the bootloader can prevent unauthorized users who have physical access to the system, e.g. attaining root privileges through single user mode.
-
-Basically when you want to prohibit unauthorized reconfiguring of your system, otherwise anybody could load and edit anything on it.
-
 ### Protect bootloader with password
 
 #### Rationale
+
+Protection for the bootloader can prevent unauthorized users who have physical access to the system, e.g. attaining root privileges through single user mode.
 
 You can set password for the bootloader for prevents users from entering single user mode, changing settings at boot time, access to the bootloader console, reset the root password, access to non-secure operating systems and the ability to disable SELinux.
 
