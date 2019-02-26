@@ -11,31 +11,23 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Maintaining Software
 
-Software maintenance is extremely important to maintaining a secure system. It is vital to patch software as soon as it becomes available in order to prevent attackers from using known holes to infiltrate your system.
-
-#### Useful resources
-
-- [Software Maintenance](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security_guide/chap-security_guide-software_maintenance) <sup>[Official]</sup>
+[Software mintenance](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security_guide/chap-security_guide-software_maintenance) <sup>[Official]</sup> is extremely important to maintaining a secure system. It is vital to patch software as soon as it becomes available in order to prevent attackers from using known holes to infiltrate your system.
 
 ### Package signatures
 
 #### Rationale
 
-Changes to any software components can have significant effects on the overall security of the operating system. This requirement ensures the software has not been tampered with and that it has been provided by a trusted vendor. 
+Changes to any software components can have significant effects on the overall security of the operating system. This requirement ensures the software has not been tampered with and that it has been provided by a trusted vendor.
 
 #### Solution
 
 ###### Enabled gpgcheck option
 
 ```bash
-# C2S/CIS: CCE-26989-4 (High)
-
 gpgcheck=1
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_ensure_gpgcheck_globally_activated">CCE-26989-4 (High)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_ensure_gpgcheck_globally_activated">C2S/CIS: CCE-26989-4 (High)</a></sup>
 
 #### Useful resources
 
@@ -60,14 +52,10 @@ Some benefits:
 ###### Updating all packages and dependencies
 
 ```bash
-# C2S/CIS: CCE-26895-3 (High)
-
 yum update
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_security_patches_up_to_date">CCE-26895-3 (High)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_security_patches_up_to_date">C2S/CIS: CCE-26895-3 (High)</a></sup>
 
 #### Comments
 
@@ -114,8 +102,6 @@ The best protection against vulnerable software is running less software.
 
 ###### Remove or disable unnecessary services
 
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_group_r_services">CCE-27274-0 (unknown)</a></code>
-
 ```bash
 # C2S/CIS: CCE-27274-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
 yum remove -y rsh
@@ -123,9 +109,7 @@ yum remove -y rsh
 systemctl disable rlogin.socket
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="">CCE-27274-0 (unknown)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_group_r_services">C2S/CIS: CCE-27274-0 (unknown)</a></sup>
 
 #### Comments
 

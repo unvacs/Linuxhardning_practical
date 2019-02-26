@@ -32,15 +32,11 @@ This is the easiest way to gain unauthorised access to a Linux system is to boot
 ###### Authentication for single user mode
 
 ```bash
-# C2S/CIS: CCE-27287-2 (Medium)
-
 # Edit /usr/lib/systemd/system/rescue.service:
 ExecStart=-/bin/sh -c "/usr/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_require_singleuser_auth">CCE-27287-2 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_require_singleuser_auth">C2S/CIS: CCE-27287-2 (Medium)</a></sup>
 
 #### Comments
 
@@ -63,15 +59,11 @@ When a user logs into a Unix account, the system configures the user's session b
 A misconfigured `umask` value could result in files with excessive permissions that can be read or written to by unauthorized users.
 
 ```bash
-# C2S/CIS: CCE-80202-5 (unknown), CCE-80204-1 (unknown)
-
-# Edit /etc/profile and /etc/bashrc
+# Edit /etc/profile and /etc/bashrc:
 umask 027
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_bashrc">CCE-80202-5 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_profile">CCE-80204-1 (unknown)</a></code>
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_bashrc">C2S/CIS: CCE-80202-5 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_profile">C2S/CIS: CCE-80204-1 (unknown)</a></code>
 
 #### Comments
 
@@ -111,9 +103,7 @@ You are accessing a U.S. Government (USG) Information System (IS) that is provid
 -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_banner_etc_issue">CCE-27303-7 (Medium)</a></code>
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_banner_etc_issue">C2S/CIS: CCE-27303-7 (Medium)</a></code>
 
 #### Comments
 
@@ -122,7 +112,7 @@ Personally, I use shorter banners on my systems (from [Cisco Security Baseline](
 ```
 UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED
  You must have explicit, authorized permission to access or configure this device.
- Unauthorized attempts and actions to access or use this system may result in civil and/or 
+ Unauthorized attempts and actions to access or use this system may result in civil and/or
 criminal penalties.
  All activities performed on this device are logged and monitored.
 ```
@@ -157,8 +147,6 @@ Disabling inactive accounts ensures that accounts which may not have been respon
 ###### Set password expiration
 
 ```bash
-# C2S/CIS: CCE-26486-1 (unknown), CCE-27002-5 (Medium), CCE-27051-2 (Medium)
-
 # Edit /etc/login.defs and set password warning age:
 PASS_WARN_AGE 7
 
@@ -169,18 +157,18 @@ PASS_MIN_DAYS 7
 PASS_MAX_DAYS 90
 ```
 
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">C2S/CIS: CCE-26486-1 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">C2S/CIS: CCE-27002-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">C2S/CIS: CCE-27051-2 (Medium)</a></code>
+
 ###### Set account expiration
 
 ```bash
-# C2S/CIS: CCE-27355-7 (Medium)
-
-# Edit /etc/default/useradd
+# Edit /etc/default/useradd:
 INACTIVE=30
 ```
 
 #### Policies
 
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-26486-1 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-27002-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">CCE-27051-2 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_account_disable_post_pw_expiration">CCE-27355-7 (Medium)</a></code>
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_account_disable_post_pw_expiration">C2S/CIS: CCE-27355-7 (Medium)</a></code>
 
 #### Comments
 
@@ -198,7 +186,7 @@ chage -M 90 -m 7 -W 7 -I 30 <username>
 
 #### Rationale
 
-Direct root logins should be allowed only for emergency use. In normal situations, the administrator should access the system via a unique unprivileged account, and then use `su` or `sudo` to execute privileged commands. 
+Direct root logins should be allowed only for emergency use. In normal situations, the administrator should access the system via a unique unprivileged account, and then use `su` or `sudo` to execute privileged commands.
 
 #### Solution
 
@@ -207,20 +195,20 @@ Direct root logins should be allowed only for emergency use. In normal situation
 Multiple accounts with a UID of 0 afford more opportunity for potential intruders to guess a password for a privileged account.
 
 ```bash
-# C2S/CIS: CCE-27175-9 (High)
-
 awk -F: '$3 == 0 && $1 != "root" { print $1 }' /etc/passwd | xargs passwd -l
 ```
+
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_no_uid_except_zero">C2S/CIS: CCE-27175-9 (High)</a></code>
 
 ###### Protect direct root logins
 
 Disabling direct root logins ensures proper accountability and multifactor authentication to privileged accounts.
 
 ```bash
-# C2S/CIS: CCE-27294-8 (Medium)
-
 echo > /etc/securetty
 ```
+
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_direct_root_logins">C2S/CIS: CCE-27294-8 (Medium)</a></code>
 
 ###### Protect direct root logins
 
@@ -229,14 +217,10 @@ Ensuring shells are not given to system accounts upon login makes it more diffic
   > Do not perform the steps in this section on the root account.
 
 ```bash
-# C2S/CIS: CCE-26448-1 (Medium)
-
 usermod -s /sbin/nologin SYSACCT
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_no_uid_except_zero">CCE-27175-9 (High)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_direct_root_logins">CCE-27294-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_shelllogin_for_systemaccounts">CCE-26448-1 (Medium)</a></code>
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_shelllogin_for_systemaccounts">C2S/CIS: CCE-26448-1 (Medium)</a></code>
 
 #### Comments
 

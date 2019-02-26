@@ -39,14 +39,10 @@ Currently more used is SHA-512 based hash (`sha512crypt`), which is similar in s
 ###### Set properly password hashes in /etc/shadow
 
 ```bash
-# C2S/CIS: CCE-27104-9 (Medium)
-
 password sufficient pam_unix.so sha512 shadow nullok try_first_pass use_authtok
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_set_password_hashing_algorithm_systemauth">CCE-27104-9 (Medium)</a></code>
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_set_password_hashing_algorithm_systemauth">C2S/CIS: CCE-27104-9 (Medium)</a></code>
 
 #### Useful resources
 
@@ -67,21 +63,17 @@ This option provides the capability to lock out user accounts after a number of 
 Edit `AUTH` and `ACCOUNT` (for the last parameter) section of both `/etc/pam.d/system-auth` and `/etc/pam.d/password-auth`:
 
 ```bash
-# C2S/CIS: CCE-26884-7 (Medium), CCE-27350-8 (Medium)
-
-# Add the following line immediately before the pam_unix.so
+# Add the following line immediately before the pam_unix.so:
 auth required pam_faillock.so preauth silent deny=5 unlock_time=900 fail_interval=900
 
-# Add the following line immediately after the pam_unix.so
+# Add the following line immediately after the pam_unix.so:
 auth [default=die] pam_faillock.so authfail deny=5 unlock_time=900 fail_interval=900
 
-# Add the following line immediately before the pam_unix.so
+# Add the following line immediately before the pam_unix.so:
 account required pam_faillock.so
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_unlock_time">CCE-26884-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_deny">CCE-27350-8 (Medium)</a></code>
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_unlock_time">C2S/CIS: CCE-26884-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_deny">C2S/CIS: CCE-27350-8 (Medium)</a></code>
 
 #### Comments
 
@@ -114,8 +106,6 @@ Password history policy will set how often an old password can be reused so do n
 Edit `pam_unix.so` or `pam_pwhistory.so` lines in `/etc/pam.d/system-auth`:
 
 ```bash
-# C2S/CIS: CCE-26923-3 (Medium)
-
 # For the pam_unix.so:
 password sufficient pam_unix.so sha512 shadow nullok try_first_pass use_authtok remember=5
 
@@ -123,9 +113,7 @@ password sufficient pam_unix.so sha512 shadow nullok try_first_pass use_authtok 
 password required pam_pwhistory.so debug use_authtok remember=5
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_unix_remember">CCE-26923-3 (Medium)</a></code>
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_unix_remember">C2S/CIS: CCE-26923-3 (Medium)</a></code>
 
 #### Comments
 
@@ -172,35 +160,31 @@ Setting the password retry prompts that are permitted on a per-session basis to 
   > The DoD requirement is a maximum of 3 prompts per session.
 
 ```bash
-# C2S/CIS: CCE-27160-1 (Unknown)
-
 # Edit /etc/pam.d/system-auth:
 password requisite pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type=
 ```
 
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_unix_remember">C2S/CIS: CCE-27160-1 (Unknown)</a></code>
+
 ###### Set password minimum length
 
 ```bash
-# C2S/CIS: CCE-27293-0 (Medium)
-
 # Edit /etc/security/pwquality.conf:
 minlen = 14
 ```
 
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_minlen">C2S/CIS: CCE-27293-0 (Medium)</a></code>
+
 ###### Set password strength
 
 ```bash
-# C2S/CIS: CCE-27214-6 (Medium), CCE-27345-8 (Medium), CCE-27200-5 (Medium)
-
 # Edit /etc/security/pwquality.conf:
 dcredit = -1
 lcredit = -1
 ucredit = -1
 ```
 
-#### Policies
-
-<code>C2S/CIS: <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_minlen">CCE-27293-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_dcredit">CCE-27214-6 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_lcredit">CCE-27345-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_ucredit">CCE-27200-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_retry">CCE-27160-1 (Unknown)</a></code>
+<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_dcredit">C2S/CIS:CCE-27214-6 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_lcredit">C2S/CIS:CCE-27345-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_ucredit">C2S/CIS:CCE-27200-5 (Medium)</a></code>
 
 #### Comments
 
@@ -219,7 +203,7 @@ maxrepeat = 3
 If you want to check password strengths, you should use `cracklib-check`:
 
 ```bash
-cat > ~/passwd-test << __EOF__
+cat > ~/passwd.test << __EOF__
 for i in aaa password \$RANDOM \$(pwgen 12) ighu6zaivoomahPhah ; do
 
   echo -en "Check password: \$i\\n"
@@ -228,7 +212,7 @@ for i in aaa password \$RANDOM \$(pwgen 12) ighu6zaivoomahPhah ; do
 done
 __EOF__
 
-$ bash ~/passwd-test 
+$ bash ~/passwd-test
 Check password: aaa
 aaa: it is WAY too short
 Check password: password
