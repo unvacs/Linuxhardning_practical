@@ -17,8 +17,7 @@
 - **[Accounts and Access](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Account-and-Access)**
 - **[Permissions and Limits](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Permissions-and-Limits)**
 - **[PAM Module](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/PAM-Module)**
-- **[Auditd](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Auditd)**
-- **[SELinux](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/SELinux)**
+- **[Auditd and SELinux](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Auditd-and-SELinux)**
 - **[OpenSSH](#)**
 
 ### `Kernel Layer`
