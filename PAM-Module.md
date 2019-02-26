@@ -42,7 +42,7 @@ Currently more used is SHA-512 based hash (`sha512crypt`), which is similar in s
 password sufficient pam_unix.so sha512 shadow nullok try_first_pass use_authtok
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_set_password_hashing_algorithm_systemauth">C2S/CIS: CCE-27104-9 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_set_password_hashing_algorithm_systemauth">C2S/CIS: CCE-27104-9 (Medium)</a></sup>
 
 #### Useful resources
 
@@ -73,7 +73,7 @@ auth [default=die] pam_faillock.so authfail deny=5 unlock_time=900 fail_interval
 account required pam_faillock.so
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_unlock_time">C2S/CIS: CCE-26884-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_deny">C2S/CIS: CCE-27350-8 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_unlock_time">C2S/CIS: CCE-26884-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_passwords_pam_faillock_deny">C2S/CIS: CCE-27350-8 (Medium)</a></sup>
 
 #### Comments
 
@@ -113,7 +113,7 @@ password sufficient pam_unix.so sha512 shadow nullok try_first_pass use_authtok 
 password required pam_pwhistory.so debug use_authtok remember=5
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_unix_remember">C2S/CIS: CCE-26923-3 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_unix_remember">C2S/CIS: CCE-26923-3 (Medium)</a></sup>
 
 #### Comments
 
@@ -164,7 +164,7 @@ Setting the password retry prompts that are permitted on a per-session basis to 
 password requisite pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type=
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_unix_remember">C2S/CIS: CCE-27160-1 (Unknown)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_unix_remember">C2S/CIS: CCE-27160-1 (Unknown)</a></sup>
 
 ###### Set password minimum length
 
@@ -173,7 +173,7 @@ password requisite pam_pwquality.so try_first_pass local_users_only retry=3 auth
 minlen = 14
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_minlen">C2S/CIS: CCE-27293-0 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_minlen">C2S/CIS: CCE-27293-0 (Medium)</a></sup>
 
 ###### Set password strength
 
@@ -184,7 +184,7 @@ lcredit = -1
 ucredit = -1
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_dcredit">C2S/CIS:CCE-27214-6 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_lcredit">C2S/CIS:CCE-27345-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_ucredit">C2S/CIS:CCE-27200-5 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_dcredit">C2S/CIS:CCE-27214-6 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_lcredit">C2S/CIS:CCE-27345-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_pam_ucredit">C2S/CIS:CCE-27200-5 (Medium)</a></sup>
 
 #### Comments
 

@@ -31,14 +31,14 @@ chown root /etc/passwd
 chgrp root /etc/passwd
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_group">C2S/CIS: CCE-26949-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_passwd">C2S/CIS: CCE-26887-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_passwd">C2S/CIS: CCE-27138-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_passwd">C2S/CIS: CCE-26639-5 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_group">C2S/CIS: CCE-26949-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_passwd">C2S/CIS: CCE-26887-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_passwd">C2S/CIS: CCE-27138-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_passwd">C2S/CIS: CCE-26639-5 (Medium)</a></sup>
 
 ```bash
 chown root /etc/group
 chgrp root /etc/group
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_group">C2S/CIS: CCE-26933-2</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_group">C2S/CIS: CCE-27037-1 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_group">C2S/CIS: CCE-26933-2</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_group">C2S/CIS: CCE-27037-1 (Medium)</a></sup>
 
 ```bash
 chmod 0640 /etc/shadow
@@ -46,7 +46,7 @@ chown root /etc/shadow
 chgrp root /etc/shadow
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_shadow">C2S/CIS: CCE-27100-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_shadow">C2S/CIS: CCE-26795-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_shadow">C2S/CIS: CCE-27125-4 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_shadow">C2S/CIS: CCE-27100-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_shadow">C2S/CIS: CCE-26795-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_shadow">C2S/CIS: CCE-27125-4 (Medium)</a></sup>
 
 ```bash
 chmod 0000 /etc/gshadow
@@ -54,7 +54,7 @@ chown root /etc/gshadow
 chgrp root /etc/gshadow
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_gshadow">C2S/CIS: CCE-27162-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_gshadow">C2S/CIS: CCE-27161-9 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_gshadow">C2S/CIS: CCE-26840-9 (Medium)</a></a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_etc_gshadow">C2S/CIS: CCE-27162-7 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_etc_gshadow">C2S/CIS: CCE-27161-9 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_groupowner_etc_gshadow">C2S/CIS: CCE-26840-9 (Medium)</a></a></sup>
 
 #### Comments
 
@@ -72,7 +72,7 @@ find / -nouser
 find / -nogroup
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_files_unowned_by_user">C2S/CIS: CCE-80134-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_ungroupowned">C2S/CIS: CCE-80135-7 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_files_unowned_by_user">C2S/CIS: CCE-80134-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_ungroupowned">C2S/CIS: CCE-80135-7 (Medium)</a></sup>
 
 ###### Ensure no world-writable files exist
 
@@ -85,7 +85,7 @@ Data in world-writable files can be modified by any user on the system. In almos
 find / -perm -o+w
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_unauthorized_world_writable">C2S/CIS: CCE-80131-6 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_unauthorized_world_writable">C2S/CIS: CCE-80131-6 (Medium)</a></sup>
 
 ###### Verify that all world-writable directories have sticky bits set
 
@@ -96,7 +96,7 @@ Failing to set the sticky bit on public directories allows unauthorized users to
 df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_dir_perms_world_writable_sticky_bits">C2S/CIS: CCE-80130-8 (Unknown)</code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_dir_perms_world_writable_sticky_bits">C2S/CIS: CCE-80130-8 (Unknown)</sup>
 
 #### Useful resources
 
@@ -121,7 +121,7 @@ install hfs /bin/true
 install cramfs /bin/true
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_freevxfs_disabled">C2S/CIS: CCE-80138-1 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_udf_disabled">C2S/CIS: CCE-80143-1 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_squashfs_disabled">C2S/CIS: CCE-80142-3 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_hfsplus_disabled">C2S/CIS: CCE-80141-5 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_jffs2_disabled">C2S/CIS: CCE-80139-9 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_hfs_disabled">C2S/CIS: CCE-80140-7 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_cramfs_disabled">C2S/CIS: CCE-80137-3 (Low)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_freevxfs_disabled">C2S/CIS: CCE-80138-1 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_udf_disabled">C2S/CIS: CCE-80143-1 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_squashfs_disabled">C2S/CIS: CCE-80142-3 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_hfsplus_disabled">C2S/CIS: CCE-80141-5 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_jffs2_disabled">C2S/CIS: CCE-80139-9 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_hfs_disabled">C2S/CIS: CCE-80140-7 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_kernel_module_cramfs_disabled">C2S/CIS: CCE-80137-3 (Low)</a></sup>
 
 ```bash
 # And disable automounter:
@@ -130,7 +130,7 @@ systemctl disable autofs.service
 
 #### Policies
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_autofs_disabled">CCE-27498-5 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_autofs_disabled">CCE-27498-5 (Medium)</a></sup>
 
 #### Comments
 
@@ -170,7 +170,7 @@ fs.suid_dumpable = 0
 *     hard   core    0
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sysctl_fs_suid_dumpable">C2S/CIS: CCE-26900-1 (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_disable_users_coredumps">C2S/CIS: CCE-80169-6 (Unknown)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sysctl_fs_suid_dumpable">C2S/CIS: CCE-26900-1 (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_disable_users_coredumps">C2S/CIS: CCE-80169-6 (Unknown)</a></sup>
 
 ###### Enable ExecShield
 
@@ -190,7 +190,7 @@ It's designed to limit against:
 kernel.randomize_va_space = 2
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sysctl_kernel_exec_shield">C2S/CIS: CCE-27211-2 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sysctl_kernel_randomize_va_space">C2S/CIS: CCE-27127-0 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sysctl_kernel_exec_shield">C2S/CIS: CCE-27211-2 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sysctl_kernel_randomize_va_space">C2S/CIS: CCE-27127-0 (Medium)</a></sup>
 
 #### Comments
 

@@ -63,7 +63,7 @@ A misconfigured `umask` value could result in files with excessive permissions t
 umask 027
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_bashrc">C2S/CIS: CCE-80202-5 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_profile">C2S/CIS: CCE-80204-1 (unknown)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_bashrc">C2S/CIS: CCE-80202-5 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_umask_etc_profile">C2S/CIS: CCE-80204-1 (unknown)</a></sup>
 
 #### Comments
 
@@ -103,7 +103,7 @@ You are accessing a U.S. Government (USG) Information System (IS) that is provid
 -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_banner_etc_issue">C2S/CIS: CCE-27303-7 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_banner_etc_issue">C2S/CIS: CCE-27303-7 (Medium)</a></sup>
 
 #### Comments
 
@@ -157,7 +157,7 @@ PASS_MIN_DAYS 7
 PASS_MAX_DAYS 90
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">C2S/CIS: CCE-26486-1 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">C2S/CIS: CCE-27002-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">C2S/CIS: CCE-27051-2 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">C2S/CIS: CCE-26486-1 (unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">C2S/CIS: CCE-27002-5 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_password_warn_age_login_defs">C2S/CIS: CCE-27051-2 (Medium)</a></sup>
 
 ###### Set account expiration
 
@@ -168,7 +168,7 @@ INACTIVE=30
 
 #### Policies
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_account_disable_post_pw_expiration">C2S/CIS: CCE-27355-7 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_account_disable_post_pw_expiration">C2S/CIS: CCE-27355-7 (Medium)</a></sup>
 
 #### Comments
 
@@ -198,7 +198,7 @@ Multiple accounts with a UID of 0 afford more opportunity for potential intruder
 awk -F: '$3 == 0 && $1 != "root" { print $1 }' /etc/passwd | xargs passwd -l
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_no_uid_except_zero">C2S/CIS: CCE-27175-9 (High)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_accounts_no_uid_except_zero">C2S/CIS: CCE-27175-9 (High)</a></sup>
 
 ###### Protect direct root logins
 
@@ -208,7 +208,7 @@ Disabling direct root logins ensures proper accountability and multifactor authe
 echo > /etc/securetty
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_direct_root_logins">C2S/CIS: CCE-27294-8 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_direct_root_logins">C2S/CIS: CCE-27294-8 (Medium)</a></sup>
 
 ###### Protect direct root logins
 
@@ -220,7 +220,7 @@ Ensuring shells are not given to system accounts upon login makes it more diffic
 usermod -s /sbin/nologin SYSACCT
 ```
 
-<code><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_shelllogin_for_systemaccounts">C2S/CIS: CCE-26448-1 (Medium)</a></code>
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_shelllogin_for_systemaccounts">C2S/CIS: CCE-26448-1 (Medium)</a></sup>
 
 #### Comments
 
