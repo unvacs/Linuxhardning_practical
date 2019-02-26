@@ -128,8 +128,6 @@ install cramfs /bin/true
 systemctl disable autofs.service
 ```
 
-#### Policies
-
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_autofs_disabled">CCE-27498-5 (Medium)</a></sup>
 
 #### Comments
