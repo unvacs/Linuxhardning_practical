@@ -38,7 +38,7 @@ chmod 000 /usr/bin/*g++
 
 I don't think it adds much to security these days. Lot of people remove compilers because they can theoretically be used for exploits.
 
-In my opinion, if the attacker can get in to your server, he can get own tools in as well so removing things like compilers, and emacs, and junk like that doesn't add much to your overall security.
+In my opinion, if the attacker can get in to your server, he can get own tools in as well so removing things like compilers doesn't add much to your overall security.
 
 If you care about more control, you can create an additional group and add users to it:
 
