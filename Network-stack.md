@@ -17,7 +17,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Log Martian packets](#log-martian-packets)
   * [ICMP broadcast echo requests](#icmp-broadcast-echo-requests)
   * [IP forwarding](#ip-forwarding)
-  * [Sending ICMP redirects](#sending-icmp-redirect)
+  * [Sending ICMP redirects](#sending-icmp-redirects)
 
 ## Network stack
 
