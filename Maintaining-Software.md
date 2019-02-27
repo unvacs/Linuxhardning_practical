@@ -8,6 +8,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Package signatures](#package-signatures)
   * [Keep system updated](#keep-system-updated)
   * [Remove vulnerable software](#remove-vulnerable-software)
+  * [Enable important software](#enable-important-software)
 
 ## Maintaining Software
 
@@ -168,8 +169,197 @@ systemctl disable tftp.service
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_tftp_disabled">C2S/CIS: CCE-80212-4 (Medium)</a></sup>
 
+  > From C2S/CIS: _The xinetd service provides a dedicated listener service for some programs, which is no longer necessary for commonly-used network services._
+
+```bash
+systemctl disable xinetd.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_xinetd_disabled">C2S/CIS: CCE-27443-1 (Medium)</a></sup>
+
+  > From C2S/CIS: _The talk software presents a security risk as it uses unencrypted protocols for communications._
+
+```bash
+yum erase talk
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_package_talk_removed">C2S/CIS: CCE-27432-4 (Medium)</a></sup>
+
+  > From C2S/CIS: _The talk software presents a security risk as it uses unencrypted protocols for communications._
+
+```bash
+yum erase talk-server
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_package_talk-server_removed">C2S/CIS: CCE-27210-4 (Medium)</a></sup>
+
+  > From C2S/CIS: _Running FTP server software provides a network-based avenue of attack, and should be disabled if not needed. Furthermore, the FTP protocol is unencrypted and creates a risk of compromising sensitive information._
+
+```bash
+systemctl disable vsftpd.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_vsftpd_disabled">C2S/CIS: CCE-80244-7 (Unknown)</a></sup>
+
+  > From C2S/CIS: _X windows has a long history of security vulnerabilities and should not be installed unless approved and documented._
+
+```bash
+yum groupremove "X Window System"
+yum remove xorg-x11-server-common
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_crond_enabled">C2S/CIS: CCE-27218-7 (Medium)</a></sup>
+
 #### Comments
+
+The C2S/CIS standard also explains the following services. You should consider which ones are use. If they are not use on the local system then this service should be disabled.
+
+  > From C2S/CIS: _Running SNMP software provides a network-based avenue of attack, and should be disabled if not needed._
+
+```bash
+systemctl disable snmpd.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_snmpd_disabled">C2S/CIS: CCE-80274-4 (Unknown)</a></sup>
+
+  > From C2S/CIS: _All network services involve some risk of compromise due to implementation flaws and should be disabled if possible._
+
+```bash
+systemctl disable named.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_named_disabled">C2S/CIS: CCE-80325-4 (Unknown)</a></sup>
+
+  > From C2S/CIS: _Unnecessary packages should not be installed to decrease the attack surface of the system._
+
+```bash
+yum erase openldap-servers
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_package_openldap-servers_removed">C2S/CIS: CCE-80293-4 (Unknown)</a></sup>
+
+  > From C2S/CIS: _Running a Samba server provides a network-based avenue of attack, and should be disabled if not needed._
+
+```bash
+systemctl disable smb.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_smb_disabled">C2S/CIS: CCE-80277-7 (Unknown)</a></sup>
+
+  > From C2S/CIS: _Running web server software provides a network-based avenue of attack, and should be disabled if not needed._
+
+```bash
+systemctl disable httpd.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_httpd_disabled">C2S/CIS: CCE-80300-7 (Unknown)</a></sup>
+
+  > From C2S/CIS: _Although systems management and patching is extremely important to system security, management by a system outside the enterprise enclave is not desirable for some environments._
+
+```bash
+systemctl disable rhnsd.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_rhnsd_disabled">C2S/CIS: CCE-80269-4 (Unknown)</a></sup>
+
+  > From C2S/CIS: _Running proxy server software provides a network-based avenue of attack, and should be removed if not needed._
+
+```bash
+systemctl disable squid.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_squid_disabled">C2S/CIS: CCE-80285-0 (Unknown)</a></sup>
+
+  > From C2S/CIS: _Unmanaged or unintentionally activated DHCP servers may provide faulty information to clients, interfering with the operation of a legitimate site DHCP server if there is one._
+
+```bash
+systemctl disable dhcpd.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_dhcpd_disabled">C2S/CIS: CCE-80330-4 (Medium)</a></sup>
+
+  > From C2S/CIS: _Running an IMAP or POP3 server provides a network-based avenue of attack, and should be disabled if not needed._
+
+```bash
+systemctl disable dovecot.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_dhcpd_disabled">C2S/CIS: CCE-80294-2 (Unknown)</a></sup>
+
+  > From C2S/CIS: _All of these daemons (nfslock, rpcgssd, and rpcidmapd) run with elevated privileges, and many listen for network connections._
+
+```bash
+systemctl disable rpcbind.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_rpcbind_disabled">C2S/CIS: CCE-80230-6 (Medium)</a></sup>
+
+  > From C2S/CIS: _Unnecessary services should be disabled to decrease the attack surface of the system._
+
+```bash
+systemctl disable nfs.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_nfs_disabled">C2S/CIS: CCE-80237-1 (Unknown)</a></sup>
+
+  > From C2S/CIS: _Turn off unneeded services to reduce attack surface._
+
+```bash
+systemctl disable cups.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_cups_disabled">C2S/CIS: CCE-80282-7 (Unknown)</a></sup>
+
+  > From C2S/CIS: _Because the Avahi daemon service keeps an open network port, it is subject to network attacks. Its functionality is convenient but is only appropriate if the local network can be trusted._
+
+```bash
+systemctl disable avahi-daemon.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_avahi-daemon_disabled">C2S/CIS: CCE-80338-7 (Unknown)</a></sup>
 
 #### Useful resources
 
-- []()
+- [Which services do we really need?](https://www.tldp.org/HOWTO/Security-Quickstart-HOWTO/services.html)
+
+### Enable important software
+
+#### Rationale
+
+The best protection against vulnerable software is running less software.
+
+#### Solution
+
+###### Install tcp wrappers
+
+  > From C2S/CIS: _Due to its usage for maintenance and security-supporting tasks, enabling the cron daemon is essential._
+
+```bash
+systemctl enable crond.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_crond_enabled">C2S/CIS: CCE-27323-5 (Medium)</a></sup>
+
+  > From C2S/CIS: _Access control methods provide the ability to enhance system security posture by restricting services and known good IP addresses and address ranges._
+
+```bash
+yum install tcp_wrappers
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_package_tcp_wrappers_installed">C2S/CIS: CCE-27361-5 (Medium)</a></sup>
+
+###### Enable chronyd/ntpd
+
+  > From C2S/CIS: _Synchronizing time is essential for authentication services such as Kerberos, but it is also important for maintaining accurate logs and auditing possible security breaches. The chronyd and ntpd NTP daemons offer all of the functionality of ntpdate, which is now deprecated._
+
+```bash
+systemctl enable chronyd
+# or
+systemctl enable ntpd
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_chronyd_or_ntpd_enabled">C2S/CIS: CCE-27444-9 (Medium)</a></sup>
+
+#### Useful resources
+
+- [Comparison of NTP implementations](https://chrony.tuxfamily.org/comparison.html)
