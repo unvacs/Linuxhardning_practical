@@ -34,6 +34,9 @@ It is generally recommended wherever entropy is used heavily to supply additiona
 Haveged was created to remedy low-entropy conditions in the Linux random device that can occur under some workloads, especially on headless servers.
 
 ```bash
+# Add haveged daemon to autostart
+systemctl enable haveged
+
 # For temporary change:
 echo "1024" > /proc/sys/kernel/random/write_wakeup_threshold
 
