@@ -43,7 +43,7 @@
 
 - **[NTP](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/NTP)**
 - **[Cron](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Cron)**
-- **[GnuPG 2](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/GnuPG 2)**
+- **[GnuPG 2](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/GnuPG-2)**
 
 ### `Other Services`
 
