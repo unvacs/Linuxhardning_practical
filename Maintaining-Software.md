@@ -222,6 +222,8 @@ systemctl disable avahi-daemon.service
 
 The C2S/CIS standard also explains the following services. You should consider which ones are use. If they are not use on the local system then this service should be disabled.
 
+Only reason to have some of these services might be some kind of dependency issue.
+
   > From C2S/CIS: _Running SNMP software provides a network-based avenue of attack, and should be disabled if not needed._
 
 ```bash
