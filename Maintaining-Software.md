@@ -103,13 +103,56 @@ The best protection against vulnerable software is running less software.
 ###### Remove or disable unnecessary services
 
 ```bash
-# C2S/CIS: CCE-27274-0 (unknown), CCE-80154-8 (unknown), CCE-80152-2 (unknown)
 yum remove -y rsh
-
-systemctl disable rlogin.socket
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_group_r_services">C2S/CIS: CCE-27274-0 (unknown)</a></sup>
+
+```bash
+systemctl disable rlogin.socket
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_rlogin_disabled">C2S/CIS: CCE-27336-7 (High)</a></sup>
+
+```bash
+systemctl disable rexec.socket
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_rexec_disabled">C2S/CIS: CCE-27408-4 (High)</a></sup>
+
+```bash
+systemctl disable rsh.socket
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_rsh_disabled">C2S/CIS: CCE-27337-5 (High)</a></sup>
+
+```bash
+rm /etc/hosts.equiv
+rm ~/.rhosts
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_rsh_trust_files">C2S/CIS: CCE-27406-8 (High)</a></sup>
+
+```bash
+# Edit /etc/xinetd.d/telnet:
+disable = yes
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_telnet_disabled">C2S/CIS: CCE-27401-9 (High)</a></sup>
+
+```bash
+yum erase ypserv
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_package_ypserv_removed">C2S/CIS: CCE-27399-5 (High)</a></sup>
+
+  > From RHEL7 Guide: Disabling the tftp service ensures the system is not acting as a TFTP server, which does not provide encryption or authentication.
+
+```bash
+yum erase ypserv
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_tftp_disabled">C2S/CIS: CCE-80212-4 (Medium)</a></sup>
 
 #### Comments
 
