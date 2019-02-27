@@ -7,7 +7,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 - **[Maintaining Software](#maintaining-software)**
   * [Package signatures](#package-signatures)
   * [Keep system updated](#keep-system-updated)
-  * [Remove vulnerable software](#remove-vulnerable-software)
+  * [Disable vulnerable software](#disable-vulnerable-software)
   * [Enable important software](#enable-important-software)
 
 ## Maintaining Software
@@ -93,7 +93,7 @@ yum history undo <id>
 - [How to use yum history to roll back an update in Red Hat Enterprise Linux 6 , 7?](https://access.redhat.com/solutions/64069) <sup>[Official]</sup>
 - [In CentOS, what is the difference between yum update and yum upgrade?](https://unix.stackexchange.com/questions/55777/in-centos-what-is-the-difference-between-yum-update-and-yum-upgrade)
 
-### Remove vulnerable software
+### Disable vulnerable software
 
 #### Rationale
 
