@@ -27,25 +27,23 @@
 
 ### `Extended Layer`
 
-- **[Backups](#)**
 - **[Entropy](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Entropy)**
-- **[Compilers](#)**
-- **[Devices](#)**
-- **[Notifications](#)**
+- **[Compilers](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Compilers)**
+- **[Devices](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Devices)**
 
 ### `Logging & Auditing`
 
-- **[Syslog](#)**
-- **[OSSEC](#)**
-- **[Tiger](#)**
-- **[Aide](#)**
-- **[Logwatch](#)**
+- **[Syslog](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Syslog)**
+- **[OSSEC](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/OSSEC)**
+- **[Tiger](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Tiger)**
+- **[Aide](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Aide)**
+- **[Logwatch](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Logwatch)**
 
 ### `System Services`
 
-- **[NTP](#)**
-- **[Cron](#)**
-- **[GnuPG 2](#)**
+- **[NTP](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/NTP)**
+- **[Cron](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Cron)**
+- **[GnuPG 2](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/GnuPG 2)**
 
 ### `Other Services`
 
