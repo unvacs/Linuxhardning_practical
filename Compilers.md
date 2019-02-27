@@ -44,6 +44,7 @@ If you care about more control, you can create an additional group and add users
 
 ```bash
 groupadd compilers
+usermod -a -G compilers <username>
 
 for i in byacc yacc bcc kgcc cc gcc "*c++" "*g++" ; do
 
