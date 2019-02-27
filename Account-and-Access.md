@@ -166,8 +166,6 @@ PASS_MAX_DAYS 90
 INACTIVE=30
 ```
 
-#### Policies
-
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_account_disable_post_pw_expiration">C2S/CIS: CCE-27355-7 (Medium)</a></sup>
 
 #### Comments
