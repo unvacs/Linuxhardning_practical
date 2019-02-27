@@ -210,6 +210,14 @@ yum remove xorg-x11-server-common
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_crond_enabled">C2S/CIS: CCE-27218-7 (Medium)</a></sup>
 
+  > From C2S/CIS: _Because the Avahi daemon service keeps an open network port, it is subject to network attacks. Its functionality is convenient but is only appropriate if the local network can be trusted._
+
+```bash
+systemctl disable avahi-daemon.service
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_avahi-daemon_disabled">C2S/CIS: CCE-80338-7 (Unknown)</a></sup>
+
 #### Comments
 
 The C2S/CIS standard also explains the following services. You should consider which ones are use. If they are not use on the local system then this service should be disabled.
@@ -309,14 +317,6 @@ systemctl disable cups.service
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_cups_disabled">C2S/CIS: CCE-80282-7 (Unknown)</a></sup>
-
-  > From C2S/CIS: _Because the Avahi daemon service keeps an open network port, it is subject to network attacks. Its functionality is convenient but is only appropriate if the local network can be trusted._
-
-```bash
-systemctl disable avahi-daemon.service
-```
-
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_avahi-daemon_disabled">C2S/CIS: CCE-80338-7 (Unknown)</a></sup>
 
 #### Useful resources
 
