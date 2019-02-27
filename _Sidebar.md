@@ -22,8 +22,8 @@
 
 ### `Kernel Layer`
 
-- **[System stack](#)**
-- **[Network stack](#)**
+- **[System stack](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/System-stack)**
+- **[Network stack](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Network-stack)**
 
 ### `Extended Layer`
 
