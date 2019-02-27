@@ -14,6 +14,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Protocol version](#protocol-version)
   * [Support for .rhosts](#support-for-rhosts)
   * [Log levels](#log-levels)
+  * [Remote X11 connections](#remote-x11-connections)
   * [Validated ciphers](#validated-ciphers)
   * [Authentication](#authentication)
   * [Root login](#root-login)
@@ -181,6 +182,22 @@ Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-c
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sshd_use_approved_ciphers">C2S/CIS: CCE-27295-5 (High)</a></sup>
+
+### Remote X11 connections
+
+#### Rationale
+
+By default, remote X11 connections are not encrypted when initiated by users. Open X displays allow an attacker to capture keystrokes and to execute commands remotely.
+
+#### Solution
+
+###### Enable encrypted X11 forwarding
+
+```bash
+X11Forwarding yes
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sshd_enable_x11_forwarding">C2S/CIS: CCE-80226-4 (High)</a></sup>
 
 ### Authentication
 
