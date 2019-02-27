@@ -102,11 +102,15 @@ The best protection against vulnerable software is running less software.
 
 ###### Remove or disable unnecessary services
 
+  > From C2S/CIS: _These legacy clients contain numerous security exposures and have been replaced with the more secure SSH package. Removing the rsh package removes the clients for rsh,rcp, and rlogin._
+
 ```bash
-yum remove -y rsh
+yum remove rsh
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_group_r_services">C2S/CIS: CCE-27274-0 (unknown)</a></sup>
+
+  > From C2S/CIS: _The rlogin service uses unencrypted network communications, which means that data from the login session, including passwords and all other information transmitted during the session, can be stolen by eavesdroppers on the network._
 
 ```bash
 systemctl disable rlogin.socket
@@ -114,17 +118,23 @@ systemctl disable rlogin.socket
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_rlogin_disabled">C2S/CIS: CCE-27336-7 (High)</a></sup>
 
+  > From C2S/CIS: _The rexec service uses unencrypted network communications, which means that data from the login session, including passwords and all other information transmitted during the session, can be stolen by eavesdroppers on the network._
+
 ```bash
 systemctl disable rexec.socket
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_rexec_disabled">C2S/CIS: CCE-27408-4 (High)</a></sup>
 
+  > From C2S/CIS: _The rsh service uses unencrypted network communications, which means that data from the login session, including passwords and all other information transmitted during the session, can be stolen by eavesdroppers on the network._
+
 ```bash
 systemctl disable rsh.socket
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_rsh_disabled">C2S/CIS: CCE-27337-5 (High)</a></sup>
+
+  > From C2S/CIS: _Trust files are convenient, but when used in conjunction with the R-services, they can allow unauthenticated access to a system._
 
 ```bash
 rm /etc/hosts.equiv
@@ -133,6 +143,8 @@ rm ~/.rhosts
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_no_rsh_trust_files">C2S/CIS: CCE-27406-8 (High)</a></sup>
 
+  > From C2S/CIS: _The telnet protocol uses unencrypted network communication, which means that data from the login session, including passwords and all other information transmitted during the session, can be stolen by eavesdroppers on the network._
+
 ```bash
 # Edit /etc/xinetd.d/telnet:
 disable = yes
@@ -140,16 +152,18 @@ disable = yes
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_telnet_disabled">C2S/CIS: CCE-27401-9 (High)</a></sup>
 
+  > From C2S/CIS: _The NIS service provides an unencrypted authentication service which does not provide for the confidentiality and integrity of user passwords or the remote session._
+
 ```bash
 yum erase ypserv
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_package_ypserv_removed">C2S/CIS: CCE-27399-5 (High)</a></sup>
 
-  > From RHEL7 Guide: Disabling the tftp service ensures the system is not acting as a TFTP server, which does not provide encryption or authentication.
+  > From C2S/CIS: _Disabling the tftp service ensures the system is not acting as a TFTP server, which does not provide encryption or authentication._
 
 ```bash
-yum erase ypserv
+systemctl disable tftp.service
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_service_tftp_disabled">C2S/CIS: CCE-80212-4 (Medium)</a></sup>
