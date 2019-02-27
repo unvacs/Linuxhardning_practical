@@ -226,7 +226,7 @@ PermitRootLogin no
 
 #### Comments
 
-The C2S/CIS standard also explain `[X11Forwarding]`(https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sshd_set_loglevel_info) parameter. In my opinion we should definitely **disable** X session.
+The C2S/CIS standard also explain [X11Forwarding](https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sshd_set_loglevel_info) parameter. In my opinion we should definitely **disable** X session.
 
 #### Useful resources
 
