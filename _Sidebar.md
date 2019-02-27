@@ -28,7 +28,7 @@
 ### `Extended Layer`
 
 - **[Backups](#)**
-- **[Entropy](#)**
+- **[Entropy](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Entropy)**
 - **[Compilers](#)**
 - **[Devices](#)**
 - **[Notifications](#)**
