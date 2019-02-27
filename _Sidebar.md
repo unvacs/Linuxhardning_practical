@@ -24,7 +24,7 @@
 
 - **[System stack](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/System-stack)**
 - **[Network stack](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Network-stack)**
-- **[Modules](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Modules)**
+- **[Kernel modules](https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Kernel-modules)**
 
 ### `Extended Layer`
 
