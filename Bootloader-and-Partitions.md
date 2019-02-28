@@ -20,7 +20,9 @@ Protection for the bootloader can prevent unauthorized users who have physical a
 
 #### Rationale
 
-You can set password for the bootloader for prevents users from entering single user mode, changing settings at boot time, access to the bootloader console, reset the root password, access to non-secure operating systems and the ability to disable SELinux.
+Password protection on the boot loader configuration ensures users with physical access cannot trivially alter important bootloader settings.
+
+It also prevents users from entering single user mode, changing settings at boot time, access to the bootloader console, reset the root password, access to non-secure operating systems and the ability to disable SELinux.
 
 #### Solution
 
@@ -69,7 +71,7 @@ grub2-mkconfig > /boot/grub2/grub.cfg
 
 #### Rationale
 
-To prevent local users from modifying the boot parameters and ensure its configuration file's permissions are set properly.
+Proper permissions ensure that only the root user can modify important boot parameters.
 
 #### Solution
 
@@ -108,6 +110,8 @@ Critical file systems should be separated into different partitions in ways that
 ### Separate disk partitions
 
 #### Rationale
+
+To ensure separation and protection of data, there are top-level system directories which should be placed on their own physical partition or logical volume.
 
 There are several advantages of having partitions on your hard drive:
 
