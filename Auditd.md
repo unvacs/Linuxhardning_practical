@@ -23,7 +23,9 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Auditd
 
-Software mintenance is extremely important to maintaining a secure system. It is vital to patch software as soon as it becomes available in order to prevent attackers from using known holes to infiltrate your system.
+The audit service provides substantial capabilities for recording system activities.
+
+By default, the service audits about SELinux AVC denials and certain types of security-relevant events such as system logins, account modifications, and authentication events performed by programs such as sudo.
 
 ### Max log file size
 
