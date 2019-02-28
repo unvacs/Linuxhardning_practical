@@ -199,7 +199,12 @@ tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
 UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 ```
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nodev">C2S/CIS: CCE-80149-8 (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nosuid">C2S/CIS: CCE-80151-4 (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_noexec">C2S/CIS: CCE-80150-6 (Unknown)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nodev">CCE-80149-8 (Unknown)</a></sup> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nodev">CCE-80149-8 (Unknown)</a></sup> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nosuid">CCE-80151-4 (Unknown)</a></sup> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_noexec">C2S/CIS: CCE-80150-6 (Unknown)</a></sup> |
 
 ###### /var/tmp
 
@@ -207,7 +212,11 @@ UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 UUID=<...>  /var/tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 ```
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_nodev">C2S/CIS: No-CCE (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_nosuid">C2S/CIS: No-CCE (Unknown)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_noexec">C2S/CIS: No-CCE (Unknown)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_nodev">No-CCE (Unknown)</a></sup> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_nosuid">C2S/CIS: No-CCE (Unknown)</a></sup> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_noexec">C2S/CIS: No-CCE (Unknown)</a></sup> |
 
 ###### /home
 
@@ -215,7 +224,9 @@ UUID=<...>  /var/tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 UUID=<...>  /home  ext4  defaults,nodev  1 2
 ```
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_home_nodev">C2S/CIS: No-CCE (Unknown)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_home_nodev">No-CCE (Unknown)</a></sup> |
 
 #### Comments
 
