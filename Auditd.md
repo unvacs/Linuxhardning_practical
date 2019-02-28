@@ -20,6 +20,11 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Ensure auditd collects file deletion events by user](#ensure-auditd-collects-file-deletion-events-by-user)
   * [Record information on the use of privileged commands](#record-information-on-the-use-of-privileged-commands)
   * [Record unauthorized access attempts to files](#record-unauthorized-access-attempts-to-files)
+  * [Ensure auditd collects system administrator actions](#ensure-auditd-collects-system-administrator-actions)
+  * [Record events that modify the system's network environment](#record-events-that-modify-the-systems-network-environment)
+  * [Make the auditd configuration immutable](#make-the-auditd-configuration-immutable)
+  * [Record attempts to alter process and session initiation information](#record-attempts-to-alter-process-and-session-initiation-information)
+  * [Record events that modify user/group information](#record-events-that-modify-user-group-information)
 
 ## Auditd
 
@@ -597,6 +602,133 @@ Unsuccessful attempts to access files could be an indicator of malicious activit
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_unsuccessful_file_modification_openat">C2S/CIS: CCE-80387-4 (Medium)</a></sup>
+
+#### Comments
+
+
+#### Useful resources
+
+- []()
+
+### Ensure auditd collects system administrator actions
+
+#### Rationale
+
+The actions taken by system administrators should be audited to keep a record of what was executed on the system, as well as, for accountability purposes.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-w /etc/sudoers -p wa -k actions
+-w /etc/sudoers.d/ -p wa -k actions
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_sysadmin_actions">C2S/CIS: CCE-27461-3 (Medium)</a></sup>
+
+#### Comments
+
+
+#### Useful resources
+
+- []()
+
+### Record events that modify the system's network environment
+
+#### Rationale
+
+The network environment should not be modified by anything other than administrator action. Any change to network parameters should be audited.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=ARCH -S sethostname,setdomainname -F key=audit_rules_networkconfig_modification
+-w /etc/issue -p wa -k audit_rules_networkconfig_modification
+-w /etc/issue.net -p wa -k audit_rules_networkconfig_modification
+-w /etc/hosts -p wa -k audit_rules_networkconfig_modification
+-w /etc/sysconfig/network -p wa -k audit_rules_networkconfig_modification
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_networkconfig_modification">C2S/CIS: CCE-27076-9 (Medium)</a></sup>
+
+#### Comments
+
+
+#### Useful resources
+
+- []()
+
+### Record attempts to alter process and session initiation information
+
+#### Rationale
+
+Manual editing of these files may indicate nefarious activity, such as an attacker attempting to remove evidence of an intrusion.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-w /var/run/utmp -p wa -k session
+-w /var/log/btmp -p wa -k session
+-w /var/log/wtmp -p wa -k session
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_session_events">C2S/CIS: CCE-27301-1 (Medium)</a></sup>
+
+#### Comments
+
+
+#### Useful resources
+
+- []()
+
+### Make the auditd configuration immutable
+
+#### Rationale
+
+Making the audit configuration immutable prevents accidental as well as malicious modification of the audit rules, although it may be problematic if legitimate changes are needed during system operation.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-e 2
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_immutable">C2S/CIS: CCE-27097-5 (Medium)</a></sup>
+
+#### Comments
+
+
+#### Useful resources
+
+- []()
+
+### Record events that modify user/group information
+
+#### Rationale
+
+In addition to auditing new user and group accounts, these watches will alert the system administrator(s) to any modifications. Any unexpected users, groups, or modifications should be investigated for legitimacy.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-w /etc/shadow -p wa -k audit_rules_usergroup_modification
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_usergroup_modification_shadow">C2S/CIS: CCE-80431-0 (Medium)</a></sup>
 
 #### Comments
 
