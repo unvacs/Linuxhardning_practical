@@ -215,13 +215,13 @@ First of all look at these options to understand how they works:
 
 - `nosuid` - specifies that the filesystem cannot contain set userid files. Preventing setuid binaries on a world-writable filesystem makes sense because there's a risk of root escalation or other awfulness there
 
-- `noexec` - this param might be useful for a partition that contains no binaries, like **/var**, or contains binaries you do not want to execute on your system (from partitions with `noexec`), or that cannot even be executed on your system
+- `noexec` - this param might be useful for a partition that contains no binaries, like `/var`, or contains binaries you do not want to execute on your system (from partitions with `noexec`), or that cannot even be executed on your system
 
 ##### Secure /boot directory
 
 In my opinion you should also secure the boot directory which contains important files related to the Linux kernel, so you need to make sure that this directory is locked down to read-only permissions.
 
-Add **ro** option and `nodev`, `nosuid` and `noexec` to `/etc/fstab` for **/boot** entry:
+Add **ro** option and `nodev`, `nosuid` and `noexec` to `/etc/fstab` for `/boot` entry:
 
 ```bash
 LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
@@ -236,15 +236,15 @@ LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
 
 C2S/CIS profile also talking about it. For me this configuration can be even better.
 
-On the Linux systems, the **/tmp** and **/var/tmp** locations are world-writable. Several daemons/applications use the **/tmp** or **/var/tmp** directories to temporarily store data, log information, or to share information between their sub-components. However, due to the shared nature of these directories, several attacks are possible, including:
+On the Linux systems, the `/tmp` and `/var/tmp` locations are world-writable. Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components. However, due to the shared nature of these directories, several attacks are possible, including:
 
 - Leaks of confidential data via secrets in file names
 - Race-condition attacks (TOCTOU) on the integrity of processes and data
 - Denial-of-Service (DoS) attacks based on race conditions and pre-allocating file/directory names
 
-As a rule of thumb, malicious applications usually write to **/tmp** and then attempt to run whatever was written. A way to prevent this is to mount **/tmp** on a separate partition with the options `nodev`, `nosuid` and `noexec` enabled.
+As a rule of thumb, malicious applications usually write to `/tmp` and then attempt to run whatever was written. A way to prevent this is to mount `/tmp` on a separate partition with the options `nodev`, `nosuid` and `noexec` enabled.
 
-This will deny binary execution from **/tmp**, disable any binary to be suid root, and disable any block devices from being created.
+This will deny binary execution from `/tmp`, disable any binary to be suid root, and disable any block devices from being created.
 
 **The first possible scenario is create symlink**
 
@@ -262,7 +262,7 @@ UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 
 **The second scenario is a bind mount**
 
-The storage location **/var/tmp** should be bind mounted to **/tmp**, as having multiple locations for temporary storage is not required:
+The storage location `/var/tmp` should be bind mounted to `/tmp`, as having multiple locations for temporary storage is not required:
 
 ```bash
 /tmp  /var/tmp  none  rw,nodev,nosuid,noexec,bind  0 0
