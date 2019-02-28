@@ -13,6 +13,12 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Record information on kernel module loading and unloading](#collects-information-on-kernel-module-loading-and-unloading)
   * [Record attempts to alter logon and logout events](#record-attempts-to-alter-logon-and-logout-events)
   * [Record attempts to alter time through stime](#record-attempts-to-alter-time-through-stime)
+  * [Record attempts to alter time through settimeofday](#record-attempts-to-alter-time-through-settimeofday)
+  * [Record attempts to alter the localtime file](#record-attempts-to-alter-the-localtime-file)
+  * [Record attempts to alter time through clock_settime](#record-attempts-to-alter-time-through-clock_settime)
+  * [Record attempts to alter time through adjtimex](#record-attempts-to-alter-time-through-adjtimex)
+  * [Record events that modify the system's discretionary access controls](#record-events-that-modify-the-systems-discretionary-access-controls)
+  * [Ensure auditd collects file deletion events by user](#ensure-auditd-collects-file-deletion-events-by-user)
 
 ## Auditd
 
@@ -329,6 +335,130 @@ The changing of file permissions could indicate that a user is attempting to gai
 ```
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_removexattr">C2S/CIS: CCE-27367-2 (Medium)</a></sup>
+
+###### fchownat
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S fchownat -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S fchownat -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fchownat">C2S/CIS: CCE-27387-0 (Medium)</a></sup>
+
+###### chmod
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S chmod -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S chmod -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_chmod">C2S/CIS: CCE-27339-1 (Medium)</a></sup>
+
+###### fsetxattr
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S fsetxattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S fsetxattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fsetxattr">C2S/CIS: CCE-27389-6 (Medium)</a></sup>
+
+###### fchmod
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S fchmod -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S fchmod -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fchmod">C2S/CIS: CCE-27393-8 (Medium)</a></sup>
+
+###### lsetxattr
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S lsetxattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S lsetxattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_lsetxattr">C2S/CIS: CCE-27280-7 (Medium)</a></sup>
+
+###### fremovexattr
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S fremovexattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S fremovexattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fremovexattr">C2S/CIS: CCE-27353-2 (Medium)</a></sup>
+
+###### lchown
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S lchown -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S lchown -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_lchown">C2S/CIS: CCE-27083-5 (Medium)</a></sup>
+
+###### fchmodat
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S fchmodat -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S fchmodat -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fchmodat">C2S/CIS: CCE-27388-8 (Medium)</a></sup>
+
+###### lremovexattr
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S lremovexattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b32 -S lremovexattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_lremovexattr">C2S/CIS: CCE-27410-0 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Ensure auditd collects file deletion events by user
+
+#### Rationale
+
+Auditing file deletions will create an audit trail for files that are removed from the system. The audit trail could aid in system troubleshooting, as well as, detecting malicious processes that attempt to delete log files to conceal their presence.
+
+#### Solution
+
+###### unlinkat
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=ARCH -S unlinkat -F auid>=1000 -F auid!=unset -F key=delete
+-a always,exit -F arch=ARCH -S unlinkat -F auid>=1000 -F auid!=unset -F key=delete
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_file_deletion_events_unlinkat">C2S/CIS: CCE-80662-0 (Medium)</a></sup>
+
+###### rename
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=ARCH -S rename -F auid>=1000 -F auid!=unset -F key=delete
+-a always,exit -F arch=ARCH -S rename -F auid>=1000 -F auid!=unset -F key=delete
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_file_deletion_events_rename">C2S/CIS: CCE-27206-2 (Medium)</a></sup>
 
 #### Comments
 
