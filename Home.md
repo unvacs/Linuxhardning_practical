@@ -4,7 +4,7 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ---
 
-  > Security is the fine art of doing the right things, even if they in itself don't always look to be having a big impact. It's always a balance between ease of use and protection.
+  > _Security is the fine art of doing the right things, even if they in itself don't always look to be having a big impact. It's always a balance between ease of use and protection._
 
 This guide use following [OpenSCAP](https://www.open-scap.org/) configurations:
 
