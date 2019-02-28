@@ -241,10 +241,6 @@ PermitRootLogin no
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sshd_disable_root_login">C2S/CIS: CCE-27445-6 (Medium)</a></sup>
 
-#### Comments
-
-The C2S/CIS standard also explain [X11Forwarding](https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_sshd_set_loglevel_info) parameter. In my opinion we should definitely **disable** X session.
-
 #### Useful resources
 
 - [Configuring OpenSSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-ssh-configuration) <sup>[Official]</sup>
