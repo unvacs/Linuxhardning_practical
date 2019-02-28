@@ -30,7 +30,9 @@ You can set password for the bootloader for prevents users from entering single 
 grub2-setpassword
 ```
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">C2S/CIS: CCE-27309-4 (High)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></sup> |
 
 ###### Update grub configuration
 
@@ -38,7 +40,9 @@ grub2-setpassword
 sed -i s/root/bootuser/g /etc/grub.d/01_users
 ```
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">C2S/CIS: CCE-27309-4 (High)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></sup> |
 
 ###### Regenerate grub configuration
 
@@ -46,7 +50,9 @@ sed -i s/root/bootuser/g /etc/grub.d/01_users
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">C2S/CIS: CCE-27309-4 (High)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></sup> |
 
 #### Comments
 
@@ -97,7 +103,9 @@ chmod og-rwx /etc/grub.conf
 chmod -R og-rwx /etc/grub.d
 ```
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg">C2S/CIS: CCE-27054-6 (Medium)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg">CCE-27054-6 (Medium)</a></sup> |
 
 ###### Set the owner and group on the bootloader config files
 
@@ -107,7 +115,9 @@ chown root:root /etc/grub.conf
 chown -R root:root /etc/grub.d
 ```
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">C2S/CIS: CCE-26860-7 (Medium)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">CCE-26860-7 (Medium)</a></sup> |
 
 #### Comments
 
@@ -141,7 +151,14 @@ C2S/CIS recommends that should be the following filesystems are mounted on a sep
 - `/var/log/audit`
 - `/var/log`
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_home">C2S/CIS: CCE-80144-9 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_tmp">C2S/CIS: Unknown (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var">C2S/CIS: CCE-26404-4 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_tmp">C2S/CIS: CCE-27173-4 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log_audit">C2S/CIS: CCE-26971-2 (Low)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log">C2S/CIS: CCE-26967-0 (Low)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_home">CCE-80144-9 (Low)</a> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_tmp">Unknown (Low)</a> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var">CCE-26404-4 (Low)</a> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_tmp">CCE-27173-4 (Low)</a> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log_audit">CCE-26971-2 (Low)</a> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_log">CCE-26967-0 (Low)</a></sup> |
 
 #### Comments
 
@@ -170,7 +187,11 @@ By default mount options are not focused on security. These options can be used 
 tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
 ```
 
-<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_noexec">C2S/CIS: CCE-80153-0 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nosuid">C2S/CIS: CCE-80154-8 (Medium)</a>; <a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nodev">C2S/CIS: CCE-80152-2 (Medium)</a></sup>
+| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| :--- | :--- |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_noexec">CCE-80153-0 (Medium)</a></sup> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nosuid">CCE-80154-8 (Medium)</a></sup> |
+| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nodev">CCE-80152-2 (Medium)</a></sup> |
 
 ###### /tmp
 
