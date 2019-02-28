@@ -2,4 +2,336 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ---
 
-### Table of Contents
+## Table of Contents
+
+- **[SELinux](#selinux)**
+- **[Auditd](#auditd)**
+  * [Max log file size](#max-log-file-size)
+  * [Notification on low disk space](#notification-on-low-disk-space)
+  * [Action on low disk space](#action-on-low-disk-space)
+  * [Action upon reaching maximum log size](#action-upon-reaching-maximum-log-size)
+  * [Record information on kernel module loading and unloading](#collects-information-on-kernel-module-loading-and-unloading)
+  * [Record attempts to alter logon and logout events](#record-attempts-to-alter-logon-and-logout-events)
+  * [Record attempts to alter time through stime](#record-attempts-to-alter-time-through-stime)
+
+## Auditd
+
+Software mintenance is extremely important to maintaining a secure system. It is vital to patch software as soon as it becomes available in order to prevent attackers from using known holes to infiltrate your system.
+
+### Max log file size
+
+#### Rationale
+
+The total storage for audit log files must be large enough to retain log information over the period required. This is a function of the maximum log file size and the number of logs retained.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Edit /etc/audit/auditd.conf:
+max_log_file = STOREMB
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_auditd_data_retention_max_log_file">C2S/CIS: CCE-27319-3 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Notification on low disk space
+
+#### Rationale
+
+Email sent to the root account is typically aliased to the administrators of the system, who can take appropriate action.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Edit /etc/audit/auditd.conf:
+action_mail_acct = root
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_auditd_data_retention_action_mail_acct">C2S/CIS: CCE-27394-6 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Action on low disk space
+
+#### Rationale
+
+Administrators should be made aware of an inability to record audit records. If a separate partition or logical volume of adequate size is used, running low on space for audit records should never occur.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Edit /etc/audit/auditd.conf:
+admin_space_left_action = ACTION
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_auditd_data_retention_admin_space_left_action">C2S/CIS: CCE-27370-6 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Action upon reaching maximum log size
+
+#### Rationale
+
+Automatically rotating logs (by setting this to rotate) minimizes the chances of the system unexpectedly running out of disk space by being overwhelmed with log data.
+
+However, for systems that must never discard log data, or which use external processes to transfer it and reclaim space, keep_logs can be employed.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Edit /etc/audit/auditd.conf:
+max_log_file_action = ACTION
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_auditd_data_retention_max_log_file_action">C2S/CIS: CCE-27231-0 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Collects information on kernel module loading and unloading
+
+#### Rationale
+
+The addition/removal of kernel modules can be used to alter the behavior of the kernel and potentially introduce malicious code into kernel space. It is important to have an audit trail of modules that have been introduced into the kernel.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-w /usr/sbin/insmod -p x -k modules
+-w /usr/sbin/rmmod -p x -k modules
+-w /usr/sbin/modprobe -p x -k modules
+
+-a always,exit -F arch=ARCH -S init_module,finit_module,create_module,delete_module -F key=modules
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_kernel_module_loading">C2S/CIS: CCE-27129-6 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Record attempts to alter logon and logout events
+
+#### Rationale
+
+Manual editing of these files may indicate nefarious activity, such as an attacker attempting to remove evidence of an intrusion.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-w /var/log/tallylog -p wa -k logins
+-w /var/run/faillock -p wa -k logins
+-w /var/log/lastlog -p wa -k logins
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_login_events">C2S/CIS: CCE-27204-7 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Record attempts to alter time through stime
+
+#### Rationale
+
+Arbitrary changes to the system time can be used to obfuscate nefarious activities in log files, as well as to confuse network services that are highly dependent upon an accurate system time (such as sshd). All changes to the system time should be audited.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S stime -F key=audit_time_rules
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_time_stime">C2S/CIS: CCE-27299-7 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Record attempts to alter time through settimeofday
+
+#### Rationale
+
+Arbitrary changes to the system time can be used to obfuscate nefarious activities in log files, as well as to confuse network services that are highly dependent upon an accurate system time (such as sshd). All changes to the system time should be audited.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S settimeofday -F key=audit_time_rules
+-a always,exit -F arch=b64 -S settimeofday -F key=audit_time_rules
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_time_settimeofday">C2S/CIS: CCE-27216-1 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Record attempts to alter the localtime file
+
+#### Rationale
+
+Arbitrary changes to the system time can be used to obfuscate nefarious activities in log files, as well as to confuse network services that are highly dependent upon an accurate system time (such as sshd). All changes to the system time should be audited.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-w /etc/localtime -p wa -k audit_time_rules
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_time_watch_localtime">C2S/CIS: CCE-27310-2 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Record attempts to alter time through clock_settime
+
+#### Rationale
+
+Arbitrary changes to the system time can be used to obfuscate nefarious activities in log files, as well as to confuse network services that are highly dependent upon an accurate system time (such as sshd). All changes to the system time should be audited.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S clock_settime -F a0=0x0 -F key=time-change
+-a always,exit -F arch=b64 -S clock_settime -F a0=0x0 -F key=time-change
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_time_clock_settime">C2S/CIS: CCE-27219-5 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Record attempts to alter time through adjtimex
+
+#### Rationale
+
+Arbitrary changes to the system time can be used to obfuscate nefarious activities in log files, as well as to confuse network services that are highly dependent upon an accurate system time (such as sshd). All changes to the system time should be audited.
+
+#### Solution
+
+###### Set the value
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S adjtimex -F key=audit_time_rules
+-a always,exit -F arch=b64 -S adjtimex -F key=audit_time_rules
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_time_adjtimex">C2S/CIS: CCE-27290-6 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
+
+### Record events that modify the system's discretionary access controls
+
+#### Rationale
+
+The changing of file permissions could indicate that a user is attempting to gain access to information that would otherwise be disallowed. Auditing DAC modifications can facilitate the identification of patterns of abuse among both authorized and unauthorized users.
+
+#### Solution
+
+###### fchown
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S fchown -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S fchown -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fchown">C2S/CIS: CCE-27356-5 (Medium)</a></sup>
+
+###### setxattr
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S setxattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S setxattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_setxattr">C2S/CIS: CCE-27213-8 (Medium)</a></sup>
+
+###### chown
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S chown -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S chown -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_chown">C2S/CIS: CCE-27364-9 (Medium)</a></sup>
+
+###### removexattr
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S removexattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+-a always,exit -F arch=b64 -S removexattr -F auid>=1000 -F auid!=unset -F key=perm_mod
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_removexattr">C2S/CIS: CCE-27367-2 (Medium)</a></sup>
+
+#### Comments
+
+#### Useful resources
+
+- []()
