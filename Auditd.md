@@ -4,7 +4,6 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
 
 ## Table of Contents
 
-- **[SELinux](#selinux)**
 - **[Auditd](#auditd)**
   * [Max log file size](#max-log-file-size)
   * [Notification on low disk space](#notification-on-low-disk-space)
@@ -19,6 +18,8 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [Record attempts to alter time through adjtimex](#record-attempts-to-alter-time-through-adjtimex)
   * [Record events that modify the system's discretionary access controls](#record-events-that-modify-the-systems-discretionary-access-controls)
   * [Ensure auditd collects file deletion events by user](#ensure-auditd-collects-file-deletion-events-by-user)
+  * [Record information on the use of privileged commands](#record-information-on-the-use-of-privileged-commands)
+  * [Record unauthorized access attempts to files](#record-unauthorized-access-attempts-to-files)
 
 ## Auditd
 
@@ -460,7 +461,143 @@ Auditing file deletions will create an audit trail for files that are removed fr
 
 <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_file_deletion_events_rename">C2S/CIS: CCE-27206-2 (Medium)</a></sup>
 
+###### renameat
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=ARCH -S renameat -F auid>=1000 -F auid!=unset -F key=delete
+-a always,exit -F arch=ARCH -S renameat -F auid>=1000 -F auid!=unset -F key=delete
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_file_deletion_events_renameat">C2S/CIS: CCE-80413-8 (Medium)</a></sup>
+
+###### unlink
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=ARCH -S unlink -F auid>=1000 -F auid!=unset -F key=delete
+-a always,exit -F arch=ARCH -S unlink -F auid>=1000 -F auid!=unset -F key=delete
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_file_deletion_events_unlink">C2S/CIS: CCE-27206-2 (Medium)</a></sup>
+
 #### Comments
+
+#### Useful resources
+
+- []()
+
+### Record information on the use of privileged commands
+
+#### Rationale
+
+Privileged programs are subject to escalation-of-privilege attacks, which attempt to subvert their normal role of providing some necessary but limited capability. As such, motivation exists to monitor these programs for unusual activity.
+
+#### Solution
+
+###### unlinkat
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F path=SETUID_PROG_PATH -F perm=x -F auid>=1000 -F auid!=unset -F key=privileged
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands">C2S/CIS: CCE-27437-3 (Medium)</a></sup>
+
+#### Comments
+
+To find the relevant `setuid` and `setgid` programs:
+
+```bash
+find / -xdev -type f -perm -4000 -o -type f -perm -2000 2>/dev/null
+```
+
+#### Useful resources
+
+- []()
+
+### Record unauthorized access attempts to files
+
+#### Rationale
+
+Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing these events could serve as evidence of potential system compromise.
+
+#### Solution
+
+###### truncate
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S truncate -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b32 -S truncate -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S truncate -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S truncate -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_unsuccessful_file_modification_truncate">C2S/CIS: CCE-80389-0 (Medium)</a></sup>
+
+###### creat
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S creat -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b32 -S creat -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S creat -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S creat -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_unsuccessful_file_modification_creat">C2S/CIS: CCE-80385-8 (Medium)</a></sup>
+
+###### open
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S open -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b32 -S open -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S open -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S open -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_unsuccessful_file_modification_open">C2S/CIS: CCE-80386-6 (Medium)</a></sup>
+
+###### open_by_handle_at
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_unsuccessful_file_modification_open_by_handle_at">C2S/CIS: CCE-80388-2 (Medium)</a></sup>
+
+###### ftruncate
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b32 -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S ftruncate -F exiu=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_unsuccessful_file_modification_ftruncate">C2S/CIS: CCE-80390-8 (Medium)</a></sup>
+
+###### openat
+
+```bash
+# Add to /etc/audit/rules.d/extended.rules
+-a always,exit -F arch=b32 -S openat -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b32 -S openat -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S openat -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S openat -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=access
+```
+
+<sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_audit_rules_unsuccessful_file_modification_openat">C2S/CIS: CCE-80387-4 (Medium)</a></sup>
+
+#### Comments
+
 
 #### Useful resources
 
