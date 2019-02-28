@@ -30,7 +30,7 @@ You can set password for the bootloader for prevents users from entering single 
 grub2-setpassword
 ```
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></sup> |
 
@@ -40,7 +40,7 @@ grub2-setpassword
 sed -i s/root/bootuser/g /etc/grub.d/01_users
 ```
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></sup> |
 
@@ -50,7 +50,7 @@ sed -i s/root/bootuser/g /etc/grub.d/01_users
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></sup> |
 
@@ -103,7 +103,7 @@ chmod og-rwx /etc/grub.conf
 chmod -R og-rwx /etc/grub.d
 ```
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_permissions_grub2_cfg">CCE-27054-6 (Medium)</a></sup> |
 
@@ -115,7 +115,7 @@ chown root:root /etc/grub.conf
 chown -R root:root /etc/grub.d
 ```
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_file_owner_grub2_cfg">CCE-26860-7 (Medium)</a></sup> |
 
@@ -151,7 +151,7 @@ C2S/CIS recommends that should be the following filesystems are mounted on a sep
 - `/var/log/audit`
 - `/var/log`
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_home">CCE-80144-9 (Low)</a> |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_partition_for_var_tmp">Unknown (Low)</a> |
@@ -187,7 +187,7 @@ By default mount options are not focused on security. These options can be used 
 tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
 ```
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_noexec">CCE-80153-0 (Medium)</a></sup> |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nosuid">CCE-80154-8 (Medium)</a></sup> |
@@ -199,7 +199,7 @@ tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec 0 0
 UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 ```
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nodev">CCE-80149-8 (Unknown)</a></sup> |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_tmp_nodev">CCE-80149-8 (Unknown)</a></sup> |
@@ -212,7 +212,7 @@ UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 UUID=<...>  /var/tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 ```
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_nodev">No-CCE (Unknown)</a></sup> |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_var_tmp_nosuid">C2S/CIS: No-CCE (Unknown)</a></sup> |
@@ -224,7 +224,7 @@ UUID=<...>  /var/tmp  ext4  defaults,nodev,nosuid,noexec  1 2
 UUID=<...>  /home  ext4  defaults,nodev  1 2
 ```
 
-| <sup>STANDARD</sup> | <sup>REFERENCE</sup> |
+| <sup>Policy</sup> | <sup>Reference</sup> |
 | :--- | :--- |
 | <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_mount_option_home_nodev">No-CCE (Unknown)</a></sup> |
 
