@@ -221,7 +221,7 @@ First of all look at these options to understand how they works:
 
 In my opinion you should also secure the boot directory which contains important files related to the Linux kernel, so you need to make sure that this directory is locked down to read-only permissions.
 
-Add **ro** option and `nodev`, `nosuid` and `noexec` to `/etc/fstab` for `/boot` entry:
+Add `ro`, `nodev`, `nosuid` and `noexec` to `/etc/fstab` for `/boot` entry:
 
 ```bash
 LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
