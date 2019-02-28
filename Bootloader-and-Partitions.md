@@ -24,29 +24,14 @@ You can set password for the bootloader for prevents users from entering single 
 
 #### Solution
 
-###### Generate password hash
-
 ```bash
+# Generate password hash:
 grub2-setpassword
-```
 
-| <sup>Policy</sup> | <sup>Reference</sup> |
-| :--- | :--- |
-| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></sup> |
-
-###### Update grub configuration
-
-```bash
+# Update grub configuration:
 sed -i s/root/bootuser/g /etc/grub.d/01_users
-```
 
-| <sup>Policy</sup> | <sup>Reference</sup> |
-| :--- | :--- |
-| <sup>C2S/CIS</sup> | <sup><a href="https://static.open-scap.org/ssg-guides/ssg-rhel7-guide-C2S.html#xccdf_org.ssgproject.content_rule_grub2_password">CCE-27309-4 (High)</a></sup> |
-
-###### Regenerate grub configuration
-
-```bash
+# Regenerate grub configuration:
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
@@ -58,27 +43,20 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
   > You should think about sense of setting the password for bootloader because it can be problematic for the production clusters.
 
-Also other solution is:
-
-###### Generate password hash
+Other solution is:
 
 ```bash
+# Generate password hash:
 grub2-mkpasswd-pbkdf2
-```
 
-###### Update grub configuration
-
-```bash
+# Update grub configuration:
 cat > /etc/grub.d/01_hash << __EOF__
 set superusers="user"
 password_pbkdf2 user
 grub.pbkdf2.sha512.<hash> # rest of your password hash
 __EOF__
-```
 
-###### Regenerate grub configuration
-
-```bash
+# Regenerate grub configuration:
 grub2-mkconfig > /boot/grub2/grub.cfg
 ```
 
