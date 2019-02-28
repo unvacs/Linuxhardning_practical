@@ -314,13 +314,17 @@ tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1770,uid=root,gid
 
 ##### Secure /proc filesystem
 
-The proc pseudo-filesystem `/proc` should be mounted with `hidepid`. When setting `hidepid` to **2**, directories entries in `/proc` will hidden.
+The proc pseudo-filesystem can be mounted with `hidepid`. With this option users are only able too see their own processes without information about other processes.
+
+When setting `hidepid` to **2** (0 gives you the default behaviour), directories entries in `/proc` will hidden:
 
 ```bash
 proc  /proc  proc  defaults,hidepid=2  0 0
 ```
 
-  > Some of the services/programs operate incorrectly when the `hidepid` parameter is set, e.g. Nagios checks.
+  > Some of the services/programs operate incorrectly when the `hidepid` parameter is set, e.g. Nagios checks which depends on seeing all the processes.
+
+An alternative to the above is to create a group (e.g **pid_access**) and tells the kernel that users in that group (and root) can still see the information.
 
 ##### Swap partition
 
