@@ -18,6 +18,8 @@ You can [file an issue](https://github.com/trimstray/the-practical-linux-hardeni
   * [ICMP broadcast echo requests](#icmp-broadcast-echo-requests)
   * [IP forwarding](#ip-forwarding)
   * [Sending ICMP redirects](#sending-icmp-redirects)
+  * [Keep sockets in FIN-WAIT-2 state](#keep-sockets-in-fin-wait-2-state)
+  * [Keepalive packets to keep an connection alive](#keepalive-packets-to-keep-an-connection-alive)
 
 ## Network stack
 
@@ -369,3 +371,63 @@ net.ipv4.conf.all.send_redirects = 0
 #### Useful resources
 
 - []()
+
+### Keep sockets in FIN-WAIT-2 state
+
+  > Not available from C2S/CIS standard.
+
+#### Rationale
+
+The connection is being kept around so that any delayed packets can be matched to the connection and handled appropriately.
+
+Decreasing this value can avoid some DDoS attacks or other problems (e.g. memory consuming) that arose from getting huge amounts of connections.
+
+#### Solution
+
+###### On all interfaces
+
+```bash
+# Add to /etc/sysctl.d/network-stack.conf
+net.ipv4.tcp_fin_timeout = 30
+```
+
+<sup><a href="https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt">Sysctl Documentation</a></sup>
+
+#### Comments
+
+If you set too large value to `tcp_fin_timeout`, the system may become out of port, file-descripter and memory. If you set too small value, the system may leak delayed packets.
+
+#### Useful resources
+
+- []()
+
+### Keepalive packets to keep an connection alive
+
+  > Not available from C2S/CIS standard.
+
+#### Rationale
+
+TCP keepalive keeps the connection open in case an error has happened. This kernel feature ensures that a TCP connection will be kept active by simulating traffic on it so it is not marked by the communication layer as inactive.
+
+#### Solution
+
+###### On all interfaces
+
+```bash
+# Add to /etc/sysctl.d/network-stack.conf
+net.ipv4.tcp_keepalive_time = 180
+net.ipv4.tcp_keepalive_intvl = 10
+net.ipv4.tcp_keepalive_probes = 3
+```
+
+<sup><a href="https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt">Sysctl Documentation</a></sup>
+
+#### Comments
+
+Remember that keepalive support, even if configured in the kernel, is not the default behavior in Linux. Programs must request keepalive control for their sockets using the setsockopt interface.
+
+High values can be especially harmful for expensive connections such as database connections.
+
+#### Useful resources
+
+- [Custom Configuration of TCP Socket Keep-Alive Timeouts](http://coryklein.com/tcp/2015/11/25/custom-configuration-of-tcp-socket-keep-alive-timeouts.html)
