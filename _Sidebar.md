@@ -1,5 +1,6 @@
 ## Basic information
 
+  * [GH Page](https://trimstray.github.io/the-practical-linux-hardening-guide)
   * [GH Repository](https://github.com/trimstray/the-practical-linux-hardening-guide)
   * [Introduction](https://github.com/trimstray/the-practical-linux-hardening-guide#introduction)
   * [Policy Compliance](https://github.com/trimstray/the-practical-linux-hardening-guide#policy-compliance)
